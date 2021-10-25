@@ -1,13 +1,19 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <div class="side-menu">
+      <sidebar-menu></sidebar-menu>
+    </div>
+    <div class="main-page">
+      <router-view />
+    </div>
   </div>
 </template>
 
 <script>
+import SidebarMenu from './components/sidebar/SidebarMenu.vue'
 export default {
-  name: 'App'
+  name: 'App',
+  components: { SidebarMenu }
 }
 </script>
 
@@ -17,7 +23,15 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #000000;
 }
+
+/* .side-menu{
+  float: left;
+  width: 13%;
+}
+.main-page{
+  float: right;
+  width: 60%;
+} */
 </style>
