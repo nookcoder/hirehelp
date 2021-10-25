@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <Header/>
+    <PostingEnrollment/>
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
+import PostingEnrollment from './components/PostingEnrollment.vue'
 export default {
-  components: { Header },
+  components: { PostingEnrollment },
   name: 'App'
 }
 </script>
