@@ -1,6 +1,6 @@
 <template>
     <div>
-    <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+    <b-form @submit="onSubmit" @reset="onReset"  v-if="showSetting">
         <h2>채용 프로세스 설정</h2>
         <div class="process-select">
             <span>채용 단계 : </span>
@@ -65,12 +65,12 @@
 <script>
 export default {
     name:"ProcessSetting",
-    components:{
-    },
+    props: ['showSetting'],
     methods:{
         onSubmit(event) {
         event.preventDefault()
-        this.show = false
+        this.showSetting = false
+        this.$emit("changeShowSetting",this.showSetting)
         },
         onReset(event) {
         event.preventDefault()
@@ -82,7 +82,7 @@ export default {
         this.process.process4 = ''
         this.process.category = ''
         this.process.career = ''
-        
+
         this.show = false
         this.$nextTick(() => {
             this.show = true
@@ -91,6 +91,7 @@ export default {
     },
     data(){
         return{
+
             process:{
                 step:'',
                 process1:'',

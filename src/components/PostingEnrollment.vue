@@ -5,16 +5,36 @@
         <b-nav-item>2. 채용 공고 작성</b-nav-item>
         <b-nav-item>3. 채용 공고 확인</b-nav-item>
       </b-nav>
-      <process-setting></process-setting>
+      <ProcessSetting :show-setting="show.setting" @changeShowSetting="updataShow"/>
     </div>
-</template>
+</template> 
 
 <script>
 import ProcessSetting from './posting/ProcessSetting.vue'
 export default {
   name:"PostingEnrollment",
   components:{
-    "process-setting":ProcessSetting,
+    ProcessSetting,
+  },
+  methods:{
+    updataSettingShow(variable){
+      this.show.setting = variable
+    },
+    updataWritingShow(variable){
+      this.show.writing = variable
+    },
+    updataCheckingShow(variable){
+      this.show.checking = variable
+    }
+  },
+  data(){
+    return{
+      show:{
+        setting:true,
+        writing:false,
+        checking:false,
+      }
+    }
   }
 }
 </script>
