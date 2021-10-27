@@ -1,6 +1,6 @@
 <template>
     <div>
-    <b-form @submit="onSubmit" @reset="onReset"  v-if="showSetting">
+    <b-form @submit="onSubmit" @reset="onReset">
         <h2>채용 프로세스 설정</h2>
         <div class="process-select">
             <span>채용 단계 : </span>
@@ -56,7 +56,7 @@
         </select>
       
         </div>
-        <b-button type="submit" variant="primary">다음</b-button>
+        <b-button type="submit" variant="primary" @click="submitProcessSettingData(process)">다음</b-button>
       <b-button type="reset" variant="danger">초기화</b-button>
     </b-form>
 
@@ -72,6 +72,7 @@ export default {
         this.showSetting = false
         this.$emit("changeShowSetting",this.showSetting)
         },
+
         onReset(event) {
         event.preventDefault()
         // Trick to reset/clear native browser form validation state
@@ -88,10 +89,13 @@ export default {
             this.show = true
         })
         },
+
+        submitProcessSettingData(object){
+            this.$emit('getProcessSettingData',object)
+        }
     },
     data(){
         return{
-
             process:{
                 step:'',
                 process1:'',
@@ -101,7 +105,6 @@ export default {
                 category:'',
                 career:''
             },
-
             steps: ["3단계","4단계","5단계"],
             contents:["서류접수","면접","건강검진","필기전형","인턴십"],
             categories : ["공채","수시","상시"],
