@@ -1,11 +1,12 @@
 <template>
+  
   <div id="app">
     <PostingEnrollment/>
   </div>
 </template>
 
 <script>
-import PostingEnrollment from './components/PostingEnrollment.vue'
+import PostingEnrollment from './components/posting/PostingEnrollment.vue'
 export default {
   components: { PostingEnrollment },
   name: 'App'
