@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import PostingEnrollment from '@/components/PostingEnrollment.vue'
+import PostingEnrollment from '@/components/posting/PostingEnrollment.vue'
 
 Vue.use(Router)
 
