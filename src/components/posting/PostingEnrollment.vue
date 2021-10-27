@@ -11,8 +11,8 @@
 </template> 
 
 <script>
-import ProcessSetting from './posting/ProcessSetting.vue'
-import ProcessWriting from './posting/ProcessWriting.vue'
+import ProcessSetting from './ProcessSetting.vue'
+import ProcessWriting from './ProcessWriting.vue'
 export default {
   name:"PostingEnrollment",
   components:{
