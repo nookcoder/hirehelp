@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import PostingEnrollment from '@/components/posting/PostingEnrollment.vue'
+
 import HelloWorld from '@/components/HelloWorld'
 import Register from '@/components/RegisterJobPosting'
 import Check from '@/components/CheckJobPosting'
