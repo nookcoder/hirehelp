@@ -1,20 +1,15 @@
 <template>
-  <div id="app">
-    <div class="side-menu">
-      <sidebar-menu></sidebar-menu>
-    </div>
-    <div class="main-page">
-      <router-view />
-    </div>
+  <div id="register">
+    <PostingEnrollment/>
   </div>
 </template>
 
 <script>
 
-import SidebarMenu from './components/sidebar/SidebarMenu.vue'
+import PostingEnrollment from './posting/PostingEnrollment.vue'
 export default {
-  components: { SidebarMenu },
-  name: 'App',
+  components: { PostingEnrollment },
+  name: 'Register',
   head:{
     script:[
       {src:'https://code.jquery.com/jquery-3.5.1.min.js',async:true},
@@ -27,23 +22,5 @@ export default {
     ]
   }
 }
+
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #000000;
-}
-
-.side-menu{
-  float: left;
-  width: 13%;
-}
-.main-page{
-  float: right;
-  width: 60%;
-}
-</style>

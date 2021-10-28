@@ -1,4 +1,5 @@
 <template>
+
   <div>
       <h2>채용 공고 작성</h2>
       <div id="summernote"></div>
@@ -13,7 +14,7 @@ export default {
             placeholder: 'Hello Bootstrap 4',
             tabsize: 2,
             height: 100
-        });
+        })
     }
 }
 </script>
