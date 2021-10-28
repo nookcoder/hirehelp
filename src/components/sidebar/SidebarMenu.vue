@@ -19,7 +19,7 @@
                         <li>채용공고 관리</li>
                     </div>
                     <ul class="side-menu__main__column__sub-title">
-                        <span><li><router-link to="/register">채용공고 등록</router-link></li></span>
+                        <span><li><router-link to="/post">채용공고 등록</router-link></li></span>
                         <span><li><router-link to="/check">채용공고 확인</router-link></li></span>
                     </ul>
                 </ul>
