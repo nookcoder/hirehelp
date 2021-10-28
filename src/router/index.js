@@ -14,7 +14,7 @@ const register = Vue.component('home', require('../components/RegisterJobPosting
 export default new Router({
   routes: [
     {
-      path: '/post/enrollment',
+      path: '/post',
       name: 'PostingEnrollment',
       component: PostingEnrollment
     },

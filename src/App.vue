@@ -13,17 +13,17 @@
 
 import SidebarMenu from './components/sidebar/SidebarMenu.vue'
 export default {
-  components: { SidebarMenu },
+  components: { SidebarMenu},
   name: 'App',
   head:{
     script:[
       {src:'https://code.jquery.com/jquery-3.5.1.min.js',async:true},
       {src:'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js',async:true},
-      {src:'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js',async:true}
+      {src:'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js',async:true},
     ],
     link:[
-      {rel:'stylesheet',href:'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'},
-      {rel:'stylesheet',href:'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css'}
+      {rel:'stylesheet',href:'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css',async:true},
+      {rel:'stylesheet',href:'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css',async:true}
     ]
   }
 }
@@ -36,14 +36,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #000000;
+  display:flex;
 }
 
 .side-menu{
-  float: left;
-  width: 13%;
+  width: 30px;
 }
 .main-page{
-  float: right;
-  width: 60%;
+  width:100%;
 }
 </style>
