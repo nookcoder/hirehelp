@@ -57,6 +57,26 @@
                     </div></span>
                 </ul>
             </div>
+
+            <div class="side-menu__main__column">
+                <ul>
+                    <span>
+                        <div class="side-menu__main__column__title">
+                        <router-link to="/signip">로그인</router-link>
+                    </div>
+                    </span>
+                </ul>
+            </div>
+
+            <div class="side-menu__main__column">
+                <ul>
+                    <span>
+                        <div class="side-menu__main__column__title">
+                        <router-link to="/signup">회원가입</router-link>
+                    </div>
+                    </span>
+                </ul>
+            </div>
         </section>
     </aside>
 
