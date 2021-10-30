@@ -11,7 +11,7 @@
 
 <script>
 
-import SidebarMenu from './components/sidebar/SidebarMenu.vue'
+import SidebarMenu from './common/components/SidebarMenu.vue'
 export default {
   components: { SidebarMenu },
   name: 'App'

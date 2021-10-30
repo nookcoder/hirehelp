@@ -62,5 +62,5 @@
 
 </template>
 <style>
-@import "./sidemenu.css";
+@import "../../assets/styles/sidemenu.css";
 </style>
