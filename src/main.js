@@ -8,6 +8,10 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 import VueHead from 'vue-head'
+import axios from 'axios'
+
+Vue.prototype.$eventBus = new Vue();
+Vue.prototype.$axios = axios
 
 Vue.use(VueHead)
 Vue.use(BootstrapVue)
