@@ -62,7 +62,7 @@
                 <ul>
                     <span>
                         <div class="side-menu__main__column__title">
-                        <router-link to="/signip">로그인</router-link>
+                        <router-link to="/login">로그인</router-link>
                     </div>
                     </span>
                 </ul>
