@@ -17,7 +17,6 @@ Vue.prototype.$axios = axios
 Vue.use(VueHead)
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
-Vue.component('RightArrow',)
 
 Vue.config.productionTip = false
 
@@ -25,7 +24,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
-  store:store,
+  store,
   components: { App },
   template: '<App/>'
 })

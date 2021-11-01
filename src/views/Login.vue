@@ -40,8 +40,6 @@ export default {
     name:"Login",
     data(){
       return{
-        id:'',
-        password:'',
         loginForm:{
           id:'',
           password:''
@@ -51,7 +49,9 @@ export default {
     methods:{
       onSumit(event){
         event.preventDefault()
-        alert(JSON.stringify(this.loginForm));
+        alert(JSON.stringify(this.loginForm))
+        this.$store.commit('setCurrentUser',this.loginForm.id)
+        console.log(this.$store.state.currentUser)
       }
     }
 }
