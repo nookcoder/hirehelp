@@ -1,4 +1,5 @@
 <template>
+<div>
 <aside class="side-menu">
         <!-- 왼쪽 메뉴  -->
         <section class="side-menu__bars">
@@ -6,7 +7,7 @@
             <i id="bars"></i>
         </section>
 
-        <!-- 메인 메뉴 -->
+        <!-- 메인 메뉴 -->x     
         <section class="side-menu__main">
             <div id="side-menu__main__title">
             </div>
@@ -53,7 +54,7 @@
             <div class="side-menu__main__column">
                 <ul>
                     <span><div class="side-menu__main__column__title">
-                        <router-link to="/manage">채용홈페이지 관리 <i class="fas fa-arrow-circle-right"></i></router-link>
+                        <router-link to="/home">채용홈페이지 관리<i class="fas fa-arrow-circle-right"></i></router-link>
                     </div></span>
                 </ul>
             </div>
@@ -72,15 +73,24 @@
                 <ul>
                     <span>
                         <div class="side-menu__main__column__title">
-                        <router-link to="/signup">회원가입</router-link>
-                    </div>
+                            <router-link to="/signup">회원가입</router-link>
+                        </div>
                     </span>
                 </ul>
             </div>
         </section>
     </aside>
-
+</div>
 </template>
+<script>
+export default {
+    data(){
+        return{
+            count: 1,
+        }
+    }
+}
+</script>
 <style>
 @import "../../assets/styles/sidemenu.css";
 </style>
