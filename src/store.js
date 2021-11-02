@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state:{
-        currentUser:'',
+        currentUser:'null',
     },
     mutations:{ 
         setCurrentUser: function(state,userId){
