@@ -8,6 +8,7 @@ import EmploymentHomePage from '@/views/EmploymentHomePage.vue'
 Vue.use(Router)
 
 export default new Router({
+  mode:'history',
   routes: [
     {
       path: '/post',
@@ -25,7 +26,7 @@ export default new Router({
       component:Login
     },
     {
-      path:'/home',
+      path:'/home/:id',
       name:"EmploymentHomePage",
       component:EmploymentHomePage
     }
