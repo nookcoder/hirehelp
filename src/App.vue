@@ -14,7 +14,21 @@
 import SidebarMenu from './common/components/SidebarMenu.vue'
 export default {
   components: { SidebarMenu },
-  name: 'App'
+  name: 'App',
+  head:{
+   script:[
+     {src:'https://code.jquery.com/jquery-3.5.1.min.js',async:true},
+     {src:'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js',async:true},
+     {src:'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js',async:true}
+   ],
+   link:[
+    {href:"https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" ,rel:"stylesheet"},
+    {href:"https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css", rel:"stylesheet"},
+    {href:"https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css", rel:"stylesheet"},
+    {rel:'stylesheet',href:'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'},
+    {rel:'stylesheet',href:'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css'}
+   ]
+  }
 }
 </script>
 
