@@ -22,9 +22,7 @@ export default {
      {src:'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js',async:true}
    ],
    link:[
-    {href:"https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" ,rel:"stylesheet"},
     {href:"https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css", rel:"stylesheet"},
-    {href:"https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css", rel:"stylesheet"},
     {rel:'stylesheet',href:'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'},
     {rel:'stylesheet',href:'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css'}
    ]
