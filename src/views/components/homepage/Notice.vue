@@ -14,7 +14,7 @@
          <div class="accordion" role="tablist">
     <b-card no-body class="mb-1" v-for="notice in notices" :key="notice">
       <b-card-header header-tag="header" class="p-1" role="tab">
-        <b-button block v-b-toggle="'accordion-'+notice.index" variant="info">{{notice.title}}</b-button>
+        <b-button class="title-banner" block v-b-toggle="'accordion-'+notice.index" variant="info"><div class="notice-title">{{notice.title}}</div><div class="notice-date">{{notice.date}}</div></b-button>
       </b-card-header>
       <b-collapse :id="'accordion-'+notice.index" visible accordion="my-accordion" role="tabpanel">
         <b-card-body>
@@ -79,25 +79,16 @@ export default {
 }
 
 .page-content hr{
-    color: rgba(0, 0, 0, 0.9);
+    color: rgba(0, 0, 0, 0.9);  
 }
 
-.page-content-list-row{
+.title-banner{
     display: flex;
-    justify-content: space-between;
     align-content: center;
+    justify-content: space-between;
 }
 
-.page-content-list-row:hover{
-    background: gray;
-}
-
-#row-title{
-    font-size: 20px;
-    font-weight: bold;
-}
-
-#row-date{
-    margin-top: 5px;
+.notice-title{
+    font-size: x-large;
 }
 </style>
