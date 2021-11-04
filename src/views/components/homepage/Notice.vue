@@ -47,31 +47,13 @@ export default {
                 date : "2021-11-02",
                 content : "안녕하세요3"
             },],
-
         }
     }
 }
 </script>
 
 <style>
-.employment-page{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-}
-
-.page-side-title{
-    padding: 0px 20px;
-}
-
-.page-search{
-    display: flex;
-    align-content: center;
-}
-
-.page-side-title h2 {
-    text-align: left;
-}
+@import '../../../assets/styles/employment-homepage.css';
 
 .page-content{
     padding: 40px 20px;
