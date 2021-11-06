@@ -13,14 +13,14 @@
         <hr>
         <ul>
           <li v-for="jobPosting in jobPostings" :key="jobPosting">
-            <a href="javascript:void(0)" class="posting-panel">
+            <router-link href="javascript:void(0)" class="posting-panel" :to="openJobPosting(jobPosting.title)">
               <div class="posting-panel-career"><strong>{{jobPosting.career}}</strong><span>{{jobPosting.kind}}</span></div>
               <p class="posting-panel-title">{{jobPosting.title}}</p>
               <div>
                 <strong>남은 날짜</strong>
                 <span>기간</span>
               </div>
-            </a>
+            </router-link>
           </li>
         </ul>
     </div> 
@@ -51,6 +51,11 @@ export default {
         career:'1',
         date:'1',
       } 
+    }
+  },
+  methods:{
+    openJobPosting: function(title){
+      return "/home/"+this.$route.params.id+"/"+title;
     }
   }
 }

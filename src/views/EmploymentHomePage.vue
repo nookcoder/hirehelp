@@ -1,28 +1,25 @@
 <template>
 <div>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="employment-homepage">
-  <a class="navbar-brand pointer"  @click="showMainPage">회사이름</a>
+  <router-link class="navbar-brand pointer"  :to="'/home/'+currentId">회사이름</router-link>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link pointer"  @click="showNoticePage">공지사항</a>
+        <router-link class="nav-link pointer" :to="'/home/'+currentId+'/notice'">공지사항</router-link>
       </li>
       <li class="nav-item">
-        <a class="nav-link pointer"  @click="showEmploymentPage">채용공고</a>
+        <router-link class="nav-link pointer"  :to="'/home/'+currentId+'/employment'">채용공고</router-link>
       </li>
       <li class="nav-item">
-        <a class="nav-link pointer" @click="showFAQPage">FAQ</a>
+        <router-link class="nav-link pointer" :to="'/home/'+currentId+'/faq'">FAQ</router-link>
       </li>
     </ul>
   </div>
   </nav>
-  <MainPage :home-page="homepage" v-if="homepage.main" @changePageToEmlpoyment="updatePage"/>
-  <Employment v-if="homepage.employment"/>
-  <FAQ v-if="homepage.faq"/>
-  <Notice v-if="homepage.notice"/>
+  <router-view></router-view>
 </div>
 
 </template>
@@ -37,45 +34,11 @@ export default {
   components: { MainPage,Employment,FAQ,Notice },
   name:"EmploymentHomePage",
   methods:{
-    updatePage(variable){
-      this.homepage.notice = variable.notice
-      this.homepage.faq = variable.faq
-      this.homepage.main = variable.main
-      this.homepage.employment = variable.employment
-    },
-    showMainPage(){
-        this.homepage.notice = false
-        this.homepage.faq = false
-        this.homepage.main = true
-        this.homepage.employment = false  
-    },
-    showNoticePage(){
-        this.homepage.notice = true
-        this.homepage.faq = false
-        this.homepage.main = false
-        this.homepage.employment = false        
-    },
-    showEmploymentPage(){
-        this.homepage.notice = false
-        this.homepage.faq = false
-        this.homepage.main = false
-        this.homepage.employment = true        
-    },
-    showFAQPage(){
-        this.homepage.notice = false
-        this.homepage.faq = true
-        this.homepage.main = false
-        this.homepage.employment = false        
-    },
+  
   },
   data(){
     return{
-      homepage:{  
-        notice:false,
-        faq : false,
-        main: true,
-        employment:false
-      }
+      currentId:this.$store.getters.getRouteId,
     }
   },
   // 서버에서 데이터 받아오는 코드
@@ -83,6 +46,9 @@ export default {
 </script>
 
 <style>
+.side-menu{
+  display: none;
+}
 .jumbotron{
   height: 100vh;
 }

@@ -54,7 +54,7 @@
             <div class="side-menu__main__column">
                 <ul>
                     <span><div class="side-menu__main__column__title">
-                        <router-link :to="{name : 'EmploymentHomePage',params : {id : getCurrentUser}}">채용홈페이지 관리<i class="fas fa-arrow-circle-right"></i></router-link>
+                        <a href="javascrpit:void(0)"  @click="goPostingHomePage">채용홈페이지 관리<i class="fas fa-arrow-circle-right"></i></a>
                     </div></span>
                 </ul>
             </div>
@@ -92,6 +92,12 @@ export default {
     computed:{
         getCurrentUser(){
             return this.$store.getters.getcurrentUser;
+        }
+    },
+    methods:{
+        goPostingHomePage: function(){
+            let current = this.getCurrentUser;
+            window.open("http://localhost:8080/home/" + current,"_blank");
         }
     }
 }
