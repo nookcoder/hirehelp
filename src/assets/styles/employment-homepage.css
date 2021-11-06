@@ -1,0 +1,30 @@
+.employment-page{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.page-side-title{
+    padding: 0px 20px;
+}
+
+.page-search{
+    display: flex;
+    align-content: center;
+}
+
+.page-side-title h2 {
+    text-align: left;
+}
+
+.page-content{
+    padding: 40px 20px;
+    width: 100%;
+}
+
+.page-content hr{
+    color: rgba(0, 0, 0, 0.9);  
+}
+.employment-page{
+    padding:50px;
+}
