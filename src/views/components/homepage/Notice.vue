@@ -54,7 +54,6 @@ export default {
 
 <style>
 @import '../../../assets/styles/employment-homepage.css';
-
 .page-content{
     padding: 40px 20px;
     width: 100%;

@@ -55,7 +55,7 @@ export default {
   },
   methods:{
     openJobPosting: function(title){
-      return "/home/"+this.$route.params.id+"/"+title;
+      return "/home/"+this.$route.params.id+"/employment/"+title;
     }
   }
 }

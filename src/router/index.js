@@ -54,7 +54,7 @@ export default new Router({
           component:Employment,
         },
         {
-          path:":title",
+          path:"employment/:title",
           component:JobPostingContent
         }
       ]
