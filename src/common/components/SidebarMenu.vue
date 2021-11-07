@@ -1,11 +1,6 @@
 <template>
 <div>
 <aside class="side-menu">
-        <!-- 왼쪽 메뉴  -->
-        <section class="side-menu__bars">
-            <i class="fas fa-cog fa-lg" id="setting-icon"></i>
-            <i id="bars"></i>
-        </section>
 
         <!-- 메인 메뉴 -->x     
         <section class="side-menu__main">
@@ -17,11 +12,11 @@
             <div class="side-menu__main__column">
                 <ul>
                     <div class="side-menu__main__column__title">
-                        <li>채용공고 관리</li>
+                        <li>홈페이지 관리</li>
                     </div>
                     <ul class="side-menu__main__column__sub-title">
-                        <span><li><router-link to="/post">채용공고 등록</router-link></li></span>
-                        <span><li><router-link to="/check">채용공고 확인</router-link></li></span>
+                        <span><li><router-link to="/form/notice">공지사항 등록</router-link></li></span>
+                        <span><li><router-link to="/form/posting">채용공고 등록</router-link></li></span>
                     </ul>
                 </ul>
             </div>
@@ -54,7 +49,7 @@
             <div class="side-menu__main__column">
                 <ul>
                     <span><div class="side-menu__main__column__title">
-                        <a href="javascrpit:void(0)"  @click="goPostingHomePage">채용홈페이지 관리<i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="javascrpit:void(0)"  @click="goPostingHomePage">채용홈페이지 접속 <i class="fas fa-arrow-circle-right"></i></a>
                     </div></span>
                 </ul>
             </div>
@@ -97,7 +92,10 @@ export default {
     methods:{
         goPostingHomePage: function(){
             let current = this.getCurrentUser;
-            window.open("http://localhost:8080/home/" + current,"_blank");
+            if(current !== 'null'){
+                window.open("http://localhost:8080/home/" + current,"_blank");
+            }
+            // 로그인 등록 배너
         }
     }
 }
