@@ -1,15 +1,14 @@
 @import "./reset.css";
 
 aside{
-    float:left;
     background-color: rgb(235, 235, 235);
 }
 
 .side-menu{
-    width: 300px;
+    width: 200px;
+    padding: 0px 10px 0px 0px;
     display: flex;
     font-weight:bold;
-    flex-direction: row;
     color:black;
 }
 
