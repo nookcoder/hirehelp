@@ -10,7 +10,8 @@ import MainPage from '@/views/components/homepage/MainPage.vue'
 import JobPostingContent from '@/views/components/homepage/JobPostingContent.vue'
 
 import PostingForm from '@/views/PostingForm.vue'
-import PostingTitleForm from '@/views/components/posting-form/PostingTitleForm.vue'
+import PostingInfoForm from '@/views/components/posting-form/PostingInfoForm.vue'
+import PostingContentForm from '@/views/components/posting-form/PostingContentForm.vue'
 
 Vue.use(Router)
 
@@ -33,8 +34,13 @@ export default new Router({
       children:[
         {
           path:'/',
-          name:'PostingTitleForm',
-          component:PostingTitleForm
+          name:'PostingInfoForm',
+          component:PostingInfoForm
+        },
+        {
+          path:"content",
+          name:'PostingContentForm',
+          component:PostingContentForm
         }
       ]
     },
