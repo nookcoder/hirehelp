@@ -19,90 +19,70 @@
       </div>
     </header>
     <main class="apply-detail-main">
-      <section class="apply-detail-main-column apply-detail-main-area mb-2 h3">
-        <b-icon icon="bookmark-fill"></b-icon>
-        모집분야
+      <section class="apply-detail-main-column mb-5 apply-detail-main-area ">
+        <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>모집분야</span>
+        <article class="apply-detail-main-text">
+          <span>모집분야입니다</span>
+        </article>
       </section>
-      <section class="apply-detail-main-column apply-detail-main-business_information mb-2 h3">
-        <b-icon icon="bookmark-fill"></b-icon>
-        업무내용
+
+      <section class="apply-detail-main-column mb-5 apply-detail-main-business_information ">
+        <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>업무내용</span>
+        <article class="apply-detail-main-text">
+          <span>모집분야입니다</span>
+        </article>
       </section>
-      <section class="apply-detail-main-column apply-detail-main-eligibility mb-2 h3">
-        <b-icon icon="bookmark-fill"></b-icon>
-        지원자격
+      
+      <section class="apply-detail-main-column mb-5 apply-detail-main-eligibility ">
+        <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>자격요건</span>
+        <article class="apply-detail-main-text">
+          <div>1.업무내용<br>업무내용입니다</div>
+          <br>
+          <div>2.주요 업무내용<br>주요 업무내용입니다</div>
+        </article>
       </section>
-      <section class="apply-detail-main-column apply-detail-main-submit mb-2 h3">
-        <b-icon icon="bookmark-fill"></b-icon>
-        제출서류
+      
+      <section class="apply-detail-main-column mb-5 apply-detail-main-submit ">
+        <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>제출서류</span>
+        <article class="apply-detail-main-text">
+          <div>ㆍ학력 : 학력입니다</div>
+          <br>
+          <div>ㆍ경력 기간 : 경력기간입니다.</div>
+          <br>
+          <div>ㆍ필수조건
+            <ul class="apply-detail-main-text-list">
+              <li>-필수조건1</li>
+              <li>-필수조건2</li>
+              <li>-필수조건3</li>
+              <li>-필수조건4</li>
+            </ul>
+          </div>
+          <br>
+          <div>ㆍ우대사항
+            <ul class="apply-detail-main-text-list">
+              <li>-우대사항1</li>
+              <li>-우대사항2</li>
+              <li>-우대사항3</li>
+              <li>-우대사항4</li>
+            </ul>
+          </div>
+        </article>
       </section>
-      <section class="apply-detail-main-column apply-detail-main-stage mb-2 h3">
-        <b-icon icon="bookmark-fill"></b-icon>
-        전형단계
+      
+      <section class="apply-detail-main-column mb-5 apply-detail-main-stage ">
+        <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>전형단계</span>
+        <article class="apply-detail-main-text">
+          <span>여기는 이미지로 불러올까</span>
+        </article>
       </section>
-      <section class="apply-detail-main-column apply-detail-main-help mb-2 h3">
-        <b-icon icon="bookmark-fill" size="lg"></b-icon>
-        도움말
+      
+      <section class="apply-detail-main-column mb-5 apply-detail-main-help ">
+        <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>도움말</span>
+        <article class="apply-detail-main-text">
+          <span>도움말입니다</span>
+        </article>
       </section>
-      <section class="apply-detail-main-column apply-detail-main-help mb-2 h3">
-        <b-icon icon="bookmark-fill" size="lg"></b-icon>
-        도움말
-      </section>
-      <section class="apply-detail-main-column apply-detail-main-help mb-2 h3">
-        <b-icon icon="bookmark-fill" size="lg"></b-icon>
-        도움말
-      </section>
-      <section class="apply-detail-main-column apply-detail-main-help mb-2 h3">
-        <b-icon icon="bookmark-fill" size="lg"></b-icon>
-        도움말
-      </section>
-      <section class="apply-detail-main-column apply-detail-main-help mb-2 h3">
-        <b-icon icon="bookmark-fill" size="lg"></b-icon>
-        도움말
-      </section>
-      <section class="apply-detail-main-column apply-detail-main-help mb-2 h3">
-        <b-icon icon="bookmark-fill" size="lg"></b-icon>
-        도움말
-      </section>
-      <section class="apply-detail-main-column apply-detail-main-help mb-2 h3">
-        <b-icon icon="bookmark-fill" size="lg"></b-icon>
-        도움말
-      </section>
-      <section class="apply-detail-main-column apply-detail-main-help mb-2 h3">
-        <b-icon icon="bookmark-fill" size="lg"></b-icon>
-        도움말
-      </section>
-      <section class="apply-detail-main-column apply-detail-main-help mb-2 h3">
-        <b-icon icon="bookmark-fill" size="lg"></b-icon>
-        도움말
-      </section>
-      <section class="apply-detail-main-column apply-detail-main-help mb-2 h3">
-        <b-icon icon="bookmark-fill" size="lg"></b-icon>
-        도움말
-      </section>
-      <section class="apply-detail-main-column apply-detail-main-help mb-2 h3">
-        <b-icon icon="bookmark-fill" size="lg"></b-icon>
-        도움말
-      </section>
-      <section class="apply-detail-main-column apply-detail-main-help mb-2 h3">
-        <b-icon icon="bookmark-fill" size="lg"></b-icon>
-        도움말
-      </section>
-      <section class="apply-detail-main-column apply-detail-main-help mb-2 h3">
-        <b-icon icon="bookmark-fill" size="lg"></b-icon>
-        도움말
-      </section>
-      <section class="apply-detail-main-column apply-detail-main-help mb-2 h3">
-        <b-icon icon="bookmark-fill" size="lg"></b-icon>
-        도움말
-      </section>
-      <section class="apply-detail-main-column apply-detail-main-help mb-2 h3">
-        <b-icon icon="bookmark-fill" size="lg"></b-icon>
-        도움말
-      </section>
-        <section class="apply-detail-main-column apply-detail-main-help mb-2 h3">
-          <b-icon icon="bookmark-fill" size="lg"></b-icon>
-          도움말
-        </section>
+    
     </main>
   </div>
 </template>
@@ -155,5 +135,16 @@ export default {
   padding: 0px 300px;
   overflow: auto;
   z-index: -1;
+}
+
+.bookmark{
+  margin-right: 5px;
+}
+.apply-detail-main-text{
+  font-size:small;
+  padding: 15px 0px 0px 24px;
+}
+.apply-detail-main-text-list{
+  padding-left: 20px;
 }
 </style>

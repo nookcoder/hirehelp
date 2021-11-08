@@ -9,6 +9,10 @@ import Notice from '@/views/components/homepage/Notice.vue'
 import MainPage from '@/views/components/homepage/MainPage.vue'
 import JobPostingContent from '@/views/components/homepage/JobPostingContent.vue'
 
+import PostingForm from '@/views/PostingForm.vue'
+import PostingInfoForm from '@/views/components/posting-form/PostingInfoForm.vue'
+import PostingContentForm from '@/views/components/posting-form/PostingContentForm.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -19,9 +23,26 @@ export default new Router({
       redirect:'/login'
     },
     {
-      path: '/post',
+      path: '/form/notice',
       name: 'PostingEnrollment',
       component: PostingEnrollment
+    },
+    {
+      path: '/form/posting',
+      name: 'PostingForm',
+      component:PostingForm,
+      children:[
+        {
+          path:'/',
+          name:'PostingInfoForm',
+          component:PostingInfoForm
+        },
+        {
+          path:"content",
+          name:'PostingContentForm',
+          component:PostingContentForm
+        }
+      ]
     },
     {
       path:'/signup',
