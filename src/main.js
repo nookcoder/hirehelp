@@ -14,7 +14,7 @@ import axios from 'axios'
 import {store} from './store'
 
 Vue.prototype.$eventBus = new Vue();
-Vue.prototype.$axios = axios
+Vue.prototype.$http = axios
 
 Vue.use(vuetify)
 Vue.use(Router)

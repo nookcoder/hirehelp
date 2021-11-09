@@ -1,32 +1,37 @@
 <template>
+  <v-container file-height style="max-width:450px">
+    <v-layout align-center row wrap>
+        <v-card>
   <div id="sign-up-page">
     <h2>회원가입</h2>
-    <b-form @submit="onSumit" @reset="onReset">
+    <b-form id="sign-up-form" @submit="onSumit" @reset="onReset">
       <!-- 아이디 -->
       <label class="user-input" for="input-live">아이디 :</label>
+    <div class="overlap-check">
       <b-form-input
         id="input-id"
         v-model="user.id"
         placeholder="아이디를 입력해주세요"
       ></b-form-input>
-      <b-form-invalid-feedback :state="idState">
-        8~15자 영문 대 소문자, 숫자를 사용하세요. 
-      </b-form-invalid-feedback>
-      <b-form-valid-feedback :state="idState">
-        좋은 아이디네요!
-      </b-form-valid-feedback>
+        <b-button 
+        id="button-id-check"
+        variant="outline-primary"
+        :disabled="user.id.length < 1"
+        v-on:click="checkID">중복확인</b-button>
+    </div>
 
       <!-- 비밀번호 -->
       <label class="user-input" for="input-live">비밀번호 :</label>
       <b-form-input
         id="input-password"
+        type="password"
         v-model="user.password"
         :state="passwordState"
         required
         placeholder="비밀번호를 입력해주세요"
       ></b-form-input>
       <b-form-invalid-feedback :state="passwordState">
-        8~20자 영문 대 소문자, 숫자를 사용하세요.
+        8~20자 영문 대소문자, 숫자를 사용하세요.
       </b-form-invalid-feedback>
       <b-form-valid-feedback :state="passwordState">
         비밀번호를 기억해주세요.
@@ -34,16 +39,12 @@
 
       <!-- 회사 이름 -->
       <label class="user-input" for="input-live">회사명 :</label>
-      <div class="overlap-check">  
         <b-form-input
           id="input-password"
           v-model="user.name"
-          :state="passwordState"
           required
           placeholder="회사명을 입력해주세요"
         ></b-form-input>
-        <b-button variant="outline-primary">중복확인</b-button>
-      </div>
 
     <!-- 이메일 -->
     <label class="user-input" for="input-live">회사 이메일 :</label>
@@ -52,26 +53,56 @@
         type="email"
         id="input-password"
         v-model="user.email"
-        :state="passwordState"
         placeholder="회사 이메일을 입력해주세요"
         required
       ></b-form-input>
-      <b-button variant="outline-primary">중복확인</b-button>
-    </div>
+      <b-button variant="outline-primary" v-on:click="checkEmail">확인</b-button>
+     </div>
     <b-button variant="outline-primary" type="submit">확인</b-button>
-    <b-button variant="outline-primary" type="reset">뒤로가기</b-button>
+    <b-button variant="outline-primary" type="reset">초기화</b-button>
     </b-form>
   </div>
+        </v-card>
+  </v-layout>
+  </v-container>
 </template>
 
 <script>
 
 export default {
-  name:"Login",
+  name:"SignUp",
   methods:{
+    checkID(event){
+      event.preventDefault();
+      this.$http.post('/company/signup/check', { user_id: this.user.id})
+      .then(res => {
+        if(res.data){
+          alert("사용할 수 없는 아이디입니다.");
+        }
+        else{
+          alert("사용가능한 아이디입니다.");
+        }
+      });
+    },
+    checkEmail(event){
+      this.classObject.variant="success" // 버튼 클릭된 상태로 바꾸기
+    },
     onSumit(event){
       event.preventDefault()
-      alert(JSON.stringify(this.user))
+      if(this.user.password.length <= 7 || this.user.password.length >= 20){
+        alert("비밀번호는 8~20자로 입력해주세요.")
+      } // 아이디 중복확인
+      else{
+        this.$http.post('/company/signup', { user: this.user })
+    .then((res) => {
+      if (res.data.success) {
+        alert("No");
+      } else {
+        alert("회원가입 되셨습니다. 반갑습니다.");
+        this.$router.push('/login');
+      }
+    })
+      }
     },
     onReset(event){
       event.preventDefault()
@@ -87,6 +118,7 @@ export default {
   },
   data(){
     return{
+      disabled: 0,
       user:{
         id:'',
         password:'',
@@ -97,21 +129,9 @@ export default {
     }
   },
   computed:{
-    idState(){
-      return this.user.id.length > 7 && this.user.id.length < 16
-    },
-
     passwordState(){
-      return this.user.password.length > 7 && this.user.id.length < 20
+      return this.user.password.length > 7 && this.user.password.length < 20
     },
-
-    // nameState(){
-
-    // },
-
-    // emailState(){
-
-    // },
   }
 }
 </script>
