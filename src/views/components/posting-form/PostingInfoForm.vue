@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-card bg-variant="light">
-      <form @submit="emitPostingInfo">
+      <form @submit="emitPostingInfo($event)">
         <b-form-group
           label-cols-lg="3"
           label="채용 정보 설정"
@@ -81,7 +81,7 @@
             </b-form-group>
         </b-form-group>
       <div class="posting-btn-group">
-        <b-button type="submit" variant="primary" @submit="emitPostingInfo">다음</b-button>
+        <b-button type="submit" variant="primary">다음</b-button>
       </div>
       </form>
     </b-card>
@@ -103,9 +103,10 @@ export default {
     }
   },
   methods:{
-    emitPostingInfo(){
+    emitPostingInfo(event){
+      event.preventDefault();  
       this.$emit('postingInfo',this.postingInfo);
-      this.$route.push('/content');
+      this.$router.push('posting/content');
     }
   }
 }

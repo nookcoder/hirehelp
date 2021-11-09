@@ -12,6 +12,7 @@ import JobPostingContent from '@/views/components/homepage/JobPostingContent.vue
 import PostingForm from '@/views/PostingForm.vue'
 import PostingInfoForm from '@/views/components/posting-form/PostingInfoForm.vue'
 import PostingContentForm from '@/views/components/posting-form/PostingContentForm.vue'
+import PostingCheck from '@/views/components/posting-form/PostingCheck.vue'
 
 Vue.use(Router)
 
@@ -41,6 +42,11 @@ export default new Router({
           path:"content",
           name:'PostingContentForm',
           component:PostingContentForm
+        },
+        {
+          path:"check",
+          name:"PostingCheck",
+          component:PostingCheck
         }
       ]
     },
