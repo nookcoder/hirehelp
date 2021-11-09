@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-card bg-variant="light">
-      <form>
+      <form @submit="emitPostingContent($event)">
         <b-form-group
           label-cols-lg="3"
           label="공고 내용 작성"
@@ -84,7 +84,7 @@
 
         </b-form-group>
         <div class="posting-btn-group">
-          <b-button type="submit" variant="primary">다음</b-button>
+          <b-button type="submit" variant="primary" @submit="emitPostingContent($event)">다음</b-button>
         </div>
       </form>
     </b-card>
@@ -101,7 +101,6 @@ export default {
         qualifications:'',
         document:'',
         help:'',
-
       },
       postingContentPlaceHolder:{
         areaRecruitment:'',
@@ -130,6 +129,13 @@ export default {
             '- 채용 규정에 어긋나지 않는 자\n'+
             '- 보훈 대상자 및 장애인 우대\n',
       }
+    }
+  },
+  methods:{
+    emitPostingContent: function(event){
+      event.preventDefault();
+      this.$emit("postingContent",this.postingContent);
+      this.$router.push('check');
     }
   }
 }

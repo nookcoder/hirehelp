@@ -81,7 +81,7 @@
             </b-form-group>
         </b-form-group>
       <div class="posting-btn-group">
-        <b-button type="submit" variant="primary" @submit="emitPostingInfo">다음</b-button>
+        <b-button type="submit" variant="primary">다음</b-button>
       </div>
       </form>
     </b-card>
