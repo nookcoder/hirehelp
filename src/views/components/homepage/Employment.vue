@@ -12,7 +12,7 @@
     <div class="page-content">
         <hr>
         <ul>
-          <li v-for="jobPosting in jobPostings" :key="jobPosting">
+          <li v-for="(jobPosting,idx) in jobPostings" :key="idx">
             <router-link href="javascript:void(0)" class="posting-panel" :to="openJobPosting(jobPosting.title)">
               <div class="posting-panel-career"><strong>{{jobPosting.career}}</strong><span>{{jobPosting.kind}}</span></div>
               <p class="posting-panel-title">{{jobPosting.title}}</p>

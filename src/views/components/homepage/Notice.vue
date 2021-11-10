@@ -12,7 +12,7 @@
     <div class="page-content">
         <hr>
          <div class="accordion" role="tablist">
-    <b-card no-body class="mb-1" v-for="notice in notices" :key="notice">
+    <b-card no-body class="mb-1" v-for="(notice,idx) in notices" :key="idx">
       <b-card-header header-tag="header" class="p-1" role="tab">
         <b-button class="title-banner" block v-b-toggle="'accordion-'+notice.index" variant="info"><div class="notice-title">{{notice.title}}</div><div class="notice-date">{{notice.date}}</div></b-button>
       </b-card-header>
