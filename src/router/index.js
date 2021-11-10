@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import PostingEnrollment from '@/views/posting/PostingEnrollment.vue'
 import SignUp from '@/views/SignUp.vue'
 import Login from '@/views/Login.vue'
 import EmploymentHomePage from '@/views/EmploymentHomePage.vue'
@@ -9,6 +8,7 @@ import Notice from '@/views/components/homepage/Notice.vue'
 import MainPage from '@/views/components/homepage/MainPage.vue'
 import JobPostingContent from '@/views/components/homepage/JobPostingContent.vue'
 
+import NoticeForm from '@/views/NoticeForm.vue'
 import PostingForm from '@/views/PostingForm.vue'
 import PostingInfoForm from '@/views/components/posting-form/PostingInfoForm.vue'
 import PostingContentForm from '@/views/components/posting-form/PostingContentForm.vue'
@@ -25,8 +25,8 @@ export default new Router({
     },
     {
       path: '/form/notice',
-      name: 'PostingEnrollment',
-      component: PostingEnrollment
+      name: 'NoticeForm',
+      component: NoticeForm
     },
     {
       path: '/form/posting',

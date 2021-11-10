@@ -5,7 +5,11 @@
         <b-nav-item>2. 공고 내용 작성</b-nav-item>
         <b-nav-item>3. 공고 확인</b-nav-item>
     </b-nav>
-    <router-view :posting-form="postingForm" @postingInfo="setPostingInfo" @postingContent="setPostingContent"></router-view>
+    <router-view
+      :posting-form="postingForm"
+      @postingInfo="setPostingInfo"
+      @postingContent="setPostingContent"
+      @initPostingFormData="resetData"></router-view>
   </div>
 </template>
 
@@ -46,6 +50,20 @@ export default {
       this.postingForm.help = object.help;
       console.log(this.postingForm);
     },
+
+    resetData : function(object){
+      this.postingForm.title = object.title;
+      this.postingForm.category = object.category;
+      this.postingForm.type = object.type;
+      this.postingForm.start = object.start;
+      this.postingForm.end = object.end;
+      this.postingForm.areaRecruitment = object.areaRecruitment;
+      this.postingForm.businessContent = object.businessContent;
+      this.postingForm.qualifications = object.qualifications;
+      this.postingForm.document = object.document;
+      this.postingForm.help = object.help;
+      console.log(this.postingForm);
+    }
   }
 }
 </script>
