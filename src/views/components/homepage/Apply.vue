@@ -1,6 +1,6 @@
 <template>
     <div class="apply-main">
-        <form action="">
+        <form>
             <div class="personal-information">
                 <div class="apply-column-title">인적사항</div>
                 <div class="apply-column-input">
@@ -55,7 +55,6 @@
                     <b-form-input 
                         class="apply-column-personal-input" 
                         placeholder="전화번호(- 제외)"
-                        required
                         v-model="applyData.phoneNumber2"
                         ></b-form-input>
                 </div>
@@ -80,13 +79,14 @@
                 ></b-form-file>
             </div>
 
-            <b-button type="submit" variant="primary">제출하기</b-button>
+            <b-button type="submit" variant="primary" @click="onSubmit($event)">제출하기</b-button>
             <b-button variant="danger" @click="$router.go(-1)">뒤로가기</b-button>
         </form>
     </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     data(){
         return{
@@ -101,13 +101,28 @@ export default {
                 phoneNumber2:'',
                 motivate:'',
             },
-            
+
         }
     },
     methods:{
         onSubmit:function(event){
-            event.preventDefault();
-            
+            event.preventDefault()
+            axios.post('http://ec2-54-180-99-13.ap-northeast-2.compute.amazonaws.com:4443/api/resume/',
+            {
+                applyData:{
+                    name:this.applyData.name,
+                    birth:this.applyData.birth,
+                    gender:this.applyData.gender,
+                    email:this.applyData.email,
+                    emailAddress:this.applyData.emailAddress,
+                    phoneNumber:this.applyData.phoneNumber,
+                    phoneNumber2:this.applyData.phoneNumber2,
+                    motivate:this.applyData.motivate
+                }
+            }).then((res)=>{
+                console.log(res);
+            }).catch((err)=>console.log(err));
+
         }
     }
 }
