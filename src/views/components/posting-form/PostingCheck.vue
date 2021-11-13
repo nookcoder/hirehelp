@@ -17,7 +17,7 @@
       </div>
     
       <div class="posting-btn-group">
-          <b-button type="submit" variant="primary">등록하기</b-button>
+          <b-button type="submit" variant="primary" v-on:click="submitPost">등록하기</b-button>
           <b-button variant="danger" @click="resetPostingFormData">종료하기</b-button>
       </div>
     </b-card>
@@ -45,6 +45,17 @@ export default {
   },
   props:['postingForm'],
   methods:{
+    submitPost(){
+    this.$http.post('http://localhost:3000/api/recruitment/input', { recruitmentData: this.postingForm })
+    .then((res) => {
+      if (res.data.success) {
+      alert(res.data.message)
+      }
+      else {
+      alert("실패")
+      }
+    })
+    },
     resetPostingFormData:function(){
       this.$emit('initPostingFormData',this.initData);
       this.$router.replace('/');
