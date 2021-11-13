@@ -74,7 +74,7 @@ export default {
   methods:{
     checkID(event){
       event.preventDefault();
-      this.$http.post('/company/signup/check', { user_id: this.user.id})
+      this.$http.post('/api/company/signup/check', { user_id: this.user.id})
       .then(res => {
         if(res.data){
           alert("사용할 수 없는 아이디입니다.");
@@ -93,7 +93,7 @@ export default {
         alert("비밀번호는 8~20자로 입력해주세요.")
       } // 아이디 중복확인
       else{
-        this.$http.post('/company/signup', { user: this.user })
+      this.$http.post('http://localhost:3000/api/company/signup', { user: this.user })
     .then((res) => {
       if (res.data.success) {
         alert("No");
