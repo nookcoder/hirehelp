@@ -12,11 +12,11 @@
     <div class="page-content">
         <hr>
          <div class="accordion" role="tablist">
-    <b-card no-body class="mb-1" v-for="(notice,idx) in notices" :key="idx">
+    <b-card no-body class="mb-1" v-for="(notice,id) in notices" :key="id">
       <b-card-header header-tag="header" class="p-1" role="tab">
-        <b-button class="title-banner" block v-b-toggle="'accordion-'+notice.index" variant="info"><div class="notice-title">{{notice.title}}</div><div class="notice-date">{{notice.date}}</div></b-button>
+        <b-button class="title-banner" block v-b-toggle="'accordion-'+notice.id" variant="info"><div class="notice-title">{{notice.title}}</div><div class="notice-date">{{notice.date}}</div></b-button>
       </b-card-header>
-      <b-collapse :id="'accordion-'+notice.index" visible accordion="my-accordion" role="tabpanel">
+      <b-collapse :id="'accordion-'+notice.id" visible accordion="my-accordion" role="tabpanel">
         <b-card-body>
           <b-card-text>{{ notice.content }}</b-card-text>
         </b-card-body>
@@ -33,22 +33,27 @@ export default {
     data(){
         return{
             notices:[{
-                index : 1,
-                title:"갑",
-                date : "2021-10-31",
-                content : "안녕하세요"
-                },
-                {index : 2,
-                title:"을",
-                date : "2021-11-01",
-                content : "안녕하세요2"},{
-                index : 3,
-                title:"병",
-                date : "2021-11-02",
-                content : "안녕하세요3"
-            },],
+                id : 0,
+                title:"",
+                date : "",
+                content : ""
+                }
+                ],
         }
-    }
+    },
+  methods:{
+    openNoticePage(){ // 데이터 가져오기
+    this.$http.get('http://localhost:3000/api/notice/1')
+    .then((Response)=>{
+    this.notices = Response.data
+    })
+    .catch((Error)=>{
+    console.log(Error);
+    })
+    },
+  },mounted() { // 페이지 시작하면은 자동 함수 실행
+		this.openNoticePage();
+	}
 }
 </script>
 
