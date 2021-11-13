@@ -6,11 +6,11 @@
           <button type="button" class="btn border btn-lg" @click="$router.go(-1)"><b-icon icon="backspace"></b-icon></button>
         </div>
         <div>
-          <div id="posting-panel-career"><strong>{{jobInformation[0].career}}</strong><span>{{jobInformation[0].kind}}</span></div>
-          <p id="posting-panel-title" class="font-weight-bold">{{ jobInformation[0].title }}</p>
+          <div id="posting-panel-career"><strong>{{this.jobInformation.career}}</strong><span>{{this.jobInformation.kind}}</span></div>
+          <p id="posting-panel-title" class="font-weight-bold">{{ this.jobInformation.title }}</p>
           <div>
             <strong>남은 날짜</strong>
-            <span>{{jobInformation[0].date}}~{{jobInformation[0].end_date}}</span>
+            <span>{{this.jobInformation.date}}~{{this.jobInformation.end_date}}</span>
           </div>
         </div>
       </div>
@@ -22,27 +22,27 @@
       <section class="apply-detail-main-column mb-5 apply-detail-main-area ">
         <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>모집분야</span>
         <article class="apply-detail-main-text">
-          <span>{{jobInformation[0].division_information}}</span>
+          <span>{{this.jobInformation.division_information}}</span>
         </article>
       </section>
       <section class="apply-detail-main-column mb-5 apply-detail-main-business_information ">
         <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>업무내용</span>
         <article class="apply-detail-main-text">
-          <span>{{jobInformation[0].work_infomation}}</span>
+          <span>{{this.jobInformation.work_infomation}}</span>
         </article>
       </section>
       
       <section class="apply-detail-main-column mb-5 apply-detail-main-eligibility ">
         <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>자격요건</span>
         <article class="apply-detail-main-text">
-          <div>{{jobInformation[0].qualification_information}}</div>
+          <div>{{this.jobInformation.qualification_information}}</div>
         </article>
       </section>
       
       <section class="apply-detail-main-column mb-5 apply-detail-main-submit ">
         <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>제출서류</span>
         <article class="apply-detail-main-text">
-          <div>ㆍ제출서류 : {{jobInformation[0].submit_information}}</div>
+          <div>ㆍ제출서류 : {{this.jobInformation.submit_information}}</div>
           <br>
           <div>ㆍ학력 : 학력입니다</div>
           <br>
@@ -74,7 +74,7 @@
       <section class="apply-detail-main-column mb-5 apply-detail-main-help ">
         <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>도움말</span>
         <article class="apply-detail-main-text">
-          <span>{{ jobInformation[0].help_information }}</span>
+          <span>{{ this.jobInformation.help_information }}</span>
         </article>
       </section>
     
@@ -86,7 +86,12 @@
 export default {
   data(){
     return{
-      jobInformation:{ }
+      jobInformation:{
+        title:'1',
+        kind:'1',
+        career:'1',
+        date:'1',
+      }
     }
 },
 methods:{
