@@ -81,8 +81,8 @@ export default new Router({
           component:Employment,
         },
         {
-          path:"employment/:title",
-          component:JobPostingContent
+          path:"employment/:id",
+          component:JobPostingContent,
         }
       ]
     },
