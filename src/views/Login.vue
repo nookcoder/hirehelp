@@ -4,7 +4,7 @@
         <v-card>
   <div id="login-page">
     <h2>로그인</h2>
-    <b-form @submit="onSumit">
+    <b-form @submit.prevent="onSumit">
       <b-form-group
         class="user-input"
         label="아이디 :"
@@ -57,15 +57,15 @@ export default {
         this.$router.push('/signup');
       },
       onSumit(event){
-      this.$http.post('/company/login', { loginForm: this.loginForm })
+      this.$http.post('http://localhost:3000/api/company/login', { loginForm: this.loginForm })
     .then((res) => {
+      console.log(res.data.accessToken)
+        alert(res.data.accessToken);
         alert(res.data.message);
       if (res.data.loginSuccess) {
         // 로그인 성공
-        this.$router.push('/home');
       } else {
         // 로그인 실패
-        this.$router.push('/');
       }
     })
     },
