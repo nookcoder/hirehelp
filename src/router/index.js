@@ -26,7 +26,6 @@ const rejectUser = (to, from, next) => {
   if (Store.state.isLogin === true) {
     // 이미 로그인 된 유저니까 막아야 한다.
     alert("이미 로그인을 하셨습니다.")
-    next("/form/notice")
   }
   else {
     next()
