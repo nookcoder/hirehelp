@@ -2,9 +2,9 @@
   <v-container file-height style="max-width:450px">
     <v-layout align-center row wrap>
         <v-card>
-  <div id="login-page">
+          <div id="login-page">
     <h2>로그인</h2>
-    <b-form @submit.prevent="onSumit">
+    <b-form>
       <b-form-group
         class="user-input"
         label="아이디 :"
@@ -32,7 +32,7 @@
         required
       ></b-form-input>
       </b-form-group>
-      <b-button variant="outline-primary" type="submit">로그인</b-button>
+      <b-button variant="outline-primary" v-on:click.prevent="loginStore(loginForm)">로그인</b-button>
       <b-button variant="outline-primary" v-on:click="signUp">회원가입</b-button>
     </b-form>
   </div>
@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import { mapState, mapActions } from "vuex"
 export default {
     name:"Login",
     data(){
@@ -52,23 +53,14 @@ export default {
         }
       }
     },
+    computed:{
+      ...mapState(["isLogin", "isLoginError"])
+    },
     methods:{
+      ...mapActions(["loginStore"]),
       signUp(){
         this.$router.push('/signup');
       },
-      onSumit(event){
-      this.$http.post('http://localhost:3000/api/company/login', { loginForm: this.loginForm })
-    .then((res) => {
-      console.log(res.data.accessToken)
-        alert(res.data.accessToken);
-        alert(res.data.message);
-      if (res.data.loginSuccess) {
-        // 로그인 성공
-      } else {
-        // 로그인 실패
-      }
-    })
-    },
     }
 }
 </script>
