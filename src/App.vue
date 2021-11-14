@@ -1,20 +1,16 @@
 <template>
   <div id="app">
-    <div class="side-menu">
-      <sidebar-menu></sidebar-menu>
-    </div>
-    <div class="main-page">
-      <router-view />
-    </div>
+        <Menu></Menu>
+        <router-view/>
   </div>
   
 </template>
 
 <script>
 
-import SidebarMenu from './common/components/SidebarMenu.vue'
+import Menu from './views/menubar.vue'
 export default {
-  components: { SidebarMenu },
+  components: { Menu },
   name: 'App',
   head:{
    script:[
@@ -42,13 +38,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #000000;
-  display:flex;
+  
 }
 
-.side-menu{
-  width: 30px;
-}
-.main-page{
-  width:100%;
-}
 </style>

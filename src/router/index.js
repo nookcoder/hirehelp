@@ -26,12 +26,12 @@ export default new Router({
       redirect:'/login'
     },
     {
-      path: '/form/notice',
+      path: '/notice',
       name: 'NoticeForm',
       component: NoticeForm
     },
     {
-      path: '/form/posting',
+      path: '/posting',
       name: 'PostingForm',
       component:PostingForm,
       children:[
