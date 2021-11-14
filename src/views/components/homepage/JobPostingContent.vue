@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="apply-detail-column">
-        <button type="button" class="btn btn-info btn-lg">지원하기</button>
+        <router-link type="button" class="btn btn-info btn-lg" :to='"/home/"+$route.params.id+"/apply"' @click.native="setStoreTitle">지원하기</router-link>
       </div>
     </header>
     <main class="apply-detail-main">
@@ -91,10 +91,15 @@ export default {
         kind:'1',
         career:'1',
         date:'1',
-      }
+      },
+      currentTitle:'',
     }
 },
 methods:{
+    setStoreTitle : function(){
+      this.$store.commit('setCurrentTitle',this.currentTitle);
+      console.log(this.$store.getters.getCurrentTitle);
+    },
     getjobInformation(){
     this.$http.get('http://localhost:3000/api/recruitment/title/' + this.$route.params.id)
     .then((Response)=>{
@@ -106,8 +111,12 @@ methods:{
     }
   },mounted() { // 페이지 시작하면은 자동 함수 실행
 		this.getjobInformation();
+    this.$nextTick(()=>{
+      this.currentTitle = this.$route.params.title;
+    })
 	}
 }
+
 </script>
 
 <style>

@@ -2,11 +2,13 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import SignUp from '@/views/SignUp.vue'
 import Login from '@/views/Login.vue'
+
 import EmploymentHomePage from '@/views/EmploymentHomePage.vue'
 import Employment from '@/views/components/homepage/Employment.vue'
 import Notice from '@/views/components/homepage/Notice.vue'
 import MainPage from '@/views/components/homepage/MainPage.vue'
 import JobPostingContent from '@/views/components/homepage/JobPostingContent.vue'
+import Apply from '@/views/components/homepage/Apply.vue'
 
 import NoticeForm from '@/views/NoticeForm.vue'
 import PostingForm from '@/views/PostingForm.vue'
@@ -49,13 +51,13 @@ export default new Router({
       redirect: '/login'
     },
     {
-      path: '/form/notice',
+      path: '/notice',
       name: 'NoticeForm',
       component: NoticeForm,
       beforeEnter: onlyUser
     },
     {
-      path: '/form/posting',
+      path: '/posting',
       name: 'PostingForm',
       beforeEnter: onlyUser,
       component:PostingForm,
@@ -118,6 +120,10 @@ export default new Router({
         {
           path:"employment/:id",
           component:JobPostingContent,
+        },
+        {
+          path:"apply",
+          component:Apply, 
         }
       ]
     },

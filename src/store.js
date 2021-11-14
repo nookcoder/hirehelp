@@ -32,6 +32,9 @@ export default new Vuex.Store({
        },
         setCurrentUser: function(state,userId){
             state.currentUser = userId;
+        },
+        setCurrentTitle: function(state,title){
+            state.currentTitle = title;
         }
     },
     actions: {
@@ -76,6 +79,9 @@ export default new Vuex.Store({
     getters:{
         getcurrentUser : function(state){
             return state.currentUser;
+        },
+        getCurrentTitle: function(state){
+            return state.currentTitle;
         }
     }
 });
