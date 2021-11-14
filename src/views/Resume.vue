@@ -8,8 +8,7 @@
           <div class="resume-page">
       <b-tabs card v-model="tabIndex" >
         <b-tab title="접수중">
-          <b-table responsive flex style="width: 100%; max-height: 70vh;" @click="tableClick" striped hover :items="jobPostings" :fields="fields" :current-page="currentPage" :per-page="perPage" >
-    
+          <b-table responsive flex style="width: 100%; max-height: 70vh;" @click="tableClick" striped hover :items="jobPostings" :fields="fields">
     <template slot="actions" slot-scope="row">
         <b-button size="sm" @click.stop="tableClick(row.item)" class="mr-1">
           Info
@@ -17,12 +16,11 @@
     </template>
     </b-table>
     <div class="pagination-div">
-      <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage"/>
     </div>
         </b-tab>
         <b-tab title="접수마감">
-        </b-tab>
-          <b-tab title="채용마감">
+          <b-table responsive flex style="width: 100%; max-height: 70vh;" @click="tableClick" striped hover :items="endjobPostings" :fields="endFields">
+    </b-table>
         </b-tab>
       </b-tabs>
   </div>
@@ -37,12 +35,8 @@ export default {
   data(){
     return{
       jobPostings:[],
-      fields: [
-        {
-          key: 'help_in',
-          label: 'D-day넣말',
-          sortable: true
-        },
+      endjobPostings:[],
+      endFields: [
         {
           key: 'kind',
           label: '채용구분',
@@ -70,7 +64,42 @@ export default {
         },
         {
           key: 'driver',
-          label: '지원자수넣말',
+          label: '최종 지원자수',
+          sortable: true
+        }
+      ],
+      fields: [
+        {
+          key: 'Dday',
+          label: 'D-day',
+          sortable: true
+        },
+        {
+          key: 'kind',
+          label: '채용구분',
+        },
+        {
+          key: 'career',
+          label: '채용 분야',
+        },
+        {
+          key: 'date',
+          label: '게시일',
+          sortable: true
+        },
+        {
+          key: 'end_date',
+          label: '마감일',
+          sortable: true
+        },
+        {
+          key: 'title',
+          label: '제목',
+          sortable: false
+        },
+        {
+          key: 'driver',
+          label: '현재 지원자 수',
           sortable: true
         }
       ]
@@ -80,10 +109,21 @@ export default {
     tableClick (row, index) {
     },
     getRecruitmentList(){
-    this.$http.get('http://localhost:3000/api/recruitment/1')
+    this.$http.get('http://localhost:3000/api/recruitment/' + this.$store.state.currentUser.id)
     .then((Response)=>{
-      console.log(Response.data)
-      this.jobPostings = Response.data
+      const dday = new Date()
+      for(var post in Response.data ){
+        // 날짜 계산
+        var result = Math.ceil(((new Date(Response.data[post].end_date)) - dday) / (1000 * 60 * 60 * 24));
+        if(result > 0){
+          Response.data[post].Dday = result
+          this.jobPostings.push(Response.data[post])
+        console.log(this.jobPostings)
+        }
+        else{
+          this.endjobPostings.push(Response.data[post])
+        }
+      }
     })
     .catch((Error)=>{
     console.log(Error);
@@ -92,7 +132,9 @@ export default {
     
   },mounted() {
 		this.getRecruitmentList();
-	}
+	},computed(){
+
+  }
 }
 </script>
 
