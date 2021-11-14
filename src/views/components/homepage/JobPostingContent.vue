@@ -6,11 +6,11 @@
           <button type="button" class="btn border btn-lg" @click="$router.go(-1)"><b-icon icon="backspace"></b-icon></button>
         </div>
         <div>
-          <div id="posting-panel-career"><strong>경력</strong><span>수시</span></div>
-          <p id="posting-panel-title" class="font-weight-bold">채용공고 제목</p>
+          <div id="posting-panel-career"><strong>{{this.jobInformation.career}}</strong><span>{{this.jobInformation.kind}}</span></div>
+          <p id="posting-panel-title" class="font-weight-bold">{{ this.jobInformation.title }}</p>
           <div>
             <strong>남은 날짜</strong>
-            <span>기간</span>
+            <span>{{this.jobInformation.date}}~{{this.jobInformation.end_date}}</span>
           </div>
         </div>
       </div>
@@ -22,29 +22,28 @@
       <section class="apply-detail-main-column mb-5 apply-detail-main-area ">
         <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>모집분야</span>
         <article class="apply-detail-main-text">
-          <span>모집분야입니다</span>
+          <span>{{this.jobInformation.division_information}}</span>
         </article>
       </section>
-
       <section class="apply-detail-main-column mb-5 apply-detail-main-business_information ">
         <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>업무내용</span>
         <article class="apply-detail-main-text">
-          <span>모집분야입니다</span>
+          <span>{{this.jobInformation.work_infomation}}</span>
         </article>
       </section>
       
       <section class="apply-detail-main-column mb-5 apply-detail-main-eligibility ">
         <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>자격요건</span>
         <article class="apply-detail-main-text">
-          <div>1.업무내용<br>업무내용입니다</div>
-          <br>
-          <div>2.주요 업무내용<br>주요 업무내용입니다</div>
+          <div>{{this.jobInformation.qualification_information}}</div>
         </article>
       </section>
       
       <section class="apply-detail-main-column mb-5 apply-detail-main-submit ">
         <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>제출서류</span>
         <article class="apply-detail-main-text">
+          <div>ㆍ제출서류 : {{this.jobInformation.submit_information}}</div>
+          <br>
           <div>ㆍ학력 : 학력입니다</div>
           <br>
           <div>ㆍ경력 기간 : 경력기간입니다.</div>
@@ -53,8 +52,6 @@
             <ul class="apply-detail-main-text-list">
               <li>-필수조건1</li>
               <li>-필수조건2</li>
-              <li>-필수조건3</li>
-              <li>-필수조건4</li>
             </ul>
           </div>
           <br>
@@ -62,8 +59,6 @@
             <ul class="apply-detail-main-text-list">
               <li>-우대사항1</li>
               <li>-우대사항2</li>
-              <li>-우대사항3</li>
-              <li>-우대사항4</li>
             </ul>
           </div>
         </article>
@@ -79,7 +74,7 @@
       <section class="apply-detail-main-column mb-5 apply-detail-main-help ">
         <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>도움말</span>
         <article class="apply-detail-main-text">
-          <span>도움말입니다</span>
+          <span>{{ this.jobInformation.help_information }}</span>
         </article>
       </section>
     
@@ -91,21 +86,35 @@
 export default {
   data(){
     return{
+      jobInformation:{
+        title:'1',
+        kind:'1',
+        career:'1',
+        date:'1',
+      },
       currentTitle:'',
     }
-  },
-  methods:{
+},
+methods:{
     setStoreTitle : function(){
       this.$store.commit('setCurrentTitle',this.currentTitle);
       console.log(this.$store.getters.getCurrentTitle);
+    },
+    getjobInformation(){
+    this.$http.get('http://localhost:3000/api/recruitment/title/' + this.$route.params.id)
+    .then((Response)=>{
+      this.jobInformation = Response.data
+    })
+    .catch((Error)=>{
+    console.log(Error);
+    })
     }
-  },
-
-  mounted(){
+  },mounted() { // 페이지 시작하면은 자동 함수 실행
+		this.getjobInformation();
     this.$nextTick(()=>{
       this.currentTitle = this.$route.params.title;
     })
-  }
+	}
 }
 
 </script>

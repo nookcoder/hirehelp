@@ -11,7 +11,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 import VueHead from 'vue-head'
 import axios from 'axios'
-import {store} from './store'
+import store from './store'
 
 Vue.prototype.$eventBus = new Vue();
 Vue.prototype.$http = axios

@@ -27,9 +27,9 @@
                         <li>이력서 관리</li>
                     </div>
                     <ul class="side-menu__main__column__sub-title">
-                        <span><li><router-link to="/">접수중</router-link></li></span>
-                        <span><li><router-link to="/">접수마감</router-link></li></span>
-                        <span><li><router-link to="/">채용마감</router-link></li></span>
+                        <span><li><router-link to="/resume">접수중</router-link></li></span>
+                        <span><li><router-link to="/applicationDeadline">접수마감</router-link></li></span>
+                        <span><li><router-link to="/recruitmentDeadline">채용마감</router-link></li></span>
                     </ul>
                 </ul>
             </div>

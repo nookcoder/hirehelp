@@ -16,23 +16,50 @@ import PostingInfoForm from '@/views/components/posting-form/PostingInfoForm.vue
 import PostingContentForm from '@/views/components/posting-form/PostingContentForm.vue'
 import PostingCheck from '@/views/components/posting-form/PostingCheck.vue'
 
+import Resume from '@/views/Resume.vue'
+
+import Store from '../store.js'
+ 
 Vue.use(Router)
+
+const rejectUser = (to, from, next) => {
+  if (Store.state.isLogin === true) {
+    // 이미 로그인 된 유저니까 막아야 한다.
+    alert("이미 로그인을 하셨습니다.")
+    next("/form/notice")
+  }
+  else {
+    next()
+  }
+}
+
+const onlyUser = (to, from, next) => {
+  if (Store.state.isLogin === false) {
+    alert("로그인이 필요한 기능입니다.")
+    next("/")
+  }
+  else {
+    next()
+  }
+}
 
 export default new Router({
   mode:'history',
   routes: [
     {
       path:'/',
-      redirect:'/login'
+      redirect: '/login'
     },
     {
       path: '/notice',
       name: 'NoticeForm',
-      component: NoticeForm
+      component: NoticeForm,
+      beforeEnter: onlyUser
     },
     {
       path: '/posting',
       name: 'PostingForm',
+      beforeEnter: onlyUser,
       component:PostingForm,
       children:[
         {
@@ -53,14 +80,22 @@ export default new Router({
       ]
     },
     {
+      path:'/resume',
+      name:'Resume',
+      component: Resume,
+      beforeEnter: onlyUser
+    },
+    {
       path:'/signup',
       name:'SignUp',
-      component: SignUp
+      component: SignUp,
+      beforeEnter: rejectUser
     },
     {
       path:'/login',
       name:'Login',
-      component:Login
+      component:Login,
+      beforeEnter: rejectUser
     },
     {
       path:'/home/:id',
@@ -83,7 +118,7 @@ export default new Router({
           component:Employment,
         },
         {
-          path:"employment/:title",
+          path:"employment/:id",
           component:JobPostingContent,
         },
         {

@@ -12,18 +12,18 @@
     <div class="page-content">
         <hr>
         <ul>
-          <li v-for="(jobPosting,idx) in jobPostings" :key="idx">
-            <router-link href="javascript:void(0)" class="posting-panel" :to="openJobPosting(jobPosting.title)">
+          <li v-for="(jobPosting,id) in jobPostings" :key="id">
+            <router-link href="javascript:void(0)" class="posting-panel" :to="openJobPosting(jobPosting.id)">
               <div class="posting-panel-career"><strong>{{jobPosting.career}}</strong><span>{{jobPosting.kind}}</span></div>
               <p class="posting-panel-title">{{jobPosting.title}}</p>
               <div>
                 <strong>남은 날짜</strong>
-                <span>기간</span>
+                <span>{{jobPosting.date}}~{{jobPosting.end_date}}</span>
               </div>
             </router-link>
           </li>
         </ul>
-    </div> 
+    </div>
   </div>
 </template>
 
@@ -31,21 +31,9 @@
 export default {
   data(){
     return{
-      jobPostings:[{
-        index:'1',
-        title:'제목 1',
-        kind:'수시',
-        career:'경력',
-        date:'2021.11.04~ 2021.11.30',
-      },{
-        index:'2',
-        title:'제목 2',
-        kind:'공채',
-        career:'신입',
-        date:'2021.11.04~ 2021.11.30',
-      }],
+      jobPostings:[],
       employment:{
-        index:'1',
+        id:'1',
         title:'1',
         kind:'1',
         career:'1',
@@ -56,8 +44,21 @@ export default {
   methods:{
     openJobPosting: function(title){
       return "/home/"+this.$route.params.id+"/employment/"+title;
-    }
-  }
+    },
+    getRecruitmentList(){ // 데이터 가져오기
+    this.$http.get('http://localhost:3000/api/recruitment/1')
+    .then((Response)=>{
+      console.log(Response.data)
+      this.jobPostings = Response.data
+    })
+    .catch((Error)=>{
+    console.log(Error);
+    })
+    },
+    
+  },mounted() { // 페이지 시작하면은 자동 함수 실행
+		this.getRecruitmentList();
+	}
 }
 </script>
 
