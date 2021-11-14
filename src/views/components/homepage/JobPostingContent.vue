@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="apply-detail-column">
-        <button type="button" class="btn btn-info btn-lg">지원하기</button>
+        <router-link type="button" class="btn btn-info btn-lg" :to='"/home/"+$route.params.id+"/apply"' @click.native="setStoreTitle">지원하기</router-link>
       </div>
     </header>
     <main class="apply-detail-main">
@@ -89,7 +89,25 @@
 
 <script>
 export default {
+  data(){
+    return{
+      currentTitle:'',
+    }
+  },
+  methods:{
+    setStoreTitle : function(){
+      this.$store.commit('setCurrentTitle',this.currentTitle);
+      console.log(this.$store.getters.getCurrentTitle);
+    }
+  },
+
+  mounted(){
+    this.$nextTick(()=>{
+      this.currentTitle = this.$route.params.title;
+    })
+  }
 }
+
 </script>
 
 <style>
