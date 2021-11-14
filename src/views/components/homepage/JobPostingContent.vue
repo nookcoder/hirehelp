@@ -101,7 +101,7 @@ methods:{
       console.log(this.$store.getters.getCurrentTitle);
     },
     getjobInformation(){
-    this.$http.get('http://localhost:3000/api/recruitment/title/' + this.$route.params.id)
+    this.$http.get(this.$store.state.host + '/api/recruitment/title/' + this.$route.params.id)
     .then((Response)=>{
       this.jobInformation = Response.data
     })

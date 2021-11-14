@@ -43,7 +43,7 @@ export default {
     },
   methods:{
     openNoticePage(){ // 데이터 가져오기
-    this.$http.get('http://localhost:3000/api/notice/1')
+    this.$http.get(this.$store.state.host + '/api/notice/1')
     .then((Response)=>{
     this.notices = Response.data
     })

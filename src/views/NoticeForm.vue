@@ -60,12 +60,12 @@ export default {
             const day = now.getDate() >= 10 ? now.getDate() : "0"+now.getDate();
             const date = year+"-"+month+"-"+day;
             this.noticeForm.currentTime = date;
-            this.$http.post('http://localhost:3000/api/notice/input', 
+            this.$http.post(this.$store.state.host + 'api/notice/input', 
             { noticeForm: this.noticeForm }
             ).then((res) => {
       if (res.data.success) {
       alert(res.data.message)
-        this.$router.push('/form/notice');
+        this.$router.push('/notice');
       }
       else {
       alert("실패")

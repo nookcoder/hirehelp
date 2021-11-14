@@ -80,7 +80,7 @@ export default {
     tableClick (row, index) {
     },
     getRecruitmentList(){
-    this.$http.get('http://localhost:3000/api/recruitment/1')
+    this.$http.get(this.$store.state.host + '/api/recruitment/1')
     .then((Response)=>{
       console.log(Response.data)
       this.jobPostings = Response.data

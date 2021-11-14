@@ -45,7 +45,7 @@ export default {
     name:"Menu",
     data(){
       return{
-        user:'a'
+        user:this.$store.state.currentUser.id
       }
     }
 }

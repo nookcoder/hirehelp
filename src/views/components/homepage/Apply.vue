@@ -107,7 +107,7 @@ export default {
     methods:{
         onSubmit:function(event){
             event.preventDefault()
-            axios.post('http://ec2-54-180-99-13.ap-northeast-2.compute.amazonaws.com:4443/api/resume/',
+            axios.post(this.$store.state.host + '/api/resume/',
             {
                 applyData:{
                     name:this.applyData.name,
