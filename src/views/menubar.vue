@@ -21,7 +21,7 @@
             <b-dropdown-item>면접평가서 등록 및 수정</b-dropdown-item>
         </b-nav-dropdown>
 
-        <b-nav-item @click="$router.push('home/'+user)">채용 홈페이지 접속</b-nav-item>
+        <b-nav-item @click="moveUserHomePage">채용 홈페이지 접속</b-nav-item>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
@@ -33,7 +33,7 @@
           </template>
           <b-dropdown-item @click="$router.push('login')">Sign In</b-dropdown-item>
           <b-dropdown-item @click="$router.push('signup')">Sign Up</b-dropdown-item>
-        </b-nav-item-dropdown>
+        </b-nav-item-dropdown> 
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -46,6 +46,11 @@ export default {
     data(){
       return{
         user:this.$store.state.currentUser.id
+      }
+    },
+    methods:{
+      moveUserHomePage:function(){
+        this.$router.push('home/'+this.user);
       }
     }
 }
