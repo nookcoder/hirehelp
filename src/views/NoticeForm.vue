@@ -41,6 +41,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     data(){
         return{
@@ -48,6 +49,7 @@ export default {
                 title:"",
                 content:"",
                 currentTime : "",
+                id:this.$store.getters.getcurrentUser,
             }
         }
     },
@@ -60,7 +62,7 @@ export default {
             const day = now.getDate() >= 10 ? now.getDate() : "0"+now.getDate();
             const date = year+"-"+month+"-"+day;
             this.noticeForm.currentTime = date;
-            this.$http.post(this.$store.state.host + 'api/notice/input', 
+            axios.post(this.$store.state.host + '/api/notice/input', 
             { noticeForm: this.noticeForm }
             ).then((res) => {
       if (res.data.success) {

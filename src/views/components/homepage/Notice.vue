@@ -30,20 +30,14 @@
 
 <script>
 export default {
-    data(){
-        return{
-            notices:[{
-                id : 0,
-                title:"",
-                date : "",
-                content : ""
-                }
-                ],
-        }
-    },
+  data(){
+    return{
+      notices:[],
+    }
+  },
   methods:{
     openNoticePage(){ // 데이터 가져오기
-    this.$http.get(this.$store.state.host + '/api/notice/1')
+    this.$http.get(this.$store.state.host + '/api/notice/' + this.$route.params.id)
     .then((Response)=>{
     this.notices = Response.data
     })
@@ -51,7 +45,8 @@ export default {
     console.log(Error);
     })
     },
-  },mounted() { // 페이지 시작하면은 자동 함수 실행
+  },
+  mounted() { // 페이지 시작하면은 자동 함수 실행
 		this.openNoticePage();
 	}
 }

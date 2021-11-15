@@ -78,7 +78,7 @@ export default new Vuex.Store({
     },
     getters:{
         getcurrentUser : function(state){
-            return state.currentUser;
+            return state.currentUser.id;
         },
         getCurrentTitle: function(state){
             return state.currentTitle;

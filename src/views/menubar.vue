@@ -45,12 +45,13 @@ export default {
     name:"Menu",
     data(){
       return{
-        user:this.$store.state.currentUser.id
+        user:this.$store.getters.getcurrentUser
       }
     },
     methods:{
       moveUserHomePage:function(){
-        this.$router.push('home/'+this.user);
+        console.log(this.$store.state);
+        this.$router.push('home/'+this.$store.state.currentUser.id);
       }
     }
 }
