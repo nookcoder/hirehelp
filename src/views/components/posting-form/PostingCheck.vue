@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data(){
     return{
@@ -46,7 +47,7 @@ export default {
   props:['postingForm'],
   methods:{
     submitPost(){
-    this.$http.post('http://localhost:3000/api/recruitment/input', { recruitmentData: this.postingForm })
+    axios.post(this.$store.state.host + '/api/recruitment/input', { recruitmentData: this.postingForm })
     .then((res) => {
       if (res.data.success) {
       alert(res.data.message)
@@ -56,7 +57,7 @@ export default {
       }
     })
     },
-    resetPostingFormData:function(){
+    resetPostingFormData:function(){2
       this.$emit('initPostingFormData',this.initData);
       this.$router.replace('/');
     },
