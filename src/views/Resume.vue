@@ -107,6 +107,7 @@ export default {
   },
   methods:{
     tableClick (row, index) {
+      alert(row, index)
     },
     getRecruitmentList(){
     this.$http.get('http://localhost:3000/api/recruitment/' + this.$store.state.currentUser.id)

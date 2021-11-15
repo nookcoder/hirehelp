@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="apply-detail-column">
-        <router-link type="button" class="btn btn-info btn-lg" :to='"/home/"+$route.params.id+"/apply"' @click.native="setStoreTitle">지원하기</router-link>
+        <router-link type="button" class="btn btn-info btn-lg" :to='"/home/" + this.$store.state.currentUser.id+"/apply"' @click.native="setStoreTitle">지원하기</router-link>
       </div>
     </header>
     <main class="apply-detail-main">
@@ -101,8 +101,9 @@ methods:{
       console.log(this.$store.getters.getCurrentTitle);
     },
     getjobInformation(){
-    this.$http.get('http://localhost:3000/api/recruitment/title/' + this.$route.params.id)
+    this.$http.get('http://localhost:3000/api/recruitment/title/' + document.location.pathname.split("/").reverse()[0])
     .then((Response)=>{
+      console.log(Response.data)
       this.jobInformation = Response.data
     })
     .catch((Error)=>{

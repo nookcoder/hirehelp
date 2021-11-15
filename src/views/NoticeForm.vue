@@ -65,7 +65,7 @@ export default {
             ).then((res) => {
       if (res.data.success) {
       alert(res.data.message)
-        this.$router.push('/form/notice');
+        this.$router.push('/notice');
       }
       else {
       alert("실패")
