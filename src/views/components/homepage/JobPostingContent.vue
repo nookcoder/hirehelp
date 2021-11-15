@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="apply-detail-column">
-        <router-link type="button" class="btn btn-info btn-lg" :to='"/home/" + this.$store.state.currentUser.id+"/apply"' @click.native="setStoreTitle">지원하기</router-link>
+        <router-link type="button" class="btn btn-info btn-lg" :to='window.location.pathname +"/apply"' :path="path">지원하기</router-link>
       </div>
     </header>
     <main class="apply-detail-main">
@@ -92,17 +92,19 @@ export default {
         career:'1',
         date:'1',
       },
-      currentTitle:'',
+      path:{
+        recrumentId:'',
+        companyId:'',
+      }
     }
 },
+created(){
+  this.path.companyId = this.$route.params.id
+  this.path.recrumentId = this.$route.params.recrumentId
+},
 methods:{
-    setStoreTitle : function(){
-      this.$store.commit('setCurrentTitle',this.currentTitle);
-      console.log(this.$store.getters.getCurrentTitle);
-    },
     getjobInformation(){
-    //this.$http.get('http://localhost:3000/api/recruitment/title/' + document.location.pathname.split("/").reverse()[0])
-    this.$http.get(this.$store.state.host + '/api/recruitment/title/' + this.$route.params.id)
+    this.$http.get(this.$store.state.host + '/api/recruitment/title/' + this.$route.params.recrumentId) //this.$http.get('http://localhost:3000/api/recruitment/title/' + document.location.pathname.split("/").reverse()[0])
     .then((Response)=>{
       console.log(Response.data)
       this.jobInformation = Response.data
@@ -114,7 +116,7 @@ methods:{
   },mounted() { // 페이지 시작하면은 자동 함수 실행
 		this.getjobInformation();
     this.$nextTick(()=>{
-      this.currentTitle = this.$route.params.title;
+      this.currentTitle = this.$route.params.recrumentId;
     })
 	}
 }

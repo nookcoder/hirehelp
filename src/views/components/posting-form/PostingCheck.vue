@@ -57,7 +57,7 @@ export default {
       }
     })
     },
-    resetPostingFormData:function(){2
+    resetPostingFormData:function(){
       this.$emit('initPostingFormData',this.initData);
       this.$router.replace('/');
     },
