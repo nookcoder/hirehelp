@@ -16,11 +16,9 @@
 
         <b-nav-item @click="$router.push('resume')">이력서 관리</b-nav-item>
         
-        <b-nav-dropdown text="면접 관리">
-            <b-dropdown-item>면접시간 배정</b-dropdown-item>
-            <b-dropdown-item>면접평가서 등록 및 수정</b-dropdown-item>
+        <b-nav-dropdown text="면접 서비스">
+            <b-dropdown-item @click="onClickRedirect()">면접실 입장</b-dropdown-item>
         </b-nav-dropdown>
-
         <b-nav-item @click="moveUserHomePage">채용 홈페이지 접속</b-nav-item>
       </b-navbar-nav>
 
@@ -49,6 +47,9 @@ export default {
       }
     },
     methods:{
+      onClickRedirect: function(){
+          window.open(" https://interviewmeeting.loca.lt")
+      },
       moveUserHomePage:function(){
         this.$router.push('home/'+this.user);
       }
