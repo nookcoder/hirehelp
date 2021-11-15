@@ -110,7 +110,7 @@ export default {
       alert(row, index)
     },
     getRecruitmentList(){
-    this.$http.get('http://localhost:3000/api/recruitment/' + this.$store.state.currentUser.id)
+    this.$http.get(this.$store.state.host + '/api/recruitment/1') //this.$store.state.currentUser.id
     .then((Response)=>{
       const dday = new Date()
       for(var post in Response.data ){

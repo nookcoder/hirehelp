@@ -7,7 +7,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        host: 'http://localhost:3000',
+        host: 'http://localhost:5000',
         currentUser: [],
         isLogin: false,
         isloginError: false
@@ -40,14 +40,14 @@ export default new Vuex.Store({
     actions: {
         // 로그인 시도
         loginStore({ commit }, loginForm) {
-            axios.post('http://localhost:3000/api/company/login', loginForm)
+            axios.post(this.state.host+'/api/company/login', loginForm)
             .then(res => {
                 alert(res.data.message);
                 if (res.data.loginSuccess) {                    
                     let config = {
                         headers: { "access-token": res.data.accessToken }
                     }
-                        axios.get('http://localhost:3000/api/company/login', config)
+                        axios.get(this.state.host+ '/api/company/login', config)
                         .then(response => {
                         let selectedUser = {
                             id: response.data.token.id,
@@ -78,7 +78,7 @@ export default new Vuex.Store({
     },
     getters:{
         getcurrentUser : function(state){
-            return state.currentUser;
+            return state.currentUser.id;
         },
         getCurrentTitle: function(state){
             return state.currentTitle;

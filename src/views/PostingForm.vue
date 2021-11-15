@@ -18,7 +18,7 @@ export default {
   data(){
     return{
       postingForm:{
-        userId : this.$store.state.currentUser.id,
+        id : this.$store.getters.getcurrentUser,
         title: '',
         category:'',
         type:'',
