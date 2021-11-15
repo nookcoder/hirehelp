@@ -37,10 +37,10 @@ export default {
   },
   methods:{
     openJobPosting: function(title){
-      return "/home/"+this.$route.params.id+"/employment/"+title;
+      return document.location.pathname + "/" +title;
     },
     getRecruitmentList(){ // 데이터 가져오기
-    axios.get(this.$store.state.host + '/api/recruitment/' + this.$route.params.id)
+    axios.get(this.$store.state.host + '/api/recruitment/' + this.$route.params.id) // document.location.pathname.split("/")[2]
     .then((Response)=>{
       console.log(Response.data)
       this.jobPostings = Response.data

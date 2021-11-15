@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="apply-detail-column">
-        <router-link type="button" class="btn btn-info btn-lg" :to='"/home/"+path.companyId+"/apply"' :path="path">지원하기</router-link>
+        <router-link type="button" class="btn btn-info btn-lg" :to='window.location.pathname +"/apply"' :path="path">지원하기</router-link>
       </div>
     </header>
     <main class="apply-detail-main">
@@ -104,8 +104,9 @@ created(){
 },
 methods:{
     getjobInformation(){
-    this.$http.get(this.$store.state.host + '/api/recruitment/title/' + this.$route.params.recrumentId)
+    this.$http.get(this.$store.state.host + '/api/recruitment/title/' + this.$route.params.recrumentId) //this.$http.get('http://localhost:3000/api/recruitment/title/' + document.location.pathname.split("/").reverse()[0])
     .then((Response)=>{
+      console.log(Response.data)
       this.jobInformation = Response.data
     })
     .catch((Error)=>{
