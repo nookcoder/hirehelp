@@ -88,7 +88,7 @@
 <script>
 import axios from 'axios'
 export default {
-    props:['path'],
+
     data(){
         return{
             gender:["남자","여자"],
@@ -107,10 +107,10 @@ export default {
 
         }
     },
-    created(){
-        this.applyData.id = this.path.companyId
-        this.applyData.recrumentId = this.$route.params.recrumentId
-    },
+    // created(){
+    //     this.applyData.id = this.path.companyId
+    //     this.applyData.recrumentId = this.$route.params.recrumentId
+    // },
     methods:{
         onSubmit:function(event){
             event.preventDefault()
