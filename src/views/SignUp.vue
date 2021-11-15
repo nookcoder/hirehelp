@@ -60,7 +60,6 @@
      </div>
     <b-button variant="outline-primary" type="submit">확인</b-button>
     <b-button variant="outline-primary" type="reset">초기화</b-button>
-    <b-button variant="outline-primary" v-on:click.prevent="back">로그인</b-button>
     </b-form>
   </div>
         </v-card>
@@ -73,9 +72,6 @@
 export default {
   name:"SignUp",
   methods:{
-    back(){
-        this.$router.push('/login');
-      },
     checkID(event){
       event.preventDefault();
       this.$http.post('/api/company/signup/check', { user_id: this.user.id})
