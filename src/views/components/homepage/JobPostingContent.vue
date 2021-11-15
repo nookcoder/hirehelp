@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="apply-detail-column">
-        <router-link type="button" class="btn btn-info btn-lg" :to='"/home/"+$route.params.id+"/apply"' @click.native="setStoreTitle">지원하기</router-link>
+        <router-link type="button" class="btn btn-info btn-lg" :to='"/home/"+$route.params.id+"/apply"' @click.native="setStoreTitle" :path="path">지원하기</router-link>
       </div>
     </header>
     <main class="apply-detail-main">
@@ -92,13 +92,21 @@ export default {
         career:'1',
         date:'1',
       },
-      currentTitle:'',
+      path:{
+        recrumentId:'',
+        companyId:'',
+      }
     }
+},
+created(){
+  this.path.companyId = this.$route.params.id
+  this.path.recrumentId = this.$route.params.recrumentId
 },
 methods:{
     setStoreTitle : function(){
       this.$store.commit('setCurrentTitle',this.currentTitle);
       console.log(this.$store.getters.getCurrentTitle);
+      console.log(this.$route.params);
     },
     getjobInformation(){
     this.$http.get(this.$store.state.host + '/api/recruitment/title/' + this.$route.params.id)
@@ -112,7 +120,7 @@ methods:{
   },mounted() { // 페이지 시작하면은 자동 함수 실행
 		this.getjobInformation();
     this.$nextTick(()=>{
-      this.currentTitle = this.$route.params.title;
+      this.currentTitle = this.$route.params.recrumentId;
     })
 	}
 }
