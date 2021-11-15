@@ -17,6 +17,7 @@ import PostingContentForm from '@/views/components/posting-form/PostingContentFo
 import PostingCheck from '@/views/components/posting-form/PostingCheck.vue'
 
 import Resume from '@/views/Resume.vue'
+import Home from '@/views/MainHome.vue'
 
 import Store from '../store.js'
  
@@ -26,7 +27,7 @@ const rejectUser = (to, from, next) => {
   if (Store.state.isLogin === true) {
     // 이미 로그인 된 유저니까 막아야 한다.
     alert("이미 로그인을 하셨습니다.")
-    next("/form/notice")
+    next("/main")
   }
   else {
     next()
@@ -47,8 +48,13 @@ export default new Router({
   mode:'history',
   routes: [
     {
-      path:'/',
+      path: '/',
       redirect: '/login'
+    },
+    {
+      path: '/main',
+      name: 'MainHome',
+      component: Home
     },
     {
       path: '/notice',
