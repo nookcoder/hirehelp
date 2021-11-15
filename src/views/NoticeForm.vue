@@ -49,6 +49,7 @@ export default {
                 title:"",
                 content:"",
                 currentTime : "",
+                id:this.$store.getters.getcurrentUser,
             }
         }
     },

@@ -38,9 +38,12 @@ export default {
   },
   data(){
     return{
-      currentId:this.$store.getters.getRouteId,
+      currentId:"",
     }
   },
+  created(){
+    this.currentId = this.$route.params.id;
+  }
   // 서버에서 데이터 받아오는 코드
 }
 </script>
