@@ -1,7 +1,7 @@
 <template>
 <div>
   <b-navbar toggleable="lg" type="dark" variant="info">
-    <b-navbar-brand @click="$router.push('/')">HOME</b-navbar-brand>
+    <b-navbar-brand @click="$router.push('/main')">HOME</b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -21,12 +21,12 @@
             <b-dropdown-item>면접평가서 등록 및 수정</b-dropdown-item>
         </b-nav-dropdown>
 
-        <b-nav-item @click="$router.push('home/'+user)">채용 홈페이지 접속</b-nav-item>
+        <b-nav-item @click="moveUserHomePage">채용 홈페이지 접속</b-nav-item>
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto">
         <div v-if="this.$store.state.isLogin">
-        <b-nav-item v-on:click="logoutStore()">로그아웃</b-nav-item>
+        <b-nav-item v-on:click="logoutStore()">{{this.user.name}} 로그아웃</b-nav-item>
         </div>
         <div v-else>
             <b-nav-item-dropdown right>
@@ -50,14 +50,18 @@ export default {
     name:"Menu",
     data(){
       return{
-        user: this.$store.state.currentUser.id
+        user: this.$store.state.currentUser
       }
     },
     computed:{
-      ...mapState(["isLogin", "isLoginError"])
+      ...mapState(["isLogin"])
     },
     methods:{
       ...mapActions(["logoutStore"]),
+      moveUserHomePage(){
+        console.log(this.user.id)
+        this.$router.push('home/'+this.user.id);
+      }
     }
 }
 </script>

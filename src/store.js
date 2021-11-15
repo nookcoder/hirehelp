@@ -54,7 +54,7 @@ export default new Vuex.Store({
                             name: response.data.token.name
                         }
                         commit("loginSuccess", selectedUser)
-                        router.push('/form/notice') 
+                        router.push('/main') 
                         })
                         .catch(error => {
                         console.log(error)
@@ -73,7 +73,7 @@ export default new Vuex.Store({
         },
         logoutStore({ commit }) {
             commit("logout")
-            router.push('/')
+            router.push('/login')
         }
     },
     getters:{
