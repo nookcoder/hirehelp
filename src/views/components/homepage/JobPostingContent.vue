@@ -105,7 +105,6 @@ created(){
   this.path.current = document.location.pathname
 },
 methods:{
-  // document.location.pathname.split("/").reverse()[0])
     getjobInformation(){
     this.$http.get(this.$store.state.host + '/api/recruitment/title/' + document.location.pathname.split("/").reverse()[0])
     .then((Response)=>{

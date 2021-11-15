@@ -130,7 +130,7 @@ export default new Router({
         {
           path: "employment/:recrumentId/apply",
           name:"apply",
-          component:Apply, 
+          component:Apply,
         }
       ]
     },
