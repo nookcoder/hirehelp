@@ -49,8 +49,8 @@ import { mapState, mapActions } from "vuex"
 export default {
     name:"Menu",
     data(){
-      return
-        user: this.$store.state.currentUser // user:this.$store.getters.getcurrentUser
+      return{
+        user:this.$store.getters.getcurrentUser
       }
     },
     computed:{
@@ -59,8 +59,7 @@ export default {
     methods:{
       ...mapActions(["logoutStore"]),
       moveUserHomePage(){
-        console.log(this.user.id) // console.log(this.$store.state);
-        this.$router.push('home/'+this.user.id); // this.$router.push('home/'+this.$store.state.currentUser.id);        
+        this.$router.push('home/'+this.$store.state.currentUser.id);
       }
     }
 }

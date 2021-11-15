@@ -125,11 +125,12 @@ export default new Router({
         },
         {
           path:"employment/:recrumentId",
-          component:JobPostingContent,
+          component: JobPostingContent,
         },
         {
-          path:"/apply",
-          component:Apply, 
+          path: "employment/:recrumentId/apply",
+          name:"apply",
+          component:Apply,
         }
       ]
     },
