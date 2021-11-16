@@ -5,22 +5,34 @@
 				이력서 관리
 			</v-card-title>
 			<v-card-text>
-          <div class="resume-page">
-      <b-tabs card v-model="tabIndex" >
-        <b-tab title="접수중">
-          <b-table responsive flex style="width: 100%; max-height: 70vh;" @click="tableClick" striped hover :items="jobPostings" :fields="fields">
-    <template slot="actions" slot-scope="row">
-        <b-button size="sm" @click.stop="tableClick(row.item)" class="mr-1">
-          Info
-        </b-button>
-    </template>
-    </b-table>
-    <div class="pagination-div">
-    </div>
-        </b-tab>
+      <div class="resume-page">
+        <b-tabs card>
+          <b-tab title="접수중">
+            <b-table 
+              responsive 
+              flex 
+              style="width: 100%; max-height: 70vh;" 
+              striped 
+              hover 
+              :items="jobPostings" 
+              :fields="fields"
+              >
+              <template  v-slot:cell(driver)="data">
+                <b-button size="sm" @click="loadApplicantsData(data.item.title)" class="mr-1">Info</b-button>
+              </template>
+            </b-table>
+            <div class="pagination-div">
+            </div>
+          </b-tab>
         <b-tab title="접수마감">
-          <b-table responsive flex style="width: 100%; max-height: 70vh;" @click="tableClick" striped hover :items="endjobPostings" :fields="endFields">
-    </b-table>
+          <b-table 
+            responsive
+            flex style="width: 100%; max-height: 70vh;" 
+            @click="tableClick" 
+            striped hover 
+            :items="endjobPostings" 
+            :fields="endFields">
+          </b-table>
         </b-tab>
       </b-tabs>
   </div>
@@ -119,7 +131,6 @@ export default {
         if(result > 0){
           Response.data[post].Dday = result
           this.jobPostings.push(Response.data[post])
-        console.log(this.jobPostings)
         }
         else{
           this.endjobPostings.push(Response.data[post])
@@ -130,12 +141,16 @@ export default {
     console.log(Error);
     })
     },
-    
-  },mounted() {
-		this.getRecruitmentList();
-	},computed(){
 
-  }
+    loadApplicantsData: function(e){
+      // let target = event.target;
+      // console.log(target);
+      console.log(JSON.stringify(e));
+    }  
+  },
+  mounted() {
+		this.getRecruitmentList();
+	}
 }
 </script>
 
