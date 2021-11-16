@@ -22,59 +22,41 @@
       <section class="apply-detail-main-column mb-5 apply-detail-main-area ">
         <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>모집분야</span>
         <article class="apply-detail-main-text">
-          <span>{{this.jobInformation.division_information}}</span>
+          <pre>{{this.jobInformation.division_information}}</pre>
         </article>
       </section>
       <section class="apply-detail-main-column mb-5 apply-detail-main-business_information ">
         <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>업무내용</span>
         <article class="apply-detail-main-text">
-          <span>{{this.jobInformation.work_infomation}}</span>
-        </article>
-      </section>
-      
-      <section class="apply-detail-main-column mb-5 apply-detail-main-eligibility ">
-        <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>자격요건</span>
-        <article class="apply-detail-main-text">
-          <div>{{this.jobInformation.qualification_information}}</div>
+          <pre>{{this.jobInformation.work_information}}</pre>
         </article>
       </section>
       
       <section class="apply-detail-main-column mb-5 apply-detail-main-submit ">
+        <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>자격요건</span>
+        <article class="apply-detail-main-text">
+          <pre>{{jobInformation.qualification_information}}</pre>
+        </article>
+      </section>
+
+      <section class="apply-detail-main-column mb-5 apply-detail-main-eligibility ">
         <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>제출서류</span>
         <article class="apply-detail-main-text">
-          <div>ㆍ제출서류 : {{this.jobInformation.submit_information}}</div>
-          <br>
-          <div>ㆍ학력 : 학력입니다</div>
-          <br>
-          <div>ㆍ경력 기간 : 경력기간입니다.</div>
-          <br>
-          <div>ㆍ필수조건
-            <ul class="apply-detail-main-text-list">
-              <li>-필수조건1</li>
-              <li>-필수조건2</li>
-            </ul>
-          </div>
-          <br>
-          <div>ㆍ우대사항
-            <ul class="apply-detail-main-text-list">
-              <li>-우대사항1</li>
-              <li>-우대사항2</li>
-            </ul>
-          </div>
+          <pre>{{jobInformation.submit_information}}</pre>
         </article>
       </section>
       
       <section class="apply-detail-main-column mb-5 apply-detail-main-stage ">
         <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>전형단계</span>
         <article class="apply-detail-main-text">
-          <span>여기는 이미지로 불러올까</span>
+          <pre>여기는 이미지로 불러올까</pre>
         </article>
       </section>
       
       <section class="apply-detail-main-column mb-5 apply-detail-main-help ">
         <span class="font-weight-bold h3"><b-icon class="bookmark" icon="bookmark-fill"/>도움말</span>
         <article class="apply-detail-main-text">
-          <span>{{ this.jobInformation.help_information }}</span>
+          <pre>{{ this.jobInformation.help_information }}</pre>
         </article>
       </section>
     
