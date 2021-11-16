@@ -30,9 +30,15 @@ import Employment from './components/homepage/Employment.vue'
 import FAQ from './components/homepage/FAQ.vue'
 import Notice from './components/homepage/Notice.vue'
 
+import axios from 'axios'
+
 export default {
   components: { MainPage,Employment,FAQ,Notice },
   name:"EmploymentHomePage",
+  created(){
+    this.currentId = this.$route.params.id;
+    axios.get(this.$store.state.host+"/"+ this.companyId);    
+  },
   methods:{
   
   },
@@ -41,9 +47,6 @@ export default {
       currentId:"",
     }
   },
-  created(){
-    this.currentId = this.$route.params.id;
-  }
   // 서버에서 데이터 받아오는 코드
 }
 </script>
