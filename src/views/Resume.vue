@@ -18,7 +18,7 @@
               :fields="fields"
               >
               <template  v-slot:cell(driver)="data">
-                <b-button size="sm" @click="loadApplicantsData(data.item.title)" class="mr-1">Info</b-button>
+                <b-button size="sm" @click="loadApplicantsData(data)" class="mr-1">Info</b-button>
               </template>
             </b-table>
             <div class="pagination-div">
@@ -142,11 +142,10 @@ export default {
     })
     },
 
-    loadApplicantsData: function(e){
-      // let target = event.target;
-      // console.log(target);
-      console.log(JSON.stringify(e));
-    }  
+    loadApplicantsData: function(data){
+      console.log(JSON.stringify(data.item.id));
+      this.$router.replace("resume/"+data.item.id);
+    },
   },
   mounted() {
 		this.getRecruitmentList();
