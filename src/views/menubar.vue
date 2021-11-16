@@ -48,7 +48,7 @@ export default {
     },
     methods:{
       onClickRedirect: function(){
-          window.open(" https://interviewmeeting.loca.lt")
+          window.open(" https://interview.loca.lt")
       },
       moveUserHomePage:function(){
         this.$router.push('home/'+this.user);
