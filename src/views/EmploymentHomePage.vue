@@ -48,12 +48,10 @@ export default {
   },
   data(){
     return{
-      companyData:{
-
-      },
+      companyData:{},
       currentId:"",
     }
-  },
+  }
   // 서버에서 데이터 받아오는 코드
 }
 </script>

@@ -27,7 +27,6 @@ export default {
     {rel:'stylesheet',href:'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'},
     {rel:'stylesheet',href:'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css'},
     {rel:'stylesheet',href:'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'},
-    {rel:'stylesheet',href:'https://wowjs.uk/css/libs/animate.css'}
    ]
   }
 }

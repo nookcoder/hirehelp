@@ -35,6 +35,10 @@ export default new Vuex.Store({
         },
         setCurrentTitle: function(state,title){
             state.currentTitle = title;
+        },
+        setIntroduce: function(state,company){
+            state.currentUser.introduce = company.introduce;
+            state.currentUser.introduceTitle = company.introduceTitle;
         }
     },
     actions: {
@@ -51,7 +55,8 @@ export default new Vuex.Store({
                         .then(response => {
                         let selectedUser = {
                             id: response.data.token.id,
-                            name: response.data.token.name
+                            name: response.data.token.name,
+                            domain: document.location.origin + '/home/' + response.data.token.id
                         }
                         commit("loginSuccess", selectedUser)
                         router.push('/main') 
@@ -74,6 +79,19 @@ export default new Vuex.Store({
         logoutStore({ commit }) {
             commit("logout")
             router.push('/login')
+        },
+        updateIntroduce({ commit }, company) {
+            console.log("text=" + company)
+            commit("setIntroduce", company)
+            console.log(this.state.currentUser)
+        axios.patch(this.state.host + '/api/company/introduce/' + this.state.currentUser.id, { user: this.state.currentUser })
+            .then(function (response) {
+            alert("채용 소개가 저장되었습니다.")
+        console.log(response);
+         })
+        .catch(function (error) {
+        console.log(error);
+        });
         }
     },
     getters:{

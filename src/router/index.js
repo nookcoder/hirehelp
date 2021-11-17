@@ -19,6 +19,8 @@ import PostingCheck from '@/views/components/posting-form/PostingCheck.vue'
 import Resume from '@/views/Resume.vue'
 import Applicants from '@/views/components/resume/Applicants.vue'
 import Home from '@/views/MainHome.vue'
+import MyPage from '@/views/MyPage.vue'
+import Applicants from '@/views/components/resume/Applicants.vue'
 
 import Store from '../store.js'
  
@@ -61,6 +63,12 @@ export default new Router({
       path: '/notice',
       name: 'NoticeForm',
       component: NoticeForm,
+      beforeEnter: onlyUser
+    },
+    {
+      path: '/mypage',
+      name: 'MyPage',
+      component: MyPage,
       beforeEnter: onlyUser
     },
     {
