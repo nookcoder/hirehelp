@@ -1,6 +1,7 @@
 <template>
 	<v-container>
 		<v-card elevation="10" outlined width="100%" class="mx-auto">
+			<!-- <v-card-title>
 			<v-card-title>
 				이력서 관리
 			</v-card-title>
@@ -21,6 +22,40 @@
         <b-tab title="접수마감">
           <b-table responsive flex style="width: 100%; max-height: 70vh;" @click="tableClick" striped hover :items="endjobPostings" :fields="endFields">
     </b-table>
+          <b-table responsive flex style="width: 100%; max-height: 70vh;" striped hover :items="endjobPostings" :fields="endFields">
+    </b-table> -->
+			<v-card-title>
+				이력서 관리
+			</v-card-title>
+			<v-card-text>
+      <div class="resume-page">
+        <b-tabs card>
+          <b-tab title="접수중">
+            <b-table 
+              responsive 
+              flex 
+              style="width: 100%; max-height: 70vh;" 
+              striped 
+              hover 
+              :items="jobPostings" 
+              :fields="fields"
+              >
+              <template  v-slot:cell(driver)="data">
+                <b-button size="sm" @click="loadApplicantsData(data)" class="mr-1">Info</b-button>
+              </template>
+            </b-table>
+            <div class="pagination-div">
+            </div>
+          </b-tab>
+        <b-tab title="접수마감">
+          <b-table 
+            responsive
+            flex style="width: 100%; max-height: 70vh;" 
+            @click="tableClick" 
+            striped hover 
+            :items="endjobPostings" 
+            :fields="endFields">
+          </b-table>
         </b-tab>
       </b-tabs>
   </div>
@@ -34,6 +69,7 @@
 export default {
   data(){
     return{
+      tabIndex: 0,
       jobPostings:[],
       endjobPostings:[],
       endFields: [
@@ -131,8 +167,11 @@ export default {
     })
     },
     
-  },mounted() {
-		this.getRecruitmentList();
+  },mounted: {
+		// this.getRecruitmentList();
+    loadApplicantsData: function(data){
+      this.$router.replace("resume/"+data.item.company_id+"/"+data.item.id);
+    }
 	},computed(){
 
   }

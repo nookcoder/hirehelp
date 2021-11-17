@@ -19,6 +19,7 @@ import PostingCheck from '@/views/components/posting-form/PostingCheck.vue'
 import Resume from '@/views/Resume.vue'
 import Home from '@/views/MainHome.vue'
 import MyPage from '@/views/MyPage.vue'
+import Applicants from '@/views/components/resume/Applicants.vue'
 
 import Store from '../store.js'
  
@@ -96,7 +97,11 @@ export default new Router({
       path:'/resume',
       name:'Resume',
       component: Resume,
-      beforeEnter: onlyUser
+      beforeEnter: onlyUser,
+    },
+    {
+      path:"/resume/:companyid/:recruitmentid",
+      component:Applicants
     },
     {
       path:'/signup',

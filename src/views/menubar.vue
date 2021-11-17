@@ -1,7 +1,7 @@
 <template>
 <div>
   <b-navbar toggleable="lg" type="dark" variant="info">
-    <div class="ml-auto order-0">
+    <!-- <div class="ml-auto order-0">
        <b-navbar-brand class="ml-auto" @click="$router.push('/main')">HOME</b-navbar-brand>
     </div>
 
@@ -12,22 +12,32 @@
             <b-dropdown-item @click="$router.push('notice')">공지사항 추가</b-dropdown-item>
             <b-dropdown-item>공지사항 수정/삭제</b-dropdown-item>
             <b-dropdown-item @click="$router.push('posting')">채용공고 추가</b-dropdown-item>
-            <b-dropdown-item>채용공고 수정/삭제</b-dropdown-item>
+            <b-dropdown-item>채용공고 수정/삭제</b-dropdown-item> -->
+    <b-navbar-brand @click="$router.push('/main')">HOME</b-navbar-brand>
+
+    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+    <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-nav>
+        <b-nav-dropdown text="홈페이지 관리">
+            <b-dropdown-item @click="$router.push('notice')">공지사항 추가</b-dropdown-item>
+            <b-dropdown-item @click="$router.push('renotice')">공지사항 수정/삭제</b-dropdown-item>
+            <b-dropdown-item @click="$router.push('posting')">채용공고 추가</b-dropdown-item>
+            <b-dropdown-item @click="$router.push('reposting')">채용공고 수정/삭제</b-dropdown-item>
         </b-nav-dropdown>
 
         <b-nav-item @click="$router.push('resume')">이력서 관리</b-nav-item>
         
-        <b-nav-dropdown text="면접 관리">
+        <b-nav-dropdown text="면접 서비스">
+            <b-dropdown-item @click="onClickRedirect()">면접실 입장</b-dropdown-item>
             <b-dropdown-item>면접시간 배정</b-dropdown-item>
             <b-dropdown-item>면접평가서 등록 및 수정</b-dropdown-item>
         </b-nav-dropdown>
-
         <b-nav-item @click="moveUserHomePage">채용 홈페이지 접속</b-nav-item>
       </b-navbar-nav>
 
-       <b-navbar-nav class="ml-auto">
-        <div v-if="this.$store.state.isLogin">
-          <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-nav class="ml-auto">
+        <div v-if="this.$store.state.isLogin">  <b-collapse id="nav-collapse" is-nav>
         <b-nav-item @click="$router.push('mypage')">{{this.$store.state.currentUser.name}} 님</b-nav-item>
         <b-nav-item >|</b-nav-item>
         <b-nav-item v-on:click="logoutStore()">로그아웃</b-nav-item>
@@ -55,21 +65,21 @@ export default {
     name:"Menu",
     data(){
       return{
-        user:this.$store.state.currentUser
+        user:this.$store.state.currentUser // user:this.$store.getters.getcurrentUser
       }
     },
     computed:{
       ...mapState(["isLogin", "isloginError"])
     },
     methods:{
+      onClickRedirect(){
+          window.open("https://interview.loca.lt")
+      },
       ...mapActions(["logoutStore"]),
       moveUserHomePage(){
         this.$router.push('home/'+this.$store.state.currentUser.id);
-      }
     }
+  }
 }
-</script>
 
-<style>
-@import "../assets/styles/reset.css";
-</style>
+</script>

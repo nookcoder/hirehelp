@@ -104,13 +104,12 @@ export default {
                 phoneNumber2:'',
                 motivate:'',
             },
-
         }
     },
-    // created(){
-    //     this.applyData.id = this.path.companyId
-    //     this.applyData.recrumentId = this.$route.params.recrumentId
-    // },
+    created(){
+        this.applyData.id = this.$route.params.id
+        this.applyData.recrumentId = this.$route.params.recrumentId
+    },
     methods:{
         onSubmit:function(event){
             event.preventDefault()

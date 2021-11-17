@@ -8,7 +8,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         host: 'http://localhost:5000',
-        currentUser: [ ],
+        currentUser: [],
         isLogin: false,
         isloginError: false
     },

@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/views/SignUp.vue</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\index.html">All files</a> / <a href="index.html">src/views</a> SignUp.vue
+    </h1>
+    <div class='clearfix'>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
+  &lt;v-container file-height style="max-width:450px"&gt;
+    &lt;v-layout align-center row wrap&gt;
+        &lt;v-card&gt;
+  &lt;div id="sign-up-page"&gt;
+    &lt;h2&gt;회원가입&lt;/h2&gt;
+    &lt;b-form id="sign-up-form" @submit="onSumit" @reset="onReset"&gt;
+      &lt;!-- 아이디 --&gt;
+      &lt;label class="user-input" for="input-live"&gt;아이디 :&lt;/label&gt;
+    &lt;div class="overlap-check"&gt;
+      &lt;b-form-input
+        id="input-id"
+        v-model="user.id"
+        placeholder="아이디를 입력해주세요"
+      &gt;&lt;/b-form-input&gt;
+        &lt;b-button 
+        id="button-id-check"
+        variant="outline-primary"
+        :disabled="user.id.length &lt; 1"
+        v-on:click="checkID"&gt;중복확인&lt;/b-button&gt;
+    &lt;/div&gt;
+&nbsp;
+      &lt;!-- 비밀번호 --&gt;
+      &lt;label class="user-input" for="input-live"&gt;비밀번호 :&lt;/label&gt;
+      &lt;b-form-input
+        id="input-password"
+        type="password"
+        v-model="user.password"
+        :state="passwordState"
+        required
+        placeholder="비밀번호를 입력해주세요"
+      &gt;&lt;/b-form-input&gt;
+      &lt;b-form-invalid-feedback :state="passwordState"&gt;
+        8~20자 영문 대소문자, 숫자를 사용하세요.
+      &lt;/b-form-invalid-feedback&gt;
+      &lt;b-form-valid-feedback :state="passwordState"&gt;
+        비밀번호를 기억해주세요.
+      &lt;/b-form-valid-feedback&gt;
+&nbsp;
+      &lt;!-- 회사 이름 --&gt;
+      &lt;label class="user-input" for="input-live"&gt;회사명 :&lt;/label&gt;
+        &lt;b-form-input
+          id="input-password"
+          v-model="user.name"
+          required
+          placeholder="회사명을 입력해주세요"
+        &gt;&lt;/b-form-input&gt;
+&nbsp;
+    &lt;!-- 이메일 --&gt;
+    &lt;label class="user-input" for="input-live"&gt;회사 이메일 :&lt;/label&gt;
+    &lt;div class="overlap-check"&gt;
+      &lt;b-form-input
+        type="email"
+        id="input-password"
+        v-model="user.email"
+        placeholder="회사 이메일을 입력해주세요"
+        required
+      &gt;&lt;/b-form-input&gt;
+      &lt;b-button variant="outline-primary" v-on:click="checkEmail"&gt;확인&lt;/b-button&gt;
+     &lt;/div&gt;
+    &lt;b-button variant="outline-primary" type="submit"&gt;확인&lt;/b-button&gt;
+    &lt;b-button variant="outline-primary" type="reset"&gt;초기화&lt;/b-button&gt;
+    &lt;b-button variant="outline-primary" v-on:click.prevent="back"&gt;로그인&lt;/b-button&gt;
+    &lt;/b-form&gt;
+  &lt;/div&gt;
+        &lt;/v-card&gt;
+  &lt;/v-layout&gt;
+  &lt;/v-container&gt;
+&lt;/template&gt;
+&nbsp;
+&lt;script&gt;
+&nbsp;
+export default {
+  name:"SignUp",
+  methods:{
+<span class="fstat-no" title="function not covered" >    back(){</span>
+<span class="cstat-no" title="statement not covered" >        this.$router.push('/login');</span>
+      },
+<span class="fstat-no" title="function not covered" >    checkID(event){</span>
+<span class="cstat-no" title="statement not covered" >      event.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >      this.$http.post(this.$store.state.host + '/api/company/signup/check', { user_id: this.user.id})</span></span>
+      .then(res =&gt; {
+<span class="cstat-no" title="statement not covered" >        if(res.data){</span>
+<span class="cstat-no" title="statement not covered" >          alert("사용할 수 없는 아이디입니다.");</span>
+        }
+        else{
+<span class="cstat-no" title="statement not covered" >          alert("사용가능한 아이디입니다.");</span>
+        }
+      });
+    },
+<span class="fstat-no" title="function not covered" >    checkEmail(event){</span>
+<span class="cstat-no" title="statement not covered" >      this.classObject.variant="success" // 버튼 클릭된 상태로 바꾸기</span>
+    },
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    onSumit(event){</span></span>
+<span class="cstat-no" title="statement not covered" >      event.preventDefault()</span>
+<span class="cstat-no" title="statement not covered" >      if(this.user.password.length &lt;= 7 || this.user.password.length &gt;= 20){</span>
+<span class="cstat-no" title="statement not covered" >        alert("비밀번호는 8~20자로 입력해주세요.")</span>
+      } // 아이디 중복확인
+      else{
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >      this.$http.post(this.$store.state.host + '/api/company/signup', { user: this.user })</span></span>
+    .then((res) =&gt; {
+<span class="cstat-no" title="statement not covered" >      if (res.data.success) {</span>
+<span class="cstat-no" title="statement not covered" >        alert("No");</span>
+      } else {
+<span class="cstat-no" title="statement not covered" >        alert("회원가입 되셨습니다. 반갑습니다.");</span>
+<span class="cstat-no" title="statement not covered" >        this.$router.push('/login');</span>
+      }
+    })
+      }
+    },
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    onReset(event){</span></span>
+<span class="cstat-no" title="statement not covered" >      event.preventDefault()</span>
+<span class="cstat-no" title="statement not covered" >      this.user.id=''</span>
+<span class="cstat-no" title="statement not covered" >      this.user.password=''</span>
+<span class="cstat-no" title="statement not covered" >      this.user.name=''</span>
+<span class="cstat-no" title="statement not covered" >      this.user.email=''</span>
+<span class="cstat-no" title="statement not covered" >      this.show = false</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >      this.$nextTick(()=&gt;{</span></span>
+<span class="cstat-no" title="statement not covered" >        this.show = true</span>
+      })
+    }
+  },
+<span class="fstat-no" title="function not covered" >  data(){</span>
+<span class="cstat-no" title="statement not covered" >    return{</span>
+      disabled: 0,
+      user:{
+        id:'',
+        password:'',
+        name:'',
+        email:'',
+      },
+      show:true
+    }
+  },
+  computed:{
+<span class="fstat-no" title="function not covered" >    passwordState(){</span>
+<span class="cstat-no" title="statement not covered" >      return this.user.password.length &gt; 7 &amp;&amp; this.user.password.length &lt; 20</span>
+    },
+  }
+}
+&lt;/script&gt;
+&nbsp;
+&lt;style&gt;
+#sign-up-page{
+  padding:20px
+}
+.user-input{
+  display: block;
+  width:100%;
+  text-align: left;
+  margin: 10px 0px;
+}
+.overlap-check{
+  display: flex;
+  align-content: center;
+}
+&lt;/style&gt;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 16 2021 02:50:34 GMT+0900 (대한민국 표준시)
+</div>
+</div>
+<script src="..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\sorter.js"></script>
+</body>
+</html>

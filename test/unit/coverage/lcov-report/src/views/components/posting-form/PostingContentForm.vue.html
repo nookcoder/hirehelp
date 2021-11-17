@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/views/components/posting-form/PostingContentForm.vue</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\..\index.html">All files</a> / <a href="index.html">src/views/components/posting-form</a> PostingContentForm.vue
+    </h1>
+    <div class='clearfix'>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
+  &lt;div&gt;
+    &lt;b-card bg-variant="light"&gt;
+      &lt;form @submit="emitPostingContent($event)"&gt;
+        &lt;b-form-group
+          label-cols-lg="3"
+          label="공고 내용 작성"
+          label-size="lg"
+          label-class="font-weight-bold pt-0"
+          class="mb-0"
+        &gt;
+          &lt;b-form-group
+            label="모집 분야 :"
+            label-for="posting-area-recruitment"
+            label-cols-sm="3"
+            label-align-sm="center"
+          &gt;
+            &lt;b-form-input id="posting-area-recruitment" required v-model="postingContent.areaRecruitment" placeholder="ex) Development &gt; AI Engineering"&gt;&lt;/b-form-input&gt;
+          &lt;/b-form-group&gt;
+             
+         &lt;b-form-group
+            label="업무 내용 :"
+            label-for="posting-business-content"
+            label-cols-sm="3"
+            label-align-sm="center"
+          &gt;
+            &lt;b-form-textarea 
+            rows="5" 
+            max-rows="10"
+            id="posting-business-content" 
+            required 
+            v-model="postingContent.businessContent"
+            :placeholder="postingContentPlaceHolder.businessContent"
+            &gt;&lt;/b-form-textarea&gt;
+          &lt;/b-form-group&gt;
+         
+         &lt;b-form-group
+            label="자격 요건 :"
+            label-for="posting-qualifications"
+            label-cols-sm="3"
+            label-align-sm="center"
+          &gt;
+            &lt;b-form-textarea 
+            rows="5" 
+            max-rows="10"
+            id="posting-qualifications" 
+            required 
+            v-model="postingContent.qualifications"
+            :placeholder="postingContentPlaceHolder.qualifications"
+            &gt;&lt;/b-form-textarea&gt;
+          &lt;/b-form-group&gt;
+         
+          &lt;b-form-group
+            label="제출 서류 :"
+            label-for="posting-document"
+            label-cols-sm="3"
+            label-align-sm="center"
+          &gt;
+            &lt;b-form-textarea 
+            rows="3" 
+            max-rows="6"
+            id="posting-document" 
+            required 
+            v-model="postingContent.document"
+            :placeholder="postingContentPlaceHolder.document"
+            &gt;&lt;/b-form-textarea&gt;
+          &lt;/b-form-group&gt;
+            
+          &lt;b-form-group
+            label="도움말 :"
+            label-for="posting-help"
+            label-cols-sm="3"
+            label-align-sm="center"
+          &gt;
+            &lt;b-form-textarea 
+            rows="5" 
+            max-rows="10"
+            id="posting-help" 
+            required 
+            v-model="postingContent.help"
+            :placeholder="postingContentPlaceHolder.help"
+            &gt;&lt;/b-form-textarea&gt;
+          &lt;/b-form-group&gt;
+&nbsp;
+        &lt;/b-form-group&gt;
+        &lt;div class="posting-btn-group"&gt;
+          &lt;b-button type="submit" variant="primary" @submit="emitPostingContent($event)"&gt;다음&lt;/b-button&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+    &lt;/b-card&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&nbsp;
+&lt;script&gt;
+export default {
+<span class="fstat-no" title="function not covered" >  data(){</span>
+<span class="cstat-no" title="statement not covered" >    return{</span>
+      postingContent:{
+        areaRecruitment: '',
+        businessContent: '',
+        qualifications:'',
+        document:'',
+        help:'',
+      },
+      postingContentPlaceHolder:{
+        areaRecruitment:'',
+        businessContent:'ex)\n[업무내용]\n'+
+            '- AI 기술의 효과를 극대화하는 서비스 플랫폼 및 관련 SW를 설계/개발하고, 운영/유지보수한다\n'+
+            '[상세업무]\n'+
+            '* AI 서비스 플랫폼 설계 및 개발\n'+
+            '- AI 연구 모델을 활용한 서비스 플랫폼 구축에 필요한 요구사항 분석 및 아키텍쳐 설계 및 개발\n'+
+            '- 서비스에 사용될 AI 연구 모델 코드의 서비스 적용을 위한 코드 최적화 및 리펙토링 직업\n'+
+            '- AI 서비스 플랫폼 운영 및 유지보수\n',
+        qualifications:'ex)\n'+
+            '학력 : 학사 이상\n'+
+            '경력기간 : 3년 ~\n'+
+            '필수조건\n'+
+            '- Python, Java 등 하나 이상의 프로그래밍 언어에 대한 이해 및 개발 경력을 가지신 분\n'+
+            '- 프로그램 설계, 디버깅, 자료 구조 및 알고리즘의 이해가 가능하신 분\n'+
+            '- 리눅스 환경에서 개발한 경험이 있으신 분\n'+
+            '우대사항\n'+
+            '- Docker 또는 Kubernates 기반 서비스 개발 경험이 있으신 분\n'+
+            '- MSA(Micro Service Architecture)에 기반한 개발 경험이 있으신 분\n',
+        document:'ex)\n'+
+            '최근 프로젝트 포트폴리오(필수)\n',
+        help:'ex)\n'+
+            '[공통 요건]\n'+
+            '- 해외여행 결격사유 없는 자\n'+
+            '- 채용 규정에 어긋나지 않는 자\n'+
+            '- 보훈 대상자 및 장애인 우대\n',
+      }
+    }
+  },
+  methods:{
+<span class="fstat-no" title="function not covered" >    emitPostingContent: function(event){</span>
+<span class="cstat-no" title="statement not covered" >      event.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >      this.$emit("postingContent",this.postingContent);</span>
+<span class="cstat-no" title="statement not covered" >      this.$router.push('check');</span>
+    }
+  }
+}
+&lt;/script&gt;
+&nbsp;
+&lt;style&gt;
+&nbsp;
+&lt;/style&gt;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 16 2021 02:50:34 GMT+0900 (대한민국 표준시)
+</div>
+</div>
+<script src="..\..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\..\sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/views/components/homepage/JobPostingContent.vue</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\..\index.html">All files</a> / <a href="index.html">src/views/components/homepage</a> JobPostingContent.vue
+    </h1>
+    <div class='clearfix'>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
+  &lt;div&gt;
+    &lt;header class="apply-detail-header"&gt;
+      &lt;div id="posting-panel"&gt;
+        &lt;div class="apply-detail-column"&gt;
+          &lt;button type="button" class="btn border btn-lg" @click="$router.go(-1)"&gt;&lt;b-icon icon="backspace"&gt;&lt;/b-icon&gt;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;div id="posting-panel-career"&gt;&lt;strong&gt;{{this.jobInformation.career}}&lt;/strong&gt;&lt;span&gt;{{this.jobInformation.kind}}&lt;/span&gt;&lt;/div&gt;
+          &lt;p id="posting-panel-title" class="font-weight-bold"&gt;{{ this.jobInformation.title }}&lt;/p&gt;
+          &lt;div&gt;
+            &lt;strong&gt;남은 날짜&lt;/strong&gt;
+            &lt;span&gt;{{this.jobInformation.date}}~{{this.jobInformation.end_date}}&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="apply-detail-column"&gt;
+        &lt;router-link type="button" class="btn btn-info btn-lg" :to='"/home/"+$route.params.id+"/apply"' @click.native="setStoreTitle"&gt;지원하기&lt;/router-link&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;
+    &lt;main class="apply-detail-main"&gt;
+      &lt;section class="apply-detail-main-column mb-5 apply-detail-main-area "&gt;
+        &lt;span class="font-weight-bold h3"&gt;&lt;b-icon class="bookmark" icon="bookmark-fill"/&gt;모집분야&lt;/span&gt;
+        &lt;article class="apply-detail-main-text"&gt;
+          &lt;span&gt;{{this.jobInformation.division_information}}&lt;/span&gt;
+        &lt;/article&gt;
+      &lt;/section&gt;
+      &lt;section class="apply-detail-main-column mb-5 apply-detail-main-business_information "&gt;
+        &lt;span class="font-weight-bold h3"&gt;&lt;b-icon class="bookmark" icon="bookmark-fill"/&gt;업무내용&lt;/span&gt;
+        &lt;article class="apply-detail-main-text"&gt;
+          &lt;span&gt;{{this.jobInformation.work_infomation}}&lt;/span&gt;
+        &lt;/article&gt;
+      &lt;/section&gt;
+      
+      &lt;section class="apply-detail-main-column mb-5 apply-detail-main-eligibility "&gt;
+        &lt;span class="font-weight-bold h3"&gt;&lt;b-icon class="bookmark" icon="bookmark-fill"/&gt;자격요건&lt;/span&gt;
+        &lt;article class="apply-detail-main-text"&gt;
+          &lt;div&gt;{{this.jobInformation.qualification_information}}&lt;/div&gt;
+        &lt;/article&gt;
+      &lt;/section&gt;
+      
+      &lt;section class="apply-detail-main-column mb-5 apply-detail-main-submit "&gt;
+        &lt;span class="font-weight-bold h3"&gt;&lt;b-icon class="bookmark" icon="bookmark-fill"/&gt;제출서류&lt;/span&gt;
+        &lt;article class="apply-detail-main-text"&gt;
+          &lt;div&gt;ㆍ제출서류 : {{this.jobInformation.submit_information}}&lt;/div&gt;
+          &lt;br&gt;
+          &lt;div&gt;ㆍ학력 : 학력입니다&lt;/div&gt;
+          &lt;br&gt;
+          &lt;div&gt;ㆍ경력 기간 : 경력기간입니다.&lt;/div&gt;
+          &lt;br&gt;
+          &lt;div&gt;ㆍ필수조건
+            &lt;ul class="apply-detail-main-text-list"&gt;
+              &lt;li&gt;-필수조건1&lt;/li&gt;
+              &lt;li&gt;-필수조건2&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/div&gt;
+          &lt;br&gt;
+          &lt;div&gt;ㆍ우대사항
+            &lt;ul class="apply-detail-main-text-list"&gt;
+              &lt;li&gt;-우대사항1&lt;/li&gt;
+              &lt;li&gt;-우대사항2&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/div&gt;
+        &lt;/article&gt;
+      &lt;/section&gt;
+      
+      &lt;section class="apply-detail-main-column mb-5 apply-detail-main-stage "&gt;
+        &lt;span class="font-weight-bold h3"&gt;&lt;b-icon class="bookmark" icon="bookmark-fill"/&gt;전형단계&lt;/span&gt;
+        &lt;article class="apply-detail-main-text"&gt;
+          &lt;span&gt;여기는 이미지로 불러올까&lt;/span&gt;
+        &lt;/article&gt;
+      &lt;/section&gt;
+      
+      &lt;section class="apply-detail-main-column mb-5 apply-detail-main-help "&gt;
+        &lt;span class="font-weight-bold h3"&gt;&lt;b-icon class="bookmark" icon="bookmark-fill"/&gt;도움말&lt;/span&gt;
+        &lt;article class="apply-detail-main-text"&gt;
+          &lt;span&gt;{{ this.jobInformation.help_information }}&lt;/span&gt;
+        &lt;/article&gt;
+      &lt;/section&gt;
+    
+    &lt;/main&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&nbsp;
+&lt;script&gt;
+export default {
+<span class="fstat-no" title="function not covered" >  data(){</span>
+<span class="cstat-no" title="statement not covered" >    return{</span>
+      jobInformation:{
+        title:'1',
+        kind:'1',
+        career:'1',
+        date:'1',
+      },
+      currentTitle:'',
+    }
+},
+<span class="fstat-no" title="function not covered" >methods:{</span>
+<span class="fstat-no" title="function not covered" >    setStoreTitle : function(){</span>
+<span class="cstat-no" title="statement not covered" >      this.$store.commit('setCurrentTitle',this.currentTitle);</span>
+<span class="cstat-no" title="statement not covered" >      console.log(this.$store.getters.getCurrentTitle);</span>
+    },
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    getjobInformation(){</span></span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    this.$http.get(this.$store.state.host + '/api/recruitment/title/' + this.$route.params.id)</span></span>
+    .then((Response)=&gt;{
+<span class="cstat-no" title="statement not covered" >      this.jobInformation = Response.data</span>
+<span class="fstat-no" title="function not covered" >    })</span>
+    .catch((Error)=&gt;{
+<span class="cstat-no" title="statement not covered" >    console.log(Error);</span>
+    })
+    }
+<span class="cstat-no" title="statement not covered" >  },mounted() { // 페이지 시작하면은 자동 함수 실행</span>
+<span class="cstat-no" title="statement not covered" >		this.getjobInformation();</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    this.$nextTick(()=&gt;{</span></span>
+<span class="cstat-no" title="statement not covered" >      this.currentTitle = this.$route.params.title;</span>
+    })
+	}
+}
+&nbsp;
+&lt;/script&gt;
+&nbsp;
+&lt;style&gt;
+.apply-detail-header{
+  display: flex;
+  justify-content: space-around;
+  height: max-content;
+  margin-top: 0px;
+  padding: 20px;
+  background: whitesmoke;
+  border-bottom: 2px solid gray;
+  position: fixed; 
+  width: 100%;
+  left: 0; 
+  top: 80px;
+}
+&nbsp;
+#posting-panel{
+  display: flex;
+  align-content: center;
+  text-align: left; 
+}
+#posting-panel-career strong{
+  padding-right: 5px;
+  margin-right: 5px;
+  border-right: 1px solid black;
+}
+#posting-panel-title{
+  margin-top:10px;
+  font-size: 20px;
+}
+.apply-detail-column{
+  height:90px;
+  padding: 30px 0px;
+  margin-right: 15px;
+}
+&nbsp;
+.apply-detail-main{
+  position: absolute;
+  top:230px;
+  width: 100%;
+  text-align: left;
+  padding: 0px 300px;
+  overflow: auto;
+  z-index: -1;
+}
+&nbsp;
+.bookmark{
+  margin-right: 5px;
+}
+.apply-detail-main-text{
+  font-size:small;
+  padding: 15px 0px 0px 24px;
+}
+.apply-detail-main-text-list{
+  padding-left: 20px;
+}
+&lt;/style&gt;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Nov 16 2021 02:50:34 GMT+0900 (대한민국 표준시)
+</div>
+</div>
+<script src="..\..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\..\sorter.js"></script>
+</body>
+</html>
