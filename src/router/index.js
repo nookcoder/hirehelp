@@ -15,8 +15,11 @@ import PostingForm from '@/views/PostingForm.vue'
 import PostingInfoForm from '@/views/components/posting-form/PostingInfoForm.vue'
 import PostingContentForm from '@/views/components/posting-form/PostingContentForm.vue'
 import PostingCheck from '@/views/components/posting-form/PostingCheck.vue'
+import PostingChange from '@/views/components/posting-form/PostingChange.vue'
 
 import Resume from '@/views/Resume.vue'
+import Applicants from '@/views/components/resume/Applicants.vue'
+import Home from '@/views/MainHome.vue'
 
 import Store from '../store.js'
  
@@ -26,6 +29,7 @@ const rejectUser = (to, from, next) => {
   if (Store.state.isLogin === true) {
     // 이미 로그인 된 유저니까 막아야 한다.
     alert("이미 로그인을 하셨습니다.")
+    next("/main")
   }
   else {
     next()
@@ -46,14 +50,24 @@ export default new Router({
   mode:'history',
   routes: [
     {
-      path:'/',
+      path: '/',
       redirect: '/login'
+    },
+    {
+      path: '/main',
+      name: 'MainHome',
+      component: Home
     },
     {
       path: '/notice',
       name: 'NoticeForm',
       component: NoticeForm,
       beforeEnter: onlyUser
+    },
+    {
+      path:'/reposting',
+      name:"PostingChange",
+      component:PostingChange
     },
     {
       path: '/posting',
@@ -82,7 +96,11 @@ export default new Router({
       path:'/resume',
       name:'Resume',
       component: Resume,
-      beforeEnter: onlyUser
+      beforeEnter: onlyUser,
+    },
+    {
+      path:"/resume/:companyid/:recruitmentid",
+      component:Applicants
     },
     {
       path:'/signup',
@@ -117,12 +135,13 @@ export default new Router({
           component:Employment,
         },
         {
-          path:"employment/:id",
-          component:JobPostingContent,
+          path:"employment/:recrumentId",
+          component: JobPostingContent,
         },
         {
-          path:"apply",
-          component:Apply, 
+          path: "employment/:recrumentId/apply",
+          name:"apply",
+          component:Apply,
         }
       ]
     },

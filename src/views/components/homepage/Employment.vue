@@ -28,25 +28,19 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data(){
     return{
       jobPostings:[],
-      employment:{
-        id:'1',
-        title:'1',
-        kind:'1',
-        career:'1',
-        date:'1',
-      } 
     }
   },
   methods:{
     openJobPosting: function(title){
-      return "/home/"+this.$route.params.id+"/employment/"+title;
+      return document.location.pathname + "/" +title;
     },
     getRecruitmentList(){ // 데이터 가져오기
-    this.$http.get(this.$store.state.host + '/api/recruitment/1')
+    axios.get(this.$store.state.host + '/api/recruitment/' + this.$route.params.id) // document.location.pathname.split("/")[2]
     .then((Response)=>{
       console.log(Response.data)
       this.jobPostings = Response.data

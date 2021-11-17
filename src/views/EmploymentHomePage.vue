@@ -1,7 +1,7 @@
 <template>
 <div>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="employment-homepage">
-  <router-link class="navbar-brand mb-0 h1" :to="'/home/'+currentId">회사이름</router-link>
+  <router-link class="navbar-brand mb-0 h1" :to="'/home/'+currentId">{{companyData.company_name}}</router-link>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -19,7 +19,7 @@
     </ul>
   </div>
   </nav>
-  <router-view></router-view>
+  <router-view :company-data="companyData"></router-view>
 </div>
 
 </template>
@@ -30,15 +30,28 @@ import Employment from './components/homepage/Employment.vue'
 import FAQ from './components/homepage/FAQ.vue'
 import Notice from './components/homepage/Notice.vue'
 
+import axios from 'axios'
+
 export default {
   components: { MainPage,Employment,FAQ,Notice },
   name:"EmploymentHomePage",
+  created(){
+    this.currentId = this.$route.params.id;
+    axios.get(this.$store.state.host+"/api/company/"+ this.currentId+"/name")
+    .then((res)=>{
+      this.companyData = res.data;
+      console.log(this.companyData);
+    })    
+  },
   methods:{
   
   },
   data(){
     return{
-      currentId:this.$store.getters.getRouteId,
+      companyData:{
+
+      },
+      currentId:"",
     }
   },
   // 서버에서 데이터 받아오는 코드

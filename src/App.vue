@@ -14,6 +14,7 @@ export default {
   name: 'App',
   head:{
    script:[
+     {src:'https://wowjs.uk/dist/wow.min.js',async:true},
      {src:'https://code.jquery.com/jquery-3.5.1.min.js',async:true},
      {src:'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js',async:true},
      {src:'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js',async:true},
@@ -25,7 +26,8 @@ export default {
     {href:"https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css", rel:"stylesheet"},
     {rel:'stylesheet',href:'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'},
     {rel:'stylesheet',href:'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css'},
-    {rel:'stylesheet',href:'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css',integrity:'sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2',crossorigin:'anonymous'}
+    {rel:'stylesheet',href:'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'},
+    {rel:'stylesheet',href:'https://wowjs.uk/css/libs/animate.css'}
    ]
   }
 }

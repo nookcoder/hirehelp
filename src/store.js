@@ -54,7 +54,7 @@ export default new Vuex.Store({
                             name: response.data.token.name
                         }
                         commit("loginSuccess", selectedUser)
-                        router.push('/notice') 
+                        router.push('/main') 
                         })
                         .catch(error => {
                         console.log(error)
@@ -73,12 +73,12 @@ export default new Vuex.Store({
         },
         logoutStore({ commit }) {
             commit("logout")
-            router.push('/')
+            router.push('/login')
         }
     },
     getters:{
         getcurrentUser : function(state){
-            return state.currentUser;
+            return state.currentUser.id;
         },
         getCurrentTitle: function(state){
             return state.currentTitle;

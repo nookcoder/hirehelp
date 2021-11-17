@@ -88,10 +88,13 @@
 <script>
 import axios from 'axios'
 export default {
+
     data(){
         return{
             gender:["남자","여자"],
             applyData:{
+                id:'',
+                recrumentId:'',
                 name:'',
                 birth:'',
                 gender:'',
@@ -101,8 +104,11 @@ export default {
                 phoneNumber2:'',
                 motivate:'',
             },
-
         }
+    },
+    created(){
+        this.applyData.id = this.$route.params.id
+        this.applyData.recrumentId = this.$route.params.recrumentId
     },
     methods:{
         onSubmit:function(event){
@@ -110,6 +116,8 @@ export default {
             axios.post(this.$store.state.host + '/api/resume/',
             {
                 applyData:{
+                    id:this.applyData.id,
+                    recrumentId:this.applyData.recrumentId,
                     name:this.applyData.name,
                     birth:this.applyData.birth,
                     gender:this.applyData.gender,
