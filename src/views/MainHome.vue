@@ -75,6 +75,16 @@
      data-aos-once="false"
      data-aos-anchor-placement="top-center"
      style="background-color: gray">
+
+      <div class="clients owl-carousel owl-theme" style="padding-top: 900px;"></div>
+    
+      <h1 data-aos="fade-up" style="font-size:48px; font-weight:900">원했던 채용 플랫폼</h1>
+      <div class="clients owl-carousel owl-theme" style="padding-top: 800px;"></div>
+
+      <h1 data-aos="fade-up" style="font-size:48px; font-weight:900">다양한 기능들</h1>
+      <v-divider></v-divider>
+      <div class="clients owl-carousel owl-theme" style="padding-top: 3px;"></div>
+
     <v-timeline>
       <v-timeline-item>
         <div data-aos="fade-right">
@@ -153,8 +163,13 @@
       </v-card>
       </div>
     </v-timeline-item>
-  </v-timeline>
+  </v-timeline>  
+      <v-divider></v-divider>
+      <div class="clients owl-carousel owl-theme" style="padding-top: 900px;"></div>
+      <h1 data-aos="fade-up" style="font-size:48px; font-weight:900">"우리 서비스 이름"</h1>
+      <div class="clients owl-carousel owl-theme" style="padding-top: 800px;"></div>
 </div>
+
 
   <v-footer
     dark
