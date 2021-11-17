@@ -143,8 +143,7 @@ export default {
     },
 
     loadApplicantsData: function(data){
-      console.log(JSON.stringify(data.item.id));
-      this.$router.replace("resume/"+data.item.id);
+      this.$router.replace("resume/"+data.item.company_id+"/"+data.item.id);
     },
   },
   mounted() {

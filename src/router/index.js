@@ -99,7 +99,7 @@ export default new Router({
       beforeEnter: onlyUser,
     },
     {
-      path:"/resume/:recruitmentId",
+      path:"/resume/:companyid/:recruitmentid",
       component:Applicants
     },
     {
