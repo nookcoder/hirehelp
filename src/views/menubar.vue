@@ -20,13 +20,13 @@
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
         <b-nav-dropdown text="홈페이지 관리">
-            <b-dropdown-item @click="$router.push('notice')">공지사항 추가</b-dropdown-item>
-            <b-dropdown-item @click="$router.push('renotice')">공지사항 수정/삭제</b-dropdown-item>
-            <b-dropdown-item @click="$router.push('posting')">채용공고 추가</b-dropdown-item>
-            <b-dropdown-item @click="$router.push('reposting')">채용공고 수정/삭제</b-dropdown-item>
+            <b-dropdown-item @click="$router.push('/notice')">공지사항 추가</b-dropdown-item>
+            <b-dropdown-item @click="$router.push('/renotice')">공지사항 수정/삭제</b-dropdown-item>
+            <b-dropdown-item @click="$router.push('/posting')">채용공고 추가</b-dropdown-item>
+            <b-dropdown-item @click="$router.push('/reposting')">채용공고 수정/삭제</b-dropdown-item>
         </b-nav-dropdown>
 
-        <b-nav-item @click="$router.push('resume')">이력서 관리</b-nav-item>
+        <b-nav-item @click="$router.push('/resume')">이력서 관리</b-nav-item>
         
         <b-nav-dropdown text="면접 서비스">
             <b-dropdown-item @click="onClickRedirect()">면접실 입장</b-dropdown-item>

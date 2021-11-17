@@ -48,8 +48,7 @@ export default {
   },
   data(){
     return{
-      companyData:{
-      },
+      companyData:{},
       currentId:"",
     }
   }
