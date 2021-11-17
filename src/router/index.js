@@ -15,7 +15,6 @@ import PostingForm from '@/views/PostingForm.vue'
 import PostingInfoForm from '@/views/components/posting-form/PostingInfoForm.vue'
 import PostingContentForm from '@/views/components/posting-form/PostingContentForm.vue'
 import PostingCheck from '@/views/components/posting-form/PostingCheck.vue'
-import PostingChange from '@/views/components/posting-form/PostingChange.vue'
 
 import Resume from '@/views/Resume.vue'
 import Applicants from '@/views/components/resume/Applicants.vue'
@@ -63,11 +62,6 @@ export default new Router({
       name: 'NoticeForm',
       component: NoticeForm,
       beforeEnter: onlyUser
-    },
-    {
-      path:'/reposting',
-      name:"PostingChange",
-      component:PostingChange
     },
     {
       path: '/posting',
