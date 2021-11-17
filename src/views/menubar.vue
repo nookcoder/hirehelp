@@ -60,8 +60,8 @@ export default {
       },
       moveUserHomePage:function(){
         this.$router.push('home/'+this.user);
+      },
       ...mapActions(["logoutStore"]),
-      }
     }
 }
 </script>
