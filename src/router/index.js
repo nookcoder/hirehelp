@@ -15,8 +15,10 @@ import PostingForm from '@/views/PostingForm.vue'
 import PostingInfoForm from '@/views/components/posting-form/PostingInfoForm.vue'
 import PostingContentForm from '@/views/components/posting-form/PostingContentForm.vue'
 import PostingCheck from '@/views/components/posting-form/PostingCheck.vue'
+import PostingChange from '@/views/components/posting-form/PostingChange.vue'
 
 import Resume from '@/views/Resume.vue'
+import Applicants from '@/views/components/resume/Applicants.vue'
 import Home from '@/views/MainHome.vue'
 
 import Store from '../store.js'
@@ -63,6 +65,11 @@ export default new Router({
       beforeEnter: onlyUser
     },
     {
+      path:'/reposting',
+      name:"PostingChange",
+      component:PostingChange
+    },
+    {
       path: '/posting',
       name: 'PostingForm',
       beforeEnter: onlyUser,
@@ -89,7 +96,11 @@ export default new Router({
       path:'/resume',
       name:'Resume',
       component: Resume,
-      beforeEnter: onlyUser
+      beforeEnter: onlyUser,
+    },
+    {
+      path:"/resume/:companyid/:recruitmentid",
+      component:Applicants
     },
     {
       path:'/signup',

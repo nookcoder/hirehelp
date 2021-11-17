@@ -1,0 +1,98 @@
+<template>
+  <v-container>
+    <v-card>
+      <v-card-title>지원자 정보</v-card-title>
+      <v-card-text>
+      <b-table
+        style="width: 100%; max-height: 70vh;" 
+        responsive
+        striped 
+        flex
+        hover 
+        :items="applycants" 
+        :fields="fields">
+
+          <template v-slot:cell(detail)="row">
+            <b-button size="sm" @click="row.toggleDetails" class="mr-1">
+              {{row.detailsShowing ? 'Hide' : 'Show'}} Details
+            </b-button>
+          </template>
+
+          <template #row-details="row">
+            <b-card>
+              <b-row class="mb-2">
+                <b-col sm="3" class="text-sm-right"><b>이름 :</b></b-col>
+                <b-col>{{ row.item.name }}</b-col>
+              </b-row>
+    
+              <b-row class="mb-2">
+                <b-col sm="3" class="text-sm-right"><b>생년월일 :</b></b-col>
+                <b-col>{{ row.item.birth }}</b-col>
+              </b-row>
+
+              <b-row class="mb-2">
+                <b-col sm="3" class="text-sm-right"><b>휴대폰 번호 :</b></b-col>
+                <b-col>{{ row.item.phone_number }}</b-col>
+              </b-row>
+              
+              <b-row class="mb-2">
+                <b-col sm="3" class="text-sm-right"><b>이메일 :</b></b-col>
+                <b-col>{{ row.item.email }}</b-col>
+              </b-row>
+              
+              <b-row class="mb-2">
+                <b-col sm="3" class="text-sm-right"><b>지원동기 :</b></b-col>
+                <b-col><pre style="text-align:left;">{{ row.item.motivate }}</pre></b-col>
+              </b-row>
+
+            </b-card>
+          </template>
+
+        </b-table>
+      </v-card-text>
+    </v-card>
+  </v-container>
+</template>
+
+<script>
+import axios from 'axios'
+export default {
+  data(){
+    return{
+      fields:[
+      {key:'name',label:'name',sortable:false},
+      {key:'birth',label:'birth',sortable:false},
+      {key:'gender',label:'gender',sortable:false},
+      {key:'phone_number',label:'phone_number',sortable:false},
+      {key:'email',label:'email',sortable:false},
+      {key:'detail',label:'detail',sortable:false},
+      ],
+      items:[],
+      applycants:[],
+      isDetail:false,
+    }
+  },
+  created(){
+    axios.get(this.$store.state.host+"/api/resume/"+this.$route.params.companyid +"/"+this.$route.params.recruitmentid)
+    .then((res)=>{
+      for(let index in res.data){
+        let email = res.data[index].email_id.replace(/ /g,"") + "@" + res.data[index].email_address.replace(/ /g,"") 
+        res.data[index].email = email;
+        this.applycants.push(res.data[index]);
+      }
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+  },
+  methods:{
+    clickEvent:function(applicant){
+      console.log(applicant);
+    }
+  }
+}
+</script>
+
+<style>
+
+</style>``
