@@ -3,7 +3,7 @@
     <v-card>
       <v-card-title>지원자 정보</v-card-title>
       <v-card-text>
-      <b-table
+        <b-table
         style="width: 100%; max-height: 70vh;" 
         responsive
         striped 
@@ -45,6 +45,114 @@
                 <b-col><pre style="text-align:left;">{{ row.item.motivate }}</pre></b-col>
               </b-row>
 
+              <b-button @click="addApplicants(row,passApplicants)" variant="primary">합격</b-button>
+              <b-button @click="addApplicants(row,failApplicants)" variant="danger">불합격</b-button>
+            </b-card>
+          </template>
+
+        </b-table>
+      </v-card-text>
+    </v-card>
+
+    <v-card>
+      <v-card-title>합격자 정보</v-card-title>
+      <v-card-text>
+        <b-table
+        style="width: 100%; max-height: 70vh;" 
+        responsive
+        striped 
+        flex
+        hover 
+        :items="passApplicants" 
+        :fields="fields">
+
+          <template v-slot:cell(detail)="row">
+            <b-button size="sm" @click="row.toggleDetails" class="mr-1">
+              {{row.detailsShowing ? 'Hide' : 'Show'}} Details
+            </b-button>
+          </template>
+
+          <template #row-details="row">
+            <b-card>
+              <b-row class="mb-2">
+                <b-col sm="3" class="text-sm-right"><b>이름 :</b></b-col>
+                <b-col>{{ row.item.name }}</b-col>
+              </b-row>
+    
+              <b-row class="mb-2">
+                <b-col sm="3" class="text-sm-right"><b>생년월일 :</b></b-col>
+                <b-col>{{ row.item.birth }}</b-col>
+              </b-row>
+
+              <b-row class="mb-2">
+                <b-col sm="3" class="text-sm-right"><b>휴대폰 번호 :</b></b-col>
+                <b-col>{{ row.item.phone_number }}</b-col>
+              </b-row>
+              
+              <b-row class="mb-2">
+                <b-col sm="3" class="text-sm-right"><b>이메일 :</b></b-col>
+                <b-col>{{ row.item.email }}</b-col>
+              </b-row>
+              
+              <b-row class="mb-2">
+                <b-col sm="3" class="text-sm-right"><b>지원동기 :</b></b-col>
+                <b-col><pre style="text-align:left;">{{ row.item.motivate }}</pre></b-col>
+              </b-row>
+
+              <b-button @click="cancelApplicants(row,passApplicants)" variant="primary">되돌리기</b-button>
+            </b-card>
+          </template>
+
+        </b-table>
+      </v-card-text>
+    </v-card>
+
+     <v-card>
+      <v-card-title>불합격자 정보</v-card-title>
+      <v-card-text>
+        <b-table
+        style="width: 100%; max-height: 70vh;" 
+        responsive
+        striped 
+        flex
+        hover 
+        :items="failApplicants" 
+        :fields="fields">
+
+          <template v-slot:cell(detail)="row">
+            <b-button size="sm" @click="row.toggleDetails" class="mr-1">
+              {{row.detailsShowing ? 'Hide' : 'Show'}} Details
+            </b-button>
+          </template>
+
+          <template #row-details="row">
+            <b-card>
+              <b-row class="mb-2">
+                <b-col sm="3" class="text-sm-right"><b>이름 :</b></b-col>
+                <b-col>{{ row.item.name }}</b-col>
+              </b-row>
+    
+              <b-row class="mb-2">
+                <b-col sm="3" class="text-sm-right"><b>생년월일 :</b></b-col>
+                <b-col>{{ row.item.birth }}</b-col>
+              </b-row>
+
+              <b-row class="mb-2">
+                <b-col sm="3" class="text-sm-right"><b>휴대폰 번호 :</b></b-col>
+                <b-col>{{ row.item.phone_number }}</b-col>
+              </b-row>
+              
+              <b-row class="mb-2">
+                <b-col sm="3" class="text-sm-right"><b>이메일 :</b></b-col>
+                <b-col>{{ row.item.email }}</b-col>
+              </b-row>
+              
+              <b-row class="mb-2">
+                <b-col sm="3" class="text-sm-right"><b>지원동기 :</b></b-col>
+                <b-col><pre style="text-align:left;">{{ row.item.motivate }}</pre></b-col>
+              </b-row>
+
+              <b-button @click="cancelApplicants(row,failApplicants)" variant="primary">되돌리기</b-button>
             </b-card>
           </template>
 
@@ -69,7 +177,8 @@ export default {
       ],
       items:[],
       applycants:[],
-      isDetail:false,
+      passApplicants:[],
+      failApplicants:[],
     }
   },
   created(){
@@ -88,6 +197,16 @@ export default {
   methods:{
     clickEvent:function(applicant){
       console.log(applicant);
+    },
+    addApplicants : function(data,kind){
+      data.toggleDetails();
+      kind.push(data.item);
+      this.applycants.splice(data.index,1);
+    },
+    cancelApplicants: function(data, kind){
+      data.toggleDetails();
+      kind.splice(data.index,1); 
+      this.applycants.push(data.item);
     }
   }
 }
