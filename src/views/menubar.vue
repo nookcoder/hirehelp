@@ -1,18 +1,7 @@
 <template>
 <div>
   <b-navbar toggleable="lg" type="dark" variant="info">
-    <!-- <div class="ml-auto order-0">
-       <b-navbar-brand class="ml-auto" @click="$router.push('/main')">HOME</b-navbar-brand>
-    </div>
-
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-    <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav class="me-auto">
-        <b-nav-dropdown text="홈페이지 관리">
-            <b-dropdown-item @click="$router.push('notice')">공지사항 추가</b-dropdown-item>
-            <b-dropdown-item>공지사항 수정/삭제</b-dropdown-item>
-            <b-dropdown-item @click="$router.push('posting')">채용공고 추가</b-dropdown-item>
-            <b-dropdown-item>채용공고 수정/삭제</b-dropdown-item> -->
+    
     <b-navbar-brand @click="$router.push('/main')">HOME</b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -21,7 +10,7 @@
       <b-navbar-nav>
         <b-nav-dropdown text="홈페이지 관리">
             <b-dropdown-item @click="$router.push('/notice')">공지사항 추가</b-dropdown-item>
-            <b-dropdown-item @click="$router.push('/renotice')">공지사항 수정/삭제</b-dropdown-item>
+            <b-dropdown-item @click="$router.push('/change/notice')">공지사항 수정/삭제</b-dropdown-item>
             <b-dropdown-item @click="$router.push('/posting')">채용공고 추가</b-dropdown-item>
             <b-dropdown-item @click="$router.push('/reposting')">채용공고 수정/삭제</b-dropdown-item>
         </b-nav-dropdown>

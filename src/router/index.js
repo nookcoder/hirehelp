@@ -11,10 +11,13 @@ import JobPostingContent from '@/views/components/homepage/JobPostingContent.vue
 import Apply from '@/views/components/homepage/Apply.vue'
 
 import NoticeForm from '@/views/NoticeForm.vue'
+import ChangeNotice from '@/views/ChangeNotice.vue'
 import PostingForm from '@/views/PostingForm.vue'
 import PostingInfoForm from '@/views/components/posting-form/PostingInfoForm.vue'
 import PostingContentForm from '@/views/components/posting-form/PostingContentForm.vue'
 import PostingCheck from '@/views/components/posting-form/PostingCheck.vue'
+
+
 
 import Resume from '@/views/Resume.vue'
 import Home from '@/views/MainHome.vue'
@@ -63,6 +66,10 @@ export default new Router({
       name: 'NoticeForm',
       component: NoticeForm,
       beforeEnter: onlyUser
+    },
+    {
+      path:'/change/notice',
+      component: ChangeNotice,
     },
     {
       path: '/mypage',
