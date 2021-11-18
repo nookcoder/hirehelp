@@ -24,8 +24,8 @@
                 <template #row-details="row">
                     <b-card>
                         <b-row class="mb-2" id="change-notice-content">
-                            <b-col sm="3" class="text-sm-right"><b>공지사항 내용 : </b></b-col>
-                            <b-col><pre>{{ row.item.content }}</pre></b-col>
+                            <b>공지사항 내용 : </b>
+                            <pre>{{ row.item.content }}</pre>
                         </b-row>
 
                         <b-col id="change-notice-delete-button">
