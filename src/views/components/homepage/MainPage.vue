@@ -14,10 +14,7 @@ export default {
 
 <style>
 .jumbotron{
-    position: absolute;
     width: 100%;
-    top:80px;
-    z-index: -1;
 }
 
 </style>
