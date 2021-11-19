@@ -13,6 +13,7 @@
                   hover
                   :items="notices"
                   :fields="fields" 
+                  ref="table"
                   >
                     <template v-slot:cell(detail)="row">
                       <b-button size="sm" class="mr-1" @click="row.toggleDetails">
@@ -27,11 +28,7 @@
                                 <pre>{{ row.item.content }}</pre>
                             </b-row>
 
-                            <b-button v-b-modal.modal-1>모달 버튼</b-button>
-                            <b-modal id="modal-1" title="BootstrapVue">
-                                <p class="my-4">Hello from modal!</p>
-                            </b-modal>
-
+                        <b-button @click="deleteNotice(row)">삭제하기</b-button>
                         </b-card>
                     </template>                
                 </b-table>
@@ -66,12 +63,15 @@ export default {
                 console.log(err);
             })
         },
-        showModal() {
-        this.$refs['my-modal'].show()
-        },
-        hideModal() {
-          this.$refs['my-modal'].hide()
-        },
+        deleteNotice : function(data){
+            console.log(data);
+            axios.delete(this.$store.state.host + "/api/notice/" + data.item.id)
+            .then(()=>{
+                this.notices = [];
+                this.getNotices();
+                this.$refs.table.refresh();
+            })
+        }
     },
     mounted(){
         this.getNotices();
