@@ -12,7 +12,7 @@
       
       <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn text color="teal accent-4" @click.prevent="getResume()" @click="reveal = true">해당 채용공고 이력서 보기</v-btn>
+          <v-btn color="primary" @click.prevent="getResume()" @click="reveal = true">해당 채용공고 이력서 보기</v-btn>
       </v-card-actions>
 
     <v-divider></v-divider>
@@ -39,8 +39,8 @@
           </v-btn>
           <v-btn @click.prevent="saveInterview()">면접 배정 저장</v-btn>
           
-          <v-btn class="white--text" color="teal" @click="overlay = !overlay">메일 발송</v-btn>
-          <v-btn text color="teal accent-4" @click="reveal = false">돌아가기(채용공고 다시 선택)</v-btn>
+          <v-btn class="white--text" color="primary" @click="overlay = !overlay">메일 발송</v-btn>
+          <v-btn color="primary accent-4" @click="reveal = false">돌아가기(채용공고 다시 선택)</v-btn>
       </v-card-actions>
       <b-table
         style="width: 100%; text-align: center;" responsive striped flex
@@ -74,7 +74,7 @@
                 <v-btn @click="sendEmail()">메일 보내기</v-btn>
               </v-card-actions>
             </v-card>
-          <v-btn color="teal" @click="overlay = false">닫기</v-btn>
+          <v-btn  color="primary" @click="overlay = false">닫기</v-btn>
         </v-overlay>
       </v-row>
     </template>
