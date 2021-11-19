@@ -66,7 +66,8 @@ export default {
       },
       ...mapActions(["logoutStore"]),
       moveUserHomePage(){
-        this.$router.push('home/'+this.$store.state.currentUser.id);
+        window.open('http://localhost:8080'+'/home/'+this.$store.state.currentUser.id);
+        this.$store.state.isLogin = true;
     }
   }
 }

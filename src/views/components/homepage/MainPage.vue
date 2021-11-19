@@ -1,8 +1,8 @@
 <template>
    <div class="jumbotron">
-        <h1 class="display-4">{{this.$store.state.currentUser.introduceTitle}}</h1>
-        <p class="lead">{{this.$store.state.currentUser.introduce}}</p>
-        <router-link class="btn btn-primary btn-lg" role="button" :to="'/home/' + this.$store.state.currentUser.id+'/employment'">채용 공고 바로 가기</router-link>
+        <h1 class="display-4">{{companyData.company_introduce_title}}</h1>
+        <p class="lead">{{companyData.company_introduce}}</p>
+        <b-button class="btn btn-primary btn-lg" @click="$router.push($route.params.id + '/employment')">채용 공고 바로 가기</b-button>
     </div>
 </template>
 
@@ -14,10 +14,7 @@ export default {
 
 <style>
 .jumbotron{
-    position: absolute;
     width: 100%;
-    top:80px;
-    z-index: -1;
 }
 
 </style>

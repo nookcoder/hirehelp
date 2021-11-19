@@ -86,8 +86,4 @@ export default {
 #change-notice-delete-button{
     text-align: right;
 }
-.mmm{
-    position: relative;
-    z-index: 5555555555;
-}
 </style>
