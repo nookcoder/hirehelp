@@ -36,7 +36,7 @@
         <b-nav-item @click="moveUserHomePage">채용 홈페이지 접속</b-nav-item>
       </b-navbar-nav>
 
-      <b-navbar-nav class="ms-auto">
+      <b-navbar-nav class="ml-auto">
         <div v-if="this.$store.state.isLogin"><b-collapse id="nav-collapse" is-nav>
         <b-nav-item @click="$router.push('mypage')">{{this.$store.state.currentUser.name}} 님</b-nav-item>
         <b-nav-item >|</b-nav-item>
