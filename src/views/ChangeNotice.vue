@@ -28,7 +28,15 @@
                                 <pre>{{ row.item.content }}</pre>
                             </b-row>
 
-                        <b-button @click="deleteNotice(row)">삭제하기</b-button>
+                        <b-button @click="overlay = !overlay">삭제하기</b-button>
+                        <v-overlay
+                            :value="overlay"
+                            :absolute="absolute"
+                            >
+                            <p>정말로 삭제하시겠습니까?</p>
+                            <b-button @click="deleteNotice(row)">예</b-button>
+                            <b-button @click="overlay = !overlay">아니오</b-button>
+                        </v-overlay>
                         </b-card>
                     </template>                
                 </b-table>
@@ -48,6 +56,9 @@ export default {
                 {key:"detail",label:"detail"}
             ],
             notices:[],
+            overlay : false,
+            absolute: true,
+
         }
     },
     methods:{
@@ -70,6 +81,7 @@ export default {
                 this.notices = [];
                 this.getNotices();
                 this.$refs.table.refresh();
+                this.overlay = !this.overlay
             })
         }
     },
