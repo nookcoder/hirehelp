@@ -13,7 +13,7 @@
                   hover
                   :items="postings"
                   :fields="fields" 
-                  ref="table"
+                  ref="table2"
                   >
                     <template v-slot:cell(detail)="row">
                       <b-button size="sm" class="mr-1" @click="row.toggleDetails">
@@ -78,19 +78,19 @@ export default {
             })
         },
         deletePosting : function(data){
-            console.log(data);
             axios.delete(this.$store.state.host + "/api/recruitment/" + data.item.id)
-            .then(()=>{
-                this.postings.splice(0,this.postings.length);
-                this.getPosting();
-                this.$refs.table.refresh();
-                console.log(this.postings);
+            axios.get(this.$store.state.host + "/api/recruitment/" + this.$store.getters.getcurrentUser)
+            .then((res)=>{
+                this.postings = [] 
+                res.data.forEach((element) =>{
+                    this.postings.push(element);
+                });
             })
             .catch((err)=>{
                 console.log(err);
             })
         }
-    },
+    }, 
     mounted(){
         this.getPosting();
     }

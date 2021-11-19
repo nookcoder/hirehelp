@@ -17,6 +17,7 @@ import PostingInfoForm from '@/views/components/posting-form/PostingInfoForm.vue
 import PostingContentForm from '@/views/components/posting-form/PostingContentForm.vue'
 import PostingCheck from '@/views/components/posting-form/PostingCheck.vue'
 import ChangePosting from '@/views/components/posting-form/ChangePosting.vue'
+import Applicants from '@/views/components/resume/Applicants.vue'
 
 import Resume from '@/views/Resume.vue'
 import Home from '@/views/MainHome.vue'
