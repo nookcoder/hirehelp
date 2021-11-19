@@ -28,14 +28,22 @@
                                 <pre>{{ row.item.content }}</pre>
                             </b-row>
 
-                        <b-button @click="overlay = !overlay">삭제하기</b-button>
-                        <v-overlay
+                        <b-button @click="overlays[row.index].overlay = !overlays[row.index].overlay">삭제하기</b-button>
+                        <!-- <v-overlay
                             :value="overlay"
                             :absolute="absolute"
                             >
                             <p>정말로 삭제하시겠습니까?</p>
                             <b-button @click="deleteNotice(row)">예</b-button>
                             <b-button @click="overlay = !overlay">아니오</b-button>
+                        </v-overlay> -->
+                        <v-overlay
+                            :value="overlays[row.index].overlay"
+                            :absolute="absolute"
+                            >
+                            <p>정말로 삭제하시겠습니까?</p>
+                            <b-button @click="deleteNotice(row)">예</b-button>
+                            <b-button @click="overlays[row.index].overlay = !overlays[row.index].overlay">아니오</b-button>
                         </v-overlay>
                         </b-card>
                     </template>                
@@ -58,6 +66,7 @@ export default {
             notices:[],
             overlay : false,
             absolute: true,
+            overlays:[],
 
         }
     },
@@ -68,6 +77,11 @@ export default {
                 res.data.forEach((element) =>{
                     this.notices.push(element);
                 });
+                for(let i = 0; i < res.data.length; i++){
+                    this.overlays.push({
+                        overlay : false,
+                    })
+                }
                 console.log(this.notices);
             })
             .catch((err)=>{
@@ -81,7 +95,7 @@ export default {
                 this.notices = [];
                 this.getNotices();
                 this.$refs.table.refresh();
-                this.overlay = !this.overlay
+                this.overlay = !this.overlay;
             })
         }
     },
