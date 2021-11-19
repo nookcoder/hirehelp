@@ -1,6 +1,9 @@
 
 <template>
   <v-container fluid>
+    <v-overlay :value="isLoading" z-index="10000">
+      <v-progress-circular indeterminate color="primary" v-show="isLoading"></v-progress-circular>
+    </v-overlay>
     <v-card class="mx-auto" max-width="100%">
   <v-card-title>면접 시간 지정</v-card-title>
       <v-card-title>
@@ -35,6 +38,7 @@
 
           </v-btn>
           <v-btn @click.prevent="saveInterview()">면접 배정 저장</v-btn>
+          
           <v-btn class="white--text" color="teal" @click="overlay = !overlay">메일 발송</v-btn>
           <v-btn text color="teal accent-4" @click="reveal = false">돌아가기(채용공고 다시 선택)</v-btn>
       </v-card-actions>
@@ -42,8 +46,8 @@
         style="width: 100%; text-align: center;" responsive striped flex
         hover :items="resumeData" :fields="fields">
 
-          <template v-slot:cell(detail)="row">
-            <b-button size="sm" @click="checkrow(row)">메일 발송 완료</b-button>
+          <template v-slot:cell(detail)>
+            <b-button size="sm" @click="checkrow()">{{emailCheck}}</b-button>
 
             <v-row>
               <v-overlay :z-index="zIndex" :value="overlay" :opacity="opacity" >
@@ -56,10 +60,9 @@
               <v-card-subtitle>"맵핑 항목"이라는 기능으로 많은 지원자들에게 한번에 맞는 정보를 보낼 수 있습니다.</v-card-subtitle>
               <v-card-subtitle>
               지원자성명 - #이름#<br>
-              회사명 - #회사명#<br>
-              공고명 - #공고명#<br>
               면접조 - #면접조#<br>
               면접시간 - #면접시간#<br>
+              면접장소 - #면접장소#<br>
               면접일자 - #면접일자#</v-card-subtitle>
               <v-card-subtitle>ex) [#회사명#] #공고명# 면접 관련 안내. #성명# 지원자님께서는 ...</v-card-subtitle>
               <v-card-text>
@@ -106,10 +109,6 @@
          <v-combobox v-model="selected" :items="item" multiple chips></v-combobox>
         </template>
 
-        <template v-slot:cell(check)="row">
-          <input type="checkbox" v-model="row.checked"/>
-        </template>
-
         </b-table>
         </v-card-text>
       </v-card>
@@ -127,6 +126,8 @@ export default {
     },
    data() {
       return {
+      emailCheck: "이메일 발송 전",
+      isLoading: false,
       zIndex:0,
       groupItems:['1조', '2조', '3조', '4조', '5조'],
       menu: false,
@@ -144,7 +145,6 @@ export default {
       {key:'interview_time',label:'면접 시간',sortable:false},
       {key:'interview_inter',label:'담당 면접관',sortable:false},
       {key:'detail',label:'안내',sortable:false},
-      {key:'check',label:'',sortable:false},
       ],
       email_title:'',
       email_content:'',
@@ -160,22 +160,33 @@ export default {
    },
     methods:{
         sendEmail() {
+          this.isLoading = true
           var sendObject = {
             email_title: this.email_title,
-            email_content: this.email_content.replace(/(\n|\r\n)/g, '<br>') // 엔터가능
+            email_content: this.email_content.replaceAll(/(\n|\r\n)/g, '<br>') // 엔터가능
           }
           for(var toEmail of this.resumeData){
-            console.log(toEmail)
-            sendObject.email = "aaaaaaa"
+            sendObject.email = toEmail.email_id + "@" + toEmail.email_address
+            sendObject.email_title = sendObject.email_title.replaceAll('#이름#', toEmail.name)
+            .replaceAll('#면접조#', toEmail.interview_group).replaceAll('#면접시간#', toEmail.interview_time)
+            .replaceAll('#면접장소#', toEmail.interview_location).replaceAll('#면접일자#', toEmail.interview_date)
+            sendObject.email_content = sendObject.email_content.replaceAll('#이름#', toEmail.name)
+            .replaceAll('#면접조#', toEmail.interview_group).replaceAll('#면접시간#', toEmail.interview_time)
+            .replaceAll('#면접장소#', toEmail.interview_location).replaceAll('#면접일자#', toEmail.interview_date)
             console.log(sendObject)
-          }
+
         // emailjs.send('service_mod7xkl', 'template_5ok8qdp', sendObject)
         // .then((result) => {
         //     console.log('SUCCESS!', result.text, result.status);
         //     alert("전송되었습니다.")
+        //     this.isLoading = false
+        //     this.emailCheck = "이메일 발송 완료"
         // }, (error) => {
         //     console.log('FAILED...', error.text);
         // });
+          }
+
+
       },
       getRecruitmentTitle(){
         this.$http.get(this.$store.state.host + '/api/recruitment/' + this.$store.state.currentUser.id)
@@ -183,10 +194,8 @@ export default {
         for (let i of Response.data) { this.items.push({ text : i.title, value : i.id})} })
         .catch((Error)=>{ console.log(Error); })
       },
-    checkrow(row){
-      console.log(row.item)
-      console.log(row)
-      alert(row.distance)
+    checkrow(){
+      this.emailCheck ="okok"
     },
     getResume(){
     this.$http.get(this.$store.state.host+"/api/resume/"+this.select)
