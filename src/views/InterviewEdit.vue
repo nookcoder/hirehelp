@@ -1,7 +1,6 @@
 
 <template>
   <v-container fluid>
-         <v-combobox v-model="select" :items="items" label="I use chips" multiple chips></v-combobox>
     <v-card class="mx-auto" max-width="100%">
   <v-card-title>면접 시간 지정</v-card-title>
       <v-card-title>
@@ -43,8 +42,8 @@
         style="width: 100%; text-align: center;" responsive striped flex
         hover :items="resumeData" :fields="fields">
 
-          <template v-slot:cell(detail)>
-            <b-button size="sm" @click="getResume()">메일 발송 완료</b-button>
+          <template v-slot:cell(detail)="row">
+            <b-button size="sm" @click="checkrow(row)">메일 발송 완료</b-button>
 
             <v-row>
               <v-overlay :z-index="zIndex" :value="overlay" :opacity="opacity" >
@@ -64,12 +63,12 @@
               면접일자 - #면접일자#</v-card-subtitle>
               <v-card-subtitle>ex) [#회사명#] #공고명# 면접 관련 안내. #성명# 지원자님께서는 ...</v-card-subtitle>
               <v-card-text>
-              <b-form-input v-model="email_title" placeholder="메일 제목" required></b-form-input>
+              <b-form-input v-model="email_title" placeholder="메일 제목"></b-form-input>
               <b-form-textarea v-model="email_content" id="textarea" placeholder="메일 내용을 입력해주세요." rows="3" max-rows="10"></b-form-textarea>
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer> 
-                <v-btn>메일 보내기</v-btn>
+                <v-btn @click="sendEmail()">메일 보내기</v-btn>
               </v-card-actions>
             </v-card>
           <v-btn color="teal" @click="overlay = false">닫기</v-btn>
@@ -98,50 +97,9 @@
         <v-date-picker v-model="row.item.interview_date" @input="menu1=false"></v-date-picker>
         </v-menu>
       </template>
-            
-<!-- <template v-slot:cell(interview_time)="row">
-      <v-menu
-      :close-on-content-click="false" 
-        :nudge-right="40"
-        :return-value.sync="time"
-        transition="scale-transition"
-        open-on-hover
-        offset-y
-        max-width="290px"
-        min-width="290px" >
-        <template v-slot:activator="{ on, attrs }">
-          <v-text-field
-            v-model="row.item.interview_time"
-            label="시간"
-            readonly
-            v-bind="attrs"
-            v-on="on"
-          ></v-text-field>
-        </template>
-        <v-time-picker
-          v-if="menu2"
-          v-model="row.item.interview_time"
-          @click:minute="$refs.menu.save(row.item.interview_time)"
-        ></v-time-picker>
-      </v-menu>
-</template> -->
 
-<template v-slot:cell(interview_time)="row">
-      <v-dialog
-        ref="dialog"
-        v-model="modal2"
-        :return-value.sync="row.item.interview_time"
-        persistent
-        width="290px">
-        <template v-slot:activator="{ on }">
-          <v-text-field v-model="row.item.interview_time" label="면접 시간" readonly v-on="on"></v-text-field>
-        </template>
-        <v-time-picker scrollable v-if="modal2" v-model="row.item.interview_time" full-width>
-          <v-spacer></v-spacer>
-          <v-btn text color="primary" @click="modal2 = false">Cancel</v-btn>
-          <v-btn text color="primary" @click="$refs.dialog.save(row.item.interview_time)">OK</v-btn>
-        </v-time-picker>
-      </v-dialog>
+        <template v-slot:cell(interview_time)="row">
+          <input v-model="row.item.interview_time" type="time">
         </template>
 
         <template v-slot:cell(interview_inter)>
@@ -188,10 +146,11 @@ export default {
       {key:'detail',label:'안내',sortable:false},
       {key:'check',label:'',sortable:false},
       ],
+      email_title:'',
+      email_content:'',
       items:[],
       resumeData:[],
       options:[],
-      isDetail:false,
       item:["구나영", "김현욱", "신지훈"],
       selected: '',
       select: '',
@@ -201,12 +160,22 @@ export default {
    },
     methods:{
         sendEmail() {
-        emailjs.sendForm('service_mod7xkl', 'service_mod7xkl', this.$refs.form, 'YOUR_USER_ID')
-        .then((result) => {
-            console.log('SUCCESS!', result.text);
-        }, (error) => {
-            console.log('FAILED...', error.text);
-        });
+          var sendObject = {
+            email_title: this.email_title,
+            email_content: this.email_content.replace(/(\n|\r\n)/g, '<br>') // 엔터가능
+          }
+          for(var toEmail of this.resumeData){
+            console.log(toEmail)
+            sendObject.email = "aaaaaaa"
+            console.log(sendObject)
+          }
+        // emailjs.send('service_mod7xkl', 'template_5ok8qdp', sendObject)
+        // .then((result) => {
+        //     console.log('SUCCESS!', result.text, result.status);
+        //     alert("전송되었습니다.")
+        // }, (error) => {
+        //     console.log('FAILED...', error.text);
+        // });
       },
       getRecruitmentTitle(){
         this.$http.get(this.$store.state.host + '/api/recruitment/' + this.$store.state.currentUser.id)
@@ -243,7 +212,10 @@ export default {
     },
     mounted() { // 페이지 시작하면은 자동 함수 실행
 		this.getRecruitmentTitle();
-	}
+	},
+  created(){
+    emailjs.init("user_w8C5WQL5oZrlFo6dB1uZ1")
+  }
 }
 </script>
 
