@@ -12,7 +12,7 @@
             <b-dropdown-item @click="$router.push('/notice')">공지사항 추가</b-dropdown-item>
             <b-dropdown-item @click="$router.push('/change/notice')">공지사항 수정/삭제</b-dropdown-item>
             <b-dropdown-item @click="$router.push('/posting')">채용공고 추가</b-dropdown-item>
-            <b-dropdown-item @click="$router.push('/reposting')">채용공고 수정/삭제</b-dropdown-item>
+            <b-dropdown-item @click="$router.push('/change/posting')">채용공고 수정/삭제</b-dropdown-item>
         </b-nav-dropdown>
 
         <b-nav-item @click="$router.push('/resume')">이력서 관리</b-nav-item>

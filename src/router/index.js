@@ -16,8 +16,7 @@ import PostingForm from '@/views/PostingForm.vue'
 import PostingInfoForm from '@/views/components/posting-form/PostingInfoForm.vue'
 import PostingContentForm from '@/views/components/posting-form/PostingContentForm.vue'
 import PostingCheck from '@/views/components/posting-form/PostingCheck.vue'
-
-
+import ChangePosting from '@/views/components/posting-form/ChangePosting.vue'
 
 import Resume from '@/views/Resume.vue'
 import Home from '@/views/MainHome.vue'
@@ -70,6 +69,10 @@ export default new Router({
     {
       path:'/change/notice',
       component: ChangeNotice,
+    },
+    {
+      path:'/change/posting',
+      component: ChangePosting,
     },
     {
       path: '/mypage',
