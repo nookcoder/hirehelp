@@ -12,8 +12,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VueHead from 'vue-head'
 import axios from 'axios'
 import store from './store'
-import Vuetify from 'vuetify'
-import Vuetable from 'vuetable-2'
+
 
 Vue.prototype.$eventBus = new Vue();
 Vue.prototype.$http = axios
@@ -23,14 +22,13 @@ Vue.use(Router)
 Vue.use(VueHead)
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
-Vue.use(Vuetable)
 
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  vuetify: new Vuetify(),
+  vuetify,
   router,
   store,
   components: { App },
