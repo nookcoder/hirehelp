@@ -21,7 +21,7 @@ import ChangePosting from '@/views/components/posting-form/ChangePosting.vue'
 import Resume from '@/views/Resume.vue'
 import Home from '@/views/MainHome.vue'
 import MyPage from '@/views/MyPage.vue'
-import Applicants from '@/views/components/resume/Applicants.vue'
+import InterviewSetting from '@/views/InterviewEdit.vue'
 
 import Store from '../store.js'
  
@@ -107,6 +107,12 @@ export default new Router({
       path:'/resume',
       name:'Resume',
       component: Resume,
+      beforeEnter: onlyUser,
+    },
+    {
+      path:'/interviewsetting',
+      name:'interviewsetting',
+      component: InterviewSetting,
       beforeEnter: onlyUser,
     },
     {

@@ -1,8 +1,8 @@
 <template>
-  <div id="app">
+  <v-app id="app">
         <Menu></Menu>
         <router-view/>
-  </div>
+  </v-app>
   
 </template>
 
@@ -14,7 +14,6 @@ export default {
   name: 'App',
   head:{
    script:[
-     {src:'https://wowjs.uk/dist/wow.min.js',async:true},
      {src:'https://code.jquery.com/jquery-3.5.1.min.js',async:true},
      {src:'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js',async:true},
      {src:'https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js',async:true},

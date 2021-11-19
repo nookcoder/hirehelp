@@ -19,14 +19,14 @@
         
         <b-nav-dropdown text="면접 서비스">
             <b-dropdown-item @click="onClickRedirect()">면접실 입장</b-dropdown-item>
-            <b-dropdown-item>면접시간 배정</b-dropdown-item>
+            <b-dropdown-item @click="$router.push('/interviewsetting')">면접시간 배정</b-dropdown-item>
             <b-dropdown-item>면접평가서 등록 및 수정</b-dropdown-item>
         </b-nav-dropdown>
         <b-nav-item @click="moveUserHomePage">채용 홈페이지 접속</b-nav-item>
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto">
-        <div v-if="this.$store.state.isLogin">  <b-collapse id="nav-collapse" is-nav>
+        <div v-if="this.$store.state.isLogin"><b-collapse id="nav-collapse" is-nav>
         <b-nav-item @click="$router.push('mypage')">{{this.$store.state.currentUser.name}} 님</b-nav-item>
         <b-nav-item >|</b-nav-item>
         <b-nav-item v-on:click="logoutStore()">로그아웃</b-nav-item>

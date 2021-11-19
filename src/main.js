@@ -14,6 +14,7 @@ import axios from 'axios'
 import store from './store'
 import vmodal from 'vue-js-modal'
 
+
 Vue.prototype.$eventBus = new Vue();
 Vue.prototype.$http = axios
 
@@ -29,6 +30,7 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  vuetify,
   router,
   store,
   components: { App },
