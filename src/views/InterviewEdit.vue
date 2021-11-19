@@ -64,8 +64,8 @@
               면접일자 - #면접일자#</v-card-subtitle>
               <v-card-subtitle>ex) [#회사명#] #공고명# 면접 관련 안내. #성명# 지원자님께서는 ...</v-card-subtitle>
               <v-card-text>
-              <b-form-input placeholder="메일 제목" required></b-form-input>
-              <b-form-textarea id="textarea" placeholder="메일 내용을 입력해주세요." rows="3" max-rows="10"></b-form-textarea>
+              <b-form-input v-model="email_title" placeholder="메일 제목" required></b-form-input>
+              <b-form-textarea v-model="email_content" id="textarea" placeholder="메일 내용을 입력해주세요." rows="3" max-rows="10"></b-form-textarea>
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer> 
@@ -93,8 +93,7 @@
               label="면접일"
               readonly
               v-bind="attrs"
-              v-on="on"
-            ></v-text-field>
+              v-on="on"></v-text-field>
           </template>
         <v-date-picker v-model="row.item.interview_date" @input="menu1=false"></v-date-picker>
         </v-menu>
@@ -193,7 +192,7 @@ export default {
       resumeData:[],
       options:[],
       isDetail:false,
-      item:["구나영", "김현욱", "신지훈", "아몬드"],
+      item:["구나영", "김현욱", "신지훈"],
       selected: '',
       select: '',
       reveal: false,
@@ -202,7 +201,7 @@ export default {
    },
     methods:{
         sendEmail() {
-        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this.$refs.form, 'YOUR_USER_ID')
+        emailjs.sendForm('service_mod7xkl', 'service_mod7xkl', this.$refs.form, 'YOUR_USER_ID')
         .then((result) => {
             console.log('SUCCESS!', result.text);
         }, (error) => {
