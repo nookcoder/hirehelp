@@ -11,16 +11,18 @@ import JobPostingContent from '@/views/components/homepage/JobPostingContent.vue
 import Apply from '@/views/components/homepage/Apply.vue'
 
 import NoticeForm from '@/views/NoticeForm.vue'
+import ChangeNotice from '@/views/ChangeNotice.vue'
 import PostingForm from '@/views/PostingForm.vue'
 import PostingInfoForm from '@/views/components/posting-form/PostingInfoForm.vue'
 import PostingContentForm from '@/views/components/posting-form/PostingContentForm.vue'
 import PostingCheck from '@/views/components/posting-form/PostingCheck.vue'
+import ChangePosting from '@/views/components/posting-form/ChangePosting.vue'
 
 import Resume from '@/views/Resume.vue'
-import Applicants from '@/views/components/resume/Applicants.vue'
 import Home from '@/views/MainHome.vue'
 import MyPage from '@/views/MyPage.vue'
 import InterviewSetting from '@/views/InterviewEdit.vue'
+import Applicants from '@/views/components/resume/Applicants.vue'
 
 import Store from '../store.js'
  
@@ -66,6 +68,14 @@ export default new Router({
       beforeEnter: onlyUser
     },
     {
+      path:'/change/notice',
+      component: ChangeNotice,
+    },
+    {
+      path:'/change/posting',
+      component: ChangePosting,
+    },
+    {
       path: '/mypage',
       name: 'MyPage',
       component: MyPage,
@@ -108,7 +118,7 @@ export default new Router({
     },
     {
       path:"/resume/:companyid/:recruitmentid",
-      component:Applicants
+      component:Applicants,
     },
     {
       path:'/signup',

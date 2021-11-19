@@ -142,11 +142,10 @@ export default {
     })
     },
     loadApplicantsData: function(data){
-      this.$router.replace("resume/"+data.item.company_id+"/"+data.item.id);
-    },
-  },
-  mounted() {
-		this.getRecruitmentList();
+      this.$router.push("/resume/"+data.item.company_id+"/"+data.item.id);
+    }
+  },mounted() {
+		this.getRecruitmentList(); 
 	}
 }
 </script>
