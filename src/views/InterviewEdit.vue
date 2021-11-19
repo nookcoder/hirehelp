@@ -36,7 +36,7 @@
 
           </v-btn>
           <v-btn @click.prevent="getResume()">면접 배정 저장</v-btn>
-          <v-btn class="white--text" color="teal" @click="overlay = !overlay">메일 발송 예약</v-btn>
+          <v-btn class="white--text" color="teal" @click="overlay = !overlay">메일 발송</v-btn>
           <v-btn text color="teal accent-4" @click="reveal = false" >돌아가기(채용공고 다시 선택)</v-btn>
       </v-card-actions>
       <b-table
@@ -44,13 +44,13 @@
         hover :items="applycants" :fields="fields">
 
           <template v-slot:cell(detail)>
-            <b-button size="sm" @click="getResume()">메일 발송 완료 </b-button>
+            <b-button size="sm" @click="getResume()">메일 발송 완료</b-button>
 
             <v-row>
               <v-overlay :z-index="zIndex" :value="overlay" :opacity="opacity" >
               <v-card>
               <v-card-title>
-                <i class="far fa-envelope"></i> 이메일 예약 발송
+                <i class="far fa-envelope"></i> 안내 발송
               </v-card-title>
               <v-spacer></v-spacer>
               <v-card-subtitle>#맵핑 항목 기능#</v-card-subtitle>
@@ -69,7 +69,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer> 
-                <v-btn> 메일 형식 저장 </v-btn>
+                <v-btn>메일 보내기</v-btn>
               </v-card-actions>
             </v-card>
           <v-btn color="teal" @click="overlay = false" >닫기</v-btn>
@@ -151,26 +151,6 @@
         <template v-slot:cell(interview_inter)>
          <v-combobox v-model="selected" :items="item" multiple chips></v-combobox>
         </template>
-
-        
-          <!-- <b-button size="sm" @click="checkrow(row)">면접관</b-button> -->
-
-        <!-- <template v-slot:cell(interview_inter)="row">
-          <v-combobox v-model="select" :items="items" multiple chips >
-          <template v-slot:selection="data">
-            <v-chip :key="JSON.stringify(data.item)"
-              v-bind="data.attrs"
-              :input-value="data.selected"
-              :disabled="data.disabled"
-              @click:close="data.parent.selectItem(data.item)" >
-              <v-avatar class="accent white--text" left
-                v-text="data.item.slice(0, 1).toUpperCase()"
-              ></v-avatar>
-              {{ data.item }}
-            </v-chip>
-          </template>
-        </v-combobox>
-        </template> -->
 
         <template v-slot:cell(check)="row">
           <input type="checkbox" v-model="row.checked"/>

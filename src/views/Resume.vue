@@ -33,7 +33,7 @@
             :items="endjobPostings" 
             :fields="endFields">
           </b-table>
-      </b-tab>
+        </b-tab>
       </b-tabs>
   </div>
       </v-card-text>
@@ -46,7 +46,6 @@
 export default {
   data(){
     return{
-      tabIndex: 0,
       jobPostings:[],
       endjobPostings:[],
       endFields: [
@@ -114,10 +113,6 @@ export default {
           key: 'driver',
           label: '현재 지원자 수',
           sortable: true
-        },
-        {
-          key: 'actions',
-          label: '버튼',
         }
       ]
     }
@@ -135,7 +130,8 @@ export default {
         var result = Math.ceil(((new Date(Response.data[post].end_date)) - dday) / (1000 * 60 * 60 * 24));
         if(result > 0){
           Response.data[post].Dday = result
-          this.jobPostings.push(Response.data[post])}
+          this.jobPostings.push(Response.data[post])
+        }
         else{
           this.endjobPostings.push(Response.data[post])
         }
@@ -149,7 +145,7 @@ export default {
       this.$router.push("/resume/"+data.item.company_id+"/"+data.item.id);
     }
   },mounted() {
-		this.getRecruitmentList(); 
+		this.getRecruitmentList();
 	}
 }
 </script>
