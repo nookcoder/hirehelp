@@ -35,13 +35,13 @@
           <v-btn @click.prevent="getResume()">면접관 관리
 
           </v-btn>
-          <v-btn @click.prevent="getResume()">면접 배정 저장</v-btn>
+          <v-btn @click.prevent="saveInterview()">면접 배정 저장</v-btn>
           <v-btn class="white--text" color="teal" @click="overlay = !overlay">메일 발송</v-btn>
-          <v-btn text color="teal accent-4" @click="reveal = false" >돌아가기(채용공고 다시 선택)</v-btn>
+          <v-btn text color="teal accent-4" @click="reveal = false">돌아가기(채용공고 다시 선택)</v-btn>
       </v-card-actions>
       <b-table
         style="width: 100%; text-align: center;" responsive striped flex
-        hover :items="applycants" :fields="fields">
+        hover :items="resumeData" :fields="fields">
 
           <template v-slot:cell(detail)>
             <b-button size="sm" @click="getResume()">메일 발송 완료</b-button>
@@ -56,13 +56,13 @@
               <v-card-subtitle>#맵핑 항목 기능#</v-card-subtitle>
               <v-card-subtitle>"맵핑 항목"이라는 기능으로 많은 지원자들에게 한번에 맞는 정보를 보낼 수 있습니다.</v-card-subtitle>
               <v-card-subtitle>
-              지원자성명 -  #이름#<br>
+              지원자성명 - #이름#<br>
               회사명 - #회사명#<br>
               공고명 - #공고명#<br>
               면접조 - #면접조#<br>
               면접시간 - #면접시간#<br>
               면접일자 - #면접일자#</v-card-subtitle>
-              <v-card-subtitle>ex) [#회사명#] #공고명# 면접 관련 안내. #성명# 지원자님께서는 ~</v-card-subtitle>
+              <v-card-subtitle>ex) [#회사명#] #공고명# 면접 관련 안내. #성명# 지원자님께서는 ...</v-card-subtitle>
               <v-card-text>
               <b-form-input placeholder="메일 제목" required></b-form-input>
               <b-form-textarea id="textarea" placeholder="메일 내용을 입력해주세요." rows="3" max-rows="10"></b-form-textarea>
@@ -72,13 +72,13 @@
                 <v-btn>메일 보내기</v-btn>
               </v-card-actions>
             </v-card>
-          <v-btn color="teal" @click="overlay = false" >닫기</v-btn>
+          <v-btn color="teal" @click="overlay = false">닫기</v-btn>
         </v-overlay>
       </v-row>
     </template>
 
-        <template v-slot:cell(interview_group)>
-          <v-select style="max-width: 57px; justify-content: center;" class="d-flex" :items="groupItems"></v-select>    
+        <template v-slot:cell(interview_group)="row">
+          <v-select style="max-width: 57px; justify-content: center;" class="d-flex" v-model="row.item.interview_group" :items="groupItems"></v-select>    
         </template>
         
         <template v-slot:cell(interview_location)="row">
@@ -135,10 +135,7 @@
         persistent
         width="290px">
         <template v-slot:activator="{ on }">
-          <v-text-field
-            v-model="row.item.interview_time" label="면접 시간"
-            readonly
-            v-on="on"></v-text-field>
+          <v-text-field v-model="row.item.interview_time" label="면접 시간" readonly v-on="on"></v-text-field>
         </template>
         <v-time-picker scrollable v-if="modal2" v-model="row.item.interview_time" full-width>
           <v-spacer></v-spacer>
@@ -193,10 +190,10 @@ export default {
       {key:'check',label:'',sortable:false},
       ],
       items:[],
-      applycants:[],
+      resumeData:[],
       options:[],
       isDetail:false,
-      item:["구나영", "김현욱", "빼빼로", "신지훈", "아몬드"],
+      item:["구나영", "김현욱", "신지훈", "아몬드"],
       selected: '',
       select: '',
       reveal: false,
@@ -214,11 +211,10 @@ export default {
       },
       getRecruitmentTitle(){
         this.$http.get(this.$store.state.host + '/api/recruitment/' + this.$store.state.currentUser.id)
-      .then((Response)=>{
-      for (let i of Response.data) { this.items.push({ text : i.title, value : i.id})}
-    })
-    .catch((Error)=>{ console.log(Error); })
-    },
+        .then((Response)=>{
+        for (let i of Response.data) { this.items.push({ text : i.title, value : i.id})} })
+        .catch((Error)=>{ console.log(Error); })
+      },
     checkrow(row){
       console.log(row.item)
       console.log(row)
@@ -234,9 +230,17 @@ export default {
         res.data[index].interview_inter = '';
         res.data[index].interview_group = '';
       }
-      this.applycants = res.data;
-      console.log(this.applycants)
-    })}
+      this.resumeData = res.data;
+    })},
+    saveInterview(){
+      console.log(this.resumeData)
+      this.$http.patch(this.$store.state.host + '/api/resume/interview/update/' + this.$store.state.currentUser.id, 
+      { user: this.resumeData })
+      .then(function (response){
+        alert("저장되었습니다.")
+      })
+      .catch(function (error) { console.log(error); });
+    }
     },
     mounted() { // 페이지 시작하면은 자동 함수 실행
 		this.getRecruitmentTitle();
