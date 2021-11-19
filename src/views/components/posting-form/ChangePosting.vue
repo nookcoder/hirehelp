@@ -40,7 +40,16 @@
                                 <b-col><pre style="text-align:left;">{{ row.item.help_information }}</pre></b-col>
                             </b-row>
 
-                        <b-button @click="deletePosting(row)">삭제하기</b-button>
+                        <b-button @click="overlays[row.index].overlay = !overlays[row.index].overlay">삭제하기</b-button>
+                        <v-overlay
+                            :value="overlays[row.index].overlay"
+                            :absolute="absolute"
+                            >
+                            <p>정말로 삭제하시겠습니까?</p>
+                            <p>(해당 채용 공고의 이력서도 모두 삭제됩니다)</p>
+                            <b-button @click="deletePosting(row)">예</b-button>
+                            <b-button @click="overlays[row.index].overlay = !overlays[row.index].overlay">아니오</b-button>
+                        </v-overlay>
                         </b-card>
                     </template>                
                 </b-table>
@@ -62,7 +71,10 @@ export default {
                 "kind",
                 {key:"detail",label:"Detail"}
             ],
+            absolute:true,
             postings:[],
+            overlays:[],
+
         }
     },
     methods:{
@@ -72,13 +84,22 @@ export default {
                 res.data.forEach((element) =>{
                     this.postings.push(element);
                 });
+
+                this.overlays = [];
+                for(let i=0; i < res.data.length; i++){
+                    this.overlays.push({
+                        overlay : false,
+                    })
+                }
             })
             .catch((err)=>{
                 console.log(err);
             })
         },
         deletePosting : function(data){
+            console.log(data);
             axios.delete(this.$store.state.host + "/api/recruitment/" + data.item.id)
+            axios.delete(this.$store.state.host + "/api/resume/" + data.item.company_id +"/"+data.item.id)
             axios.get(this.$store.state.host + "/api/recruitment/" + this.$store.getters.getcurrentUser)
             .then((res)=>{
                 this.postings = [] 
