@@ -12,6 +12,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VueHead from 'vue-head'
 import axios from 'axios'
 import store from './store'
+import vmodal from 'vue-js-modal'
 
 Vue.prototype.$eventBus = new Vue();
 Vue.prototype.$http = axios
@@ -21,6 +22,7 @@ Vue.use(Router)
 Vue.use(VueHead)
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
+Vue.use(vmodal,{dynamicDefault : { draggable: true, resizable: true }})
 
 Vue.config.productionTip = false
 
