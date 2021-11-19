@@ -97,10 +97,7 @@
           <v-col cols="4">
             색상
           </v-col>
-          <v-col
-            cols="8"
-            class="text--secondary"
-          >
+          <v-col cols="8" class="text--secondary" >
             <v-fade-transition leave-absolute>
               <span v-if="open">회사 채용 홈페이지의 색상을 정해주세요.</span>
               <v-row v-else no-gutters style="width: 100%" >

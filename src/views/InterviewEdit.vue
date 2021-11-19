@@ -1,9 +1,6 @@
 
 <template>
   <v-container fluid>
-    <v-overlay :value="isLoading" z-index="10000">
-      <v-progress-circular indeterminate color="primary" v-show="isLoading"></v-progress-circular>
-    </v-overlay>
     <v-card class="mx-auto" max-width="100%">
   <v-card-title>면접 시간 지정</v-card-title>
       <v-card-title>
@@ -46,8 +43,9 @@
         style="width: 100%; text-align: center;" responsive striped flex
         hover :items="resumeData" :fields="fields">
 
-          <template v-slot:cell(detail)>
-            <b-button size="sm" @click="checkrow()">{{emailCheck}}</b-button>
+          <template v-slot:cell(detail)="row">
+            <b-button v-if="row.item.send_email_success === 0" size="sm" disabled>이메일 발송 전</b-button>
+            <b-button v-else size="sm" disabled>이메일 발송 완료[{{row.item.send_email_success}}]</b-button>
 
             <v-row>
               <v-overlay :z-index="zIndex" :value="overlay" :opacity="opacity" >
@@ -74,7 +72,7 @@
                 <v-btn @click="sendEmail()">메일 보내기</v-btn>
               </v-card-actions>
             </v-card>
-          <v-btn  color="primary" @click="overlay = false">닫기</v-btn>
+          <v-btn color="primary" @click="overlay = false">닫기</v-btn>
         </v-overlay>
       </v-row>
     </template>
@@ -84,7 +82,7 @@
         </template>
         
         <template v-slot:cell(interview_location)="row">
-          <v-text-field v-model="row.item.interview_location" label="면접 장소 입력">https://interview.loca.lt/</v-text-field>
+          <v-text-field v-model="row.item.interview_location" label="면접 장소 입력"></v-text-field>
         </template>
 
         <template v-slot:cell(interview_date)="row">
@@ -162,31 +160,33 @@ export default {
         sendEmail() {
           this.isLoading = true
           var sendObject = {
-            email_title: this.email_title,
-            email_content: this.email_content.replaceAll(/(\n|\r\n)/g, '<br>') // 엔터가능
+            email:'',
+            email_title: '',
+            email_content: '',
           }
+          console.log(this.resumeData)
           for(var toEmail of this.resumeData){
+          console.log(toEmail)
+          console.log("-------------" + toEmail.name)
             sendObject.email = toEmail.email_id + "@" + toEmail.email_address
-            sendObject.email_title = sendObject.email_title.replaceAll('#이름#', toEmail.name)
+            sendObject.email_title = this.email_title.replaceAll('#이름#', toEmail.name)
             .replaceAll('#면접조#', toEmail.interview_group).replaceAll('#면접시간#', toEmail.interview_time)
             .replaceAll('#면접장소#', toEmail.interview_location).replaceAll('#면접일자#', toEmail.interview_date)
-            sendObject.email_content = sendObject.email_content.replaceAll('#이름#', toEmail.name)
+            sendObject.email_content = this.email_content.replaceAll(/(\n|\r\n)/g, '<br>').replaceAll('#이름#', toEmail.name)
             .replaceAll('#면접조#', toEmail.interview_group).replaceAll('#면접시간#', toEmail.interview_time)
             .replaceAll('#면접장소#', toEmail.interview_location).replaceAll('#면접일자#', toEmail.interview_date)
-            console.log(sendObject)
-
-        // emailjs.send('service_mod7xkl', 'template_5ok8qdp', sendObject)
-        // .then((result) => {
-        //     console.log('SUCCESS!', result.text, result.status);
-        //     alert("전송되었습니다.")
-        //     this.isLoading = false
-        //     this.emailCheck = "이메일 발송 완료"
-        // }, (error) => {
-        //     console.log('FAILED...', error.text);
-        // });
-          }
-
-
+            // emailjs.send('service_mod7xkl', 'template_5ok8qdp', sendObject)
+            toEmail.send_email_success = toEmail.send_email_success + 1
+            console.log(this.resumeData)
+            // .then((result) => {
+            //     console.log('SUCCESS!', result.text, result.status);
+            //     this.emailCheck = "이메일 발송 완료"
+            // }, (error) => {
+            //     console.log('FAILED...', error.text);
+            // });
+      }
+            this.isLoading = false
+            alert("전송되었습니다.")
       },
       getRecruitmentTitle(){
         this.$http.get(this.$store.state.host + '/api/recruitment/' + this.$store.state.currentUser.id)
@@ -201,11 +201,7 @@ export default {
     this.$http.get(this.$store.state.host+"/api/resume/"+this.select)
     .then((res)=>{
       for(let index in res.data){
-        res.data[index].interview_date = '';
-        res.data[index].interview_location = '';
-        res.data[index].interview_time = '';
         res.data[index].interview_inter = '';
-        res.data[index].interview_group = '';
       }
       this.resumeData = res.data;
     })},
@@ -219,7 +215,7 @@ export default {
       .catch(function (error) { console.log(error); });
     }
     },
-    mounted() { // 페이지 시작하면은 자동 함수 실행
+    mounted() {
 		this.getRecruitmentTitle();
 	},
   created(){
