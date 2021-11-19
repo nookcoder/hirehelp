@@ -144,7 +144,6 @@ export default {
     height: 100vh;
     text-align: left;
     padding: 100px 50px;
-    z-index: -1;
     overflow: auto;
 }
 
