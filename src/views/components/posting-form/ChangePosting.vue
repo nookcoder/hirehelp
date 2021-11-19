@@ -72,7 +72,6 @@ export default {
                 res.data.forEach((element) =>{
                     this.postings.push(element);
                 });
-                console.log(this.postings);
             })
             .catch((err)=>{
                 console.log(err);
@@ -82,9 +81,13 @@ export default {
             console.log(data);
             axios.delete(this.$store.state.host + "/api/recruitment/" + data.item.id)
             .then(()=>{
-                this.postings = [];
+                this.postings.splice(0,this.postings.length);
                 this.getPosting();
                 this.$refs.table.refresh();
+                console.log(this.postings);
+            })
+            .catch((err)=>{
+                console.log(err);
             })
         }
     },
