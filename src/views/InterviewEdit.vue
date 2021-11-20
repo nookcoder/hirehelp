@@ -31,7 +31,6 @@
         <v-card-text class="pb-0">
       <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn @click.prevent="getResume()">면접관 관리</v-btn>
           <v-btn @click.prevent="saveInterview()">면접 배정 저장</v-btn>
           
           <v-btn class="white--text" color="primary" @click="overlay = !overlay">메일 발송</v-btn>
