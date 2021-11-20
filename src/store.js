@@ -81,13 +81,10 @@ export default new Vuex.Store({
             router.push('/login')
         },
         updateIntroduce({ commit }, company) {
-            console.log("text=" + company)
             commit("setIntroduce", company)
-            console.log(this.state.currentUser)
         axios.patch(this.state.host + '/api/company/introduce/' + this.state.currentUser.id, { user: this.state.currentUser })
             .then(function (response) {
             alert("채용 소개가 저장되었습니다.")
-        console.log(response);
          })
         .catch(function (error) {
         console.log(error);

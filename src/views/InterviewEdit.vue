@@ -31,9 +31,6 @@
         <v-card-text class="pb-0">
       <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn @click.prevent="getResume()">면접관 관리
-
-          </v-btn>
           <v-btn @click.prevent="saveInterview()">면접 배정 저장</v-btn>
           
           <v-btn class="white--text" color="primary" @click="overlay = !overlay">메일 발송</v-btn>
@@ -95,16 +92,12 @@
               v-bind="attrs"
               v-on="on"></v-text-field>
           </template>
-        <v-date-picker v-model="row.item.interview_date" @input="menu1=false"></v-date-picker>
+        <v-date-picker v-model="row.item.interview_date"></v-date-picker>
         </v-menu>
       </template>
 
         <template v-slot:cell(interview_time)="row">
           <input v-model="row.item.interview_time" type="time">
-        </template>
-
-        <template v-slot:cell(interview_inter)>
-         <v-combobox v-model="selected" :items="item" multiple chips></v-combobox>
         </template>
 
         </b-table>
@@ -128,11 +121,6 @@ export default {
       isLoading: false,
       zIndex:0,
       groupItems:['1조', '2조', '3조', '4조', '5조'],
-      menu: false,
-      modal: false,
-      time: null,
-      menu2: false,
-      modal2: false,
       overlay: false,
       fields:[
       {key:'id',label:'수험번호',sortable:false},
@@ -141,16 +129,10 @@ export default {
       {key:'interview_location',label:'면접 장소',sortable:false},
       {key:'interview_date',label:'면접 일자',sortable:false},
       {key:'interview_time',label:'면접 시간',sortable:false},
-      {key:'interview_inter',label:'담당 면접관',sortable:false},
       {key:'detail',label:'안내',sortable:false},
       ],
-      email_title:'',
-      email_content:'',
       items:[],
       resumeData:[],
-      options:[],
-      item:["구나영", "김현욱", "신지훈"],
-      selected: '',
       select: '',
       reveal: false,
       opacity: null,
@@ -166,8 +148,6 @@ export default {
           }
           console.log(this.resumeData)
           for(var toEmail of this.resumeData){
-          console.log(toEmail)
-          console.log("-------------" + toEmail.name)
             sendObject.email = toEmail.email_id + "@" + toEmail.email_address
             sendObject.email_title = this.email_title.replaceAll('#이름#', toEmail.name)
             .replaceAll('#면접조#', toEmail.interview_group).replaceAll('#면접시간#', toEmail.interview_time)
@@ -175,15 +155,14 @@ export default {
             sendObject.email_content = this.email_content.replaceAll(/(\n|\r\n)/g, '<br>').replaceAll('#이름#', toEmail.name)
             .replaceAll('#면접조#', toEmail.interview_group).replaceAll('#면접시간#', toEmail.interview_time)
             .replaceAll('#면접장소#', toEmail.interview_location).replaceAll('#면접일자#', toEmail.interview_date)
-            // emailjs.send('service_mod7xkl', 'template_5ok8qdp', sendObject)
+            emailjs.send('service_mod7xkl', 'template_5ok8qdp', sendObject)
             toEmail.send_email_success = toEmail.send_email_success + 1
-            console.log(this.resumeData)
-            // .then((result) => {
-            //     console.log('SUCCESS!', result.text, result.status);
-            //     this.emailCheck = "이메일 발송 완료"
-            // }, (error) => {
-            //     console.log('FAILED...', error.text);
-            // });
+            .then((result) => {
+                console.log('SUCCESS!', result.text, result.status);
+                this.emailCheck = "이메일 발송 완료"
+            }, (error) => {
+                console.log('FAILED...', error.text);
+            });
       }
             this.isLoading = false
             alert("전송되었습니다.")
@@ -200,10 +179,8 @@ export default {
     getResume(){
     this.$http.get(this.$store.state.host+"/api/resume/"+this.select)
     .then((res)=>{
-      for(let index in res.data){
-        res.data[index].interview_inter = '';
-      }
       this.resumeData = res.data;
+      console.log(res.data)
     })},
     saveInterview(){
       console.log(this.resumeData)

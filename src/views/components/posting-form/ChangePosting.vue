@@ -59,7 +59,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
     data(){
         return{
@@ -98,9 +97,9 @@ export default {
         },
         deletePosting(data){
             console.log(data);
-            axios.delete(this.$store.state.host + "/api/recruitment/" + data.item.id)
-            axios.delete(this.$store.state.host + "/api/resume/" + data.item.company_id +"/"+data.item.id)
-            axios.get(this.$store.state.host + "/api/recruitment/" + this.$store.getters.getcurrentUser)
+            this.$http.delete(this.$store.state.host + "/api/recruitment/" + data.item.id)
+            this.$http.delete(this.$store.state.host + "/api/resume/" + data.item.company_id +"/"+data.item.id)
+            this.$http.get(this.$store.state.host + "/api/recruitment/" + this.$store.getters.getcurrentUser)
             .then((res)=>{
                 this.postings = [] 
                 res.data.forEach((element) =>{

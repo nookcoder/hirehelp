@@ -25,13 +25,11 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   name:"EmploymentHomePage",
   created(){
     this.currentId = this.$route.params.id;
-    axios.get(this.$store.state.host+"/api/company/"+ this.currentId+"/name")
+    this.$http.get(this.$store.state.host+"/api/company/"+ this.currentId+"/name")
     .then((res)=>{
       this.companyData = res.data;
       console.log(this.companyData);
