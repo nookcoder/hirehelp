@@ -12,50 +12,42 @@
             <b-form-group
               label="채용 공고 제목:"
               label-for="posting-title"
-              label-cols-sm="3"
-              label-align-sm="center"
+              class="b"
             >
               <b-form-input id="posting-title" required v-model="postingInfo.title"></b-form-input>
             </b-form-group>
 
             <b-form-group
               label="채용 구분:"
-              label-cols-sm="3"
-              label-align-sm="center"
-              class="mb-0"
+              label-cols-sm="2"
+              class="mb-0 posting-select"
               v-slot="{ postingCategory }"
             >
               <b-form-radio-group 
               required
-              class="pt-2"
+              class="pt-2 a"
               :options="['경력', '신입', '인턴']"
               :aria-describedby="postingCategory"
               v-model="postingInfo.category"
                 ></b-form-radio-group>
             </b-form-group>
-
             <b-form-group
               label="채용 전형:"
-              label-cols-sm="3"
-              label-align-sm="center"
-              class="mb-0"
+              label-cols-sm="2"
               v-slot="{ potingType }"
             >
               <b-form-radio-group 
               required
-              class="pt-2"
+              class="pt-2 a"
               :options="['공채','수시','상시']"
               :aria-describedby="potingType"
               v-model="postingInfo.type"
               ></b-form-radio-group>
             </b-form-group>
-
             <b-form-group
               label="시작일 : "
-              label-cols-sm = "3"
-              label-align-sm="center"
               label-for="posting-date-start"
-              class="mb-0"
+              class="mb-0 b"
             >
               <b-form-datepicker 
               required 
@@ -67,10 +59,8 @@
 
             <b-form-group
               label="종료일 : "
-              label-cols-sm = "3"
-              label-align-sm="center"
               label-for="posting-date-end"
-              class="mb-0"
+              class="mb-0 b" 
             >
               <b-form-datepicker 
               required 
@@ -114,5 +104,13 @@ export default {
 </script>
 
 <style>
+.a {
+  display: flex;
+  padding: 50px;
+  justify-content:space-around;
+}
 
+.b{
+  text-align: left;
+}
 </style>

@@ -1,43 +1,36 @@
 <template>
-  <b-card bg-variant="light">
-      <form @submit="emitPostingInfo($event)">
-        <b-form-group
-          label-cols-lg="3"
-          label="공지사항 등록"
-          label-size="lg"
-          label-class="font-weight-bold pt-0"
-          class="mb-0"
-        >
+      <v-form @submit="emitPostingInfo($event)">
+        <v-container>
+          <v-card
+            elevation="10" outlined width="100%" class="mx-auto"
+          >
+          <v-card-title>
+            공지사항 등록
+          </v-card-title>
+          <v-card-text>
+            <v-text-field
+              id="notice-title"
+              required 
+              v-model="noticeForm.title"
+              label="공지사항 제목"
+              class="notice-form-input"
+              ></v-text-field>
 
-            <b-form-group
-                label="공지사항 제목"
-                label-for="notice-title"
-                label-cols-sm="3"
-                label-align-sm="center"
-            >
-            <b-form-input id="notice-title" required v-model="noticeForm.title"></b-form-input>
-            </b-form-group>
-
-            <b-form-group
-                label="공지사항 내용"
-                label-for="notice-content"
-                label-cols-sm="3"
-                label-align-sm="center"
-            >
-            <b-form-textarea 
-                rows="10" 
-                max-rows="20"
-                id="notice-content" 
-                required 
-                v-model="noticeForm.content"
-            ></b-form-textarea>
-            </b-form-group>
-        </b-form-group>
-      <div class="posting-btn-group">
+            <v-textarea
+              label="공지사항 내용" 
+              auto-grow
+              id="notice-content" 
+              required 
+              v-model="noticeForm.content"
+              class="notice-form-input"
+            ></v-textarea>
+        <div class="posting-btn-group">
         <b-button type="submit" variant="primary" @click="getCurrentTime($event)">등록하기</b-button>
-      </div>
-      </form>
-    </b-card>
+        </div>
+        </v-card-text>
+        </v-card>
+      </v-container>
+    </v-form>
 </template>
 
 <script>
@@ -79,5 +72,7 @@ export default {
 </script>
 
 <style>
-
+.notice-form-input{
+  padding: 30px;
+}
 </style>

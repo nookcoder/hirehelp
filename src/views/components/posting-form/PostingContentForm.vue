@@ -12,8 +12,8 @@
           <b-form-group
             label="모집 분야 :"
             label-for="posting-area-recruitment"
-            label-cols-sm="3"
-            label-align-sm="center"
+            label-align-sm="left"
+            class="b"
           >
             <b-form-input id="posting-area-recruitment" required v-model="postingContent.areaRecruitment" placeholder="ex) Development > AI Engineering"></b-form-input>
           </b-form-group>
@@ -21,8 +21,8 @@
          <b-form-group
             label="업무 내용 :"
             label-for="posting-business-content"
-            label-cols-sm="3"
-            label-align-sm="center"
+            class="b"
+            label-align-sm="left"
           >
             <b-form-textarea 
             rows="5" 
@@ -37,8 +37,8 @@
          <b-form-group
             label="자격 요건 :"
             label-for="posting-qualifications"
-            label-cols-sm="3"
-            label-align-sm="center"
+            class="b"
+            label-align-sm="left"
           >
             <b-form-textarea 
             rows="5" 
@@ -53,8 +53,8 @@
           <b-form-group
             label="제출 서류 :"
             label-for="posting-document"
-            label-cols-sm="3"
-            label-align-sm="center"
+            class="b"
+            label-align-sm="left"
           >
             <b-form-textarea 
             rows="3" 
@@ -68,9 +68,9 @@
             
           <b-form-group
             label="도움말 :"
+            class="b"
             label-for="posting-help"
-            label-cols-sm="3"
-            label-align-sm="center"
+            label-align-sm="left"
           >
             <b-form-textarea 
             rows="5" 
@@ -143,5 +143,7 @@ export default {
 </script>
 
 <style>
-
+.b{
+  text-align: left;
+}
 </style>

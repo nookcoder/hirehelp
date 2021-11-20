@@ -25,23 +25,22 @@
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto">
-        <div v-if="this.$store.state.isLogin"><b-collapse id="nav-collapse" is-nav>
-        <b-nav-item @click="$router.push('mypage')">{{this.$store.state.currentUser.name}} 님</b-nav-item>
-        <b-nav-item >|</b-nav-item>
-        <b-nav-item v-on:click="logoutStore()">로그아웃</b-nav-item>
-          </b-collapse>
-        </div>
-        <div v-else>
-            <b-nav-item-dropdown right>
-          <template #button-content>
-            <b-icon icon="person-fill"></b-icon>
-          </template>
-          <b-dropdown-item @click="$router.push('/login')">로그인</b-dropdown-item>
-          <b-dropdown-item @click="$router.push('/signup')">회원가입</b-dropdown-item>
-        </b-nav-item-dropdown>
-        </div>
+          <b-navbar-nav v-if="this.$store.state.isLogin">
+              <b-nav-item @click="$router.push('/mypage')">{{this.$store.state.currentUser.name}} 님</b-nav-item>
+              <b-nav-item @click="logoutStore" >로그아웃</b-nav-item>    
+          </b-navbar-nav>
+          
+          <b-navbar-nav v-else>
+            <b-nav-item-dropdown right class="dropdown-menu-end"> 
+             <template #button-content>
+             <b-icon icon="person-fill"></b-icon>
+            </template>
+            <b-dropdown-item @click="$router.push('/login')">로그인</b-dropdown-item>
+            <b-dropdown-item @click="$router.push('/signup')">회원가입</b-dropdown-item>
+          </b-nav-item-dropdown>
+          </b-navbar-nav>
       </b-navbar-nav>
-    </b-collapse>
+    </b-collapse >
   </b-navbar>
 </div>
 </template>
@@ -72,3 +71,12 @@ export default {
 }
 
 </script>
+<style>
+.login{
+  align-content: flex-end;
+}
+.done-login{
+  display: flex;
+
+}
+</style>
