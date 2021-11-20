@@ -59,15 +59,44 @@
                         ></b-form-input>
                 </div>
             </div>
+            <div>
+                <div class="apply-column-title">자기소개</div>
+                <v-textarea
+                    counter="1000"
+                    :rules="rules"
+                    v-model="applyData.selfInfo"
+                    filled
+                    auto-grow
+                    placeholder="내용을 입력해주시기 바랍니다."
+                    aria-required
+                    >
+                </v-textarea>
+            </div>
             <div class="motivate">
                 <div class="apply-column-title">지원동기</div>
-                <b-form-textarea
+                <v-textarea
                     class="apply-column-personal-input"
                     placeholder="내용을 입력해주시기 바랍니다."
-                    rows="10"
                     required
+                    counter="1000"
+                    :rules="rules"
+                    filled
+                    auto-grow
                     v-model="applyData.motivate"
-                ></b-form-textarea>
+                ></v-textarea>
+            </div>
+            <div>
+                <div class="apply-column-title">역경을 이겨낸 경험</div>
+                <v-textarea
+                    counter="1000"
+                    :rules="rules"
+                    v-model="applyData.experience"
+                    filled
+                    auto-grow
+                    placeholder="내용을 입력해주시기 바랍니다."
+                    aria-required
+                    >
+                </v-textarea>
             </div>
             <div class="attachment">
                 <div class="apply-column-title">첨부파일</div>
@@ -103,7 +132,11 @@ export default {
                 phoneNumber:'',
                 phoneNumber2:'',
                 motivate:'',
+                selfInfo: '',
+                experience:'',
             },
+            rules :[v => v.length <= 1000 || 'Max 1000 characters'],
+            
         }
     },
     created(){
@@ -125,7 +158,9 @@ export default {
                     emailAddress:this.applyData.emailAddress,
                     phoneNumber:this.applyData.phoneNumber,
                     phoneNumber2:this.applyData.phoneNumber2,
-                    motivate:this.applyData.motivate
+                    motivate:this.applyData.motivate,
+                    selfInfo : this.applyData.selfInfo,
+                    experience : this.applyData.experience,
                 }
             }).then((res)=>{
                 console.log(res);

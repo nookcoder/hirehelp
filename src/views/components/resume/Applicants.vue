@@ -41,8 +41,18 @@
               </b-row>
               
               <b-row class="mb-2">
+                <b-col sm="3" class="text-sm-right"><b>자기소개 :</b></b-col>
+                <b-col><pre style="text-align:left;">{{ row.item.selfInfo }}</pre></b-col>
+              </b-row>
+
+              <b-row class="mb-2">
                 <b-col sm="3" class="text-sm-right"><b>지원동기 :</b></b-col>
                 <b-col><pre style="text-align:left;">{{ row.item.motivate }}</pre></b-col>
+              </b-row>
+
+              <b-row class="mb-2">
+                <b-col sm="3" class="text-sm-right"><b>역경을 이겨낸 경험 :</b></b-col>
+                <b-col><pre style="text-align:left;">{{ row.item.experience }}</pre></b-col>
               </b-row>
 
               <b-button @click="addApplicants(row,passApplicants,1)" variant="primary">합격</b-button>
@@ -95,8 +105,18 @@
               </b-row>
               
               <b-row class="mb-2">
+                <b-col sm="3" class="text-sm-right"><b>자기소개 :</b></b-col>
+                <b-col><pre style="text-align:left;">{{ row.item.selfInfo }}</pre></b-col>
+              </b-row>
+
+              <b-row class="mb-2">
                 <b-col sm="3" class="text-sm-right"><b>지원동기 :</b></b-col>
                 <b-col><pre style="text-align:left;">{{ row.item.motivate }}</pre></b-col>
+              </b-row>
+
+              <b-row class="mb-2">
+                <b-col sm="3" class="text-sm-right"><b>역경을 이겨낸 경험 :</b></b-col>
+                <b-col><pre style="text-align:left;">{{ row.item.experience }}</pre></b-col>
               </b-row>
 
               <b-button @click="cancelApplicants(row,passApplicants)" variant="primary">되돌리기</b-button>
@@ -148,8 +168,18 @@
               </b-row>
               
               <b-row class="mb-2">
+                <b-col sm="3" class="text-sm-right"><b>자기소개 :</b></b-col>
+                <b-col><pre style="text-align:left;">{{ row.item.selfInfo }}</pre></b-col>
+              </b-row>
+
+              <b-row class="mb-2">
                 <b-col sm="3" class="text-sm-right"><b>지원동기 :</b></b-col>
                 <b-col><pre style="text-align:left;">{{ row.item.motivate }}</pre></b-col>
+              </b-row>
+
+              <b-row class="mb-2">
+                <b-col sm="3" class="text-sm-right"><b>역경을 이겨낸 경험 :</b></b-col>
+                <b-col><pre style="text-align:left;">{{ row.item.experience }}</pre></b-col>
               </b-row>
 
               <b-button @click="cancelApplicants(row,failApplicants)" variant="primary">되돌리기</b-button>
