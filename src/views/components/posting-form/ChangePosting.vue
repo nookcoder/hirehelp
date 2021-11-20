@@ -59,7 +59,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
     data(){
         return{
@@ -78,8 +77,8 @@ export default {
         }
     },
     methods:{
-        getPosting : function(){
-            axios.get(this.$store.state.host + "/api/recruitment/" + this.$store.getters.getcurrentUser)
+        getPosting(){
+            this.$http.get(this.$store.state.host + "/api/recruitment/" + this.$store.getters.getcurrentUser)
             .then((res)=>{
                 res.data.forEach((element) =>{
                     this.postings.push(element);
@@ -96,7 +95,7 @@ export default {
                 console.log(err);
             })
         },
-        deletePosting : function(data){
+        deletePosting(data){
             console.log(data);
             axios.delete(this.$store.state.host + "/api/recruitment/" + data.item.id)
             axios.delete(this.$store.state.host + "/api/resume/" + data.item.company_id +"/"+data.item.id)

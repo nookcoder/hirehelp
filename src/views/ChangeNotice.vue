@@ -46,7 +46,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
     data(){
         return{
@@ -64,7 +63,7 @@ export default {
     },
     methods:{
         getNotices : function(){
-            axios.get(this.$store.state.host + "/api/notice/" + this.$store.getters.getcurrentUser)
+            this.$http.get(this.$store.state.host + "/api/notice/" + this.$store.getters.getcurrentUser)
             .then((res)=>{
                 res.data.forEach((element) =>{
                     this.notices.push(element);
@@ -82,7 +81,7 @@ export default {
         },
         deleteNotice : function(data){
             console.log(data);
-            axios.delete(this.$store.state.host + "/api/notice/" + data.item.id)
+            this.$http.delete(this.$store.state.host + "/api/notice/" + data.item.id)
             .then(()=>{
                 this.notices = [];
                 this.getNotices();
