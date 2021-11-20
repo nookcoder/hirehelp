@@ -23,7 +23,6 @@ import Resume from '@/views/Resume.vue'
 import Home from '@/views/MainHome.vue'
 import MyPage from '@/views/MyPage.vue'
 import InterviewSetting from '@/views/InterviewEdit.vue'
-import Applicants from '@/views/components/resume/Applicants.vue'
 
 import Store from '../store.js'
  
