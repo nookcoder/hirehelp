@@ -45,8 +45,8 @@
                 <b-col><pre style="text-align:left;">{{ row.item.motivate }}</pre></b-col>
               </b-row>
 
-              <b-button @click="addApplicants(row,passApplicants)" variant="primary">합격</b-button>
-              <b-button @click="addApplicants(row,failApplicants)" variant="danger">불합격</b-button>
+              <b-button @click="addApplicants(row,passApplicants,1)" variant="primary">합격</b-button>
+              <b-button @click="addApplicants(row,failApplicants,2)" variant="danger">불합격</b-button>
             </b-card>
           </template>
 
@@ -187,7 +187,22 @@ export default {
       for(let index in res.data){
         let email = res.data[index].email_id.replace(/ /g,"") + "@" + res.data[index].email_address.replace(/ /g,"") 
         res.data[index].email = email;
-        this.applycants.push(res.data[index]);
+        switch (res.data[index].pass) {
+          case 0:
+            this.applycants.push(res.data[index]);
+            break;
+
+          case 1:
+            this.passApplicants.push(res.data[index]);
+            break;
+          
+          case 2:
+            this.failApplicants.push(res.data[index]);
+            break;
+        
+          default:
+            break;
+        }
       }
     })
     .catch((err)=>{
@@ -195,16 +210,19 @@ export default {
     })
   },
   methods:{
-    clickEvent:function(applicant){
-      console.log(applicant);
-    },
-    addApplicants : function(data,kind){
+    addApplicants : function(data,kind,result){
       data.toggleDetails();
+      if(result === 1){
+        axios.patch(this.$store.state.host + "/api/resume/"+ data.item.id,{result:1})
+      }else if(result === 2){
+        axios.patch(this.$store.state.host + "/api/resume/"+ data.item.id,{result:2})
+      }
       kind.push(data.item);
       this.applycants.splice(data.index,1);
     },
     cancelApplicants: function(data, kind){
       data.toggleDetails();
+      axios.patch(this.$store.state.host + "/api/resume/"+ data.item.id,{result:0})
       kind.splice(data.index,1); 
       this.applycants.push(data.item);
     }

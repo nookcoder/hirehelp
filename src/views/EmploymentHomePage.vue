@@ -25,15 +25,9 @@
 </template>
 
 <script>
-import MainPage from './components/homepage/MainPage.vue'
-import Employment from './components/homepage/Employment.vue'
-import FAQ from './components/homepage/FAQ.vue'
-import Notice from './components/homepage/Notice.vue'
-
 import axios from 'axios'
 
 export default {
-  components: { MainPage,Employment,FAQ,Notice },
   name:"EmploymentHomePage",
   created(){
     this.currentId = this.$route.params.id;
@@ -60,14 +54,6 @@ export default {
 #employment-homepage{
   margin:0px;
   position: fixed; left: 0; right: 0; top: 0;
-}
-.employment-page{
-  position: absolute;
-  top:90px;
-  z-index: -1;
-}
-.side-menu{
-  display: none;
 }
 .jumbotron{
   height: 100vh;

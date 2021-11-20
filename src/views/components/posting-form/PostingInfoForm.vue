@@ -99,6 +99,7 @@ export default {
         type:"",
         start:"",
         end:"",
+        page : 2,
       }
     }
   },

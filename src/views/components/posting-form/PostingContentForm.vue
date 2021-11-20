@@ -101,6 +101,7 @@ export default {
         qualifications:'',
         document:'',
         help:'',
+        page:3,
       },
       postingContentPlaceHolder:{
         areaRecruitment:'',

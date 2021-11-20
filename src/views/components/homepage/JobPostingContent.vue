@@ -120,6 +120,7 @@ methods:{
   width: 100%;
   left: 0; 
   top: 80px;
+  z-index: 2;
 }
 
 #posting-panel{
@@ -147,9 +148,9 @@ methods:{
   top:230px;
   width: 100%;
   text-align: left;
-  padding: 0px 300px;
+  padding: 30px 300px;
   overflow: auto;
-  z-index: -1;
+  z-index: 1;
 }
 
 .bookmark{
