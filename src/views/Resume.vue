@@ -145,7 +145,7 @@ export default {
       this.$router.push("/resume/"+data.item.company_id+"/"+data.item.id);
     }
   },mounted() {
-		this.getRecruitmentList();
+		this.getRecruitmentList(); 
 	}
 }
 </script>

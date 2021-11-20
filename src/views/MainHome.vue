@@ -74,7 +74,7 @@
      data-aos-mirror="true"
      data-aos-once="false"
      data-aos-anchor-placement="top-center"
-     style="background-color: gray">
+     style="background: linear-gradient(to bottom, #0D6EFD, #000000)">
 
       <div class="clients owl-carousel owl-theme" style="padding-top: 900px;"></div>
     
@@ -115,7 +115,7 @@
         </div>
       </v-timeline-item>
 
-            <v-timeline-item>
+      <v-timeline-item>
         <div data-aos="fade-right">
         <v-card class="1">
           <v-card-title class="text-h5">
@@ -166,18 +166,18 @@
   </v-timeline>  
       <v-divider></v-divider>
       <div class="clients owl-carousel owl-theme" style="padding-top: 900px;"></div>
-      <h1 data-aos="fade-up" style="font-size:48px; font-weight:900">"우리 서비스 이름"</h1>
+      <h1 data-aos="fade-up" class="white--text" style="font-size:48px; font-weight:900">지금, 고용도우미</h1>
       <div class="clients owl-carousel owl-theme" style="padding-top: 800px;"></div>
 </div>
 
 
   <v-footer
     dark
+    primary
     padless>
     <v-card
       flat
-      tile
-      class="indigo lighten-1 white--text text-center" >
+      tile>
       <v-card-text>
       </v-card-text>
       <v-card-text class="white--text pt-0">
@@ -246,7 +246,7 @@ export default {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: #333;
+  background : #0D6EFD;
   opacity: 0.6;
   position: absolute;
   top: 0;

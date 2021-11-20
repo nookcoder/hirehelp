@@ -85,18 +85,8 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn
-            text
-            color="secondary"
-          >
-            Cancel
-          </v-btn>
-          <v-btn
-            text
-            color="primary"
-          >
-            Save
-          </v-btn>
+          <v-btn text color="secondary">Cancel</v-btn>
+          <v-btn color="primary">Save</v-btn>
         </v-card-actions>
       </v-expansion-panel-content>
     </v-expansion-panel>
@@ -107,22 +97,15 @@
           <v-col cols="4">
             색상
           </v-col>
-          <v-col
-            cols="8"
-            class="text--secondary"
-          >
+          <v-col cols="8" class="text--secondary" >
             <v-fade-transition leave-absolute>
               <span v-if="open">회사 채용 홈페이지의 색상을 정해주세요.</span>
-              <v-row
-                v-else
-                no-gutters
-                style="width: 100%"
-              >
+              <v-row v-else no-gutters style="width: 100%" >
                 <v-col cols="6">
-                  메인 색상: {{ company.main || 'black' }}
+                  메인 색상: {{ company.main || 'blue' }}
                 </v-col>
                 <v-col cols="6">
-                  서브 색상: {{ company.sub || 'blue' }}
+                  서브 색상: {{ company.sub || 'black' }}
                 </v-col>
               </v-row>
             </v-fade-transition>
@@ -168,8 +151,7 @@
               :close-on-content-click="false"
               :return-value.sync="company.sub"
               offset-y
-              min-width="290px"
-            >
+              min-width="290px">
               <template v-slot:activator="{ on, attrs }">
                 <v-color-picker
                 v-model="company.sub"
@@ -216,7 +198,7 @@
 
     <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn primary @click.prevent="updateIntroduce(company)">
+          <v-btn color="primary" @click.prevent="updateIntroduce(company)">
             회사소개 저장
           </v-btn>
         </v-card-actions>
